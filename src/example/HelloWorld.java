@@ -14,6 +14,38 @@ public class HelloWorld {
     System.out.println(result);
     return result;
   }
+
+  @WebMethod
+  public String registerAsset(){
+    return " ";
+  }
+
+  @WebMethod
+  public String deleteAsset(){
+    return " ";
+  }
+
+  @WebMethod
+  public String updaterAsset(){
+    return " ";
+  }
+
+  @WebMethod
+  public String getAsset(){
+    return " ";
+  }
+
+  @WebMethod
+  public String getAssetVendor(String assetID){
+    return " ";
+  }
+
+  @WebMethod
+  public String notifyAssetMaintenance(String assetID){
+    return " ";
+  }
+
+
   public static void main(String[] argv) {
     Object implementor = new HelloWorld ();
     String address = "http://0.0.0.0:9000/HelloWorld";

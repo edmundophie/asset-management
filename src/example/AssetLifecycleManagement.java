@@ -48,19 +48,19 @@ public class AssetLifecycleManagement {
   }
 
 
-  public static void main(String[] argv) {
-    Object implementor = new AssetLifecycleManagement();
-    String address = "http://localhost:9000/AssetLifecycleManagement";
-    Endpoint.publish(address, implementor);
-    Connection connection;
-    connection = DBConncetionManager.getConnection();
-    if (connection != null){
-      System.out.println("DB conncetion success!");
-    }
-    try {
-      connection.close();
-    } catch (SQLException e) {
-      e.printStackTrace();
-    }
-  }
+//  public static void main(String[] argv) {
+//    Object implementor = new AssetLifecycleManagement();
+//    String address = "http://localhost:9000/AssetLifecycleManagement";
+//    Endpoint.publish(address, implementor);
+//    Connection connection;
+//    connection = DBConncetionManager.getConnection();
+//    if (connection != null){
+//      System.out.println("DB conncetion success!");
+//    }
+//    try {
+//      connection.close();
+//    } catch (SQLException e) {
+//      e.printStackTrace();
+//    }
+//  }
 }

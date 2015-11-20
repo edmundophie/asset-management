@@ -1,4 +1,4 @@
-package example;
+package org.informatika.service;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.xml.ws.Endpoint;
@@ -10,6 +10,16 @@ import java.sql.SQLException;
  */
 @WebService()
 public class AssetLifecycleManagement {
+  private Connection dbConnection;
+
+  public AssetLifecycleManagement () {
+    dbConnection = DBConnectionManager.getConnection();
+
+    if (dbConnection != null){
+      System.out.println("DB connection success!");
+    }
+  }
+
   @WebMethod
   public String sayHelloWorldFrom(String from) {
     String result = "Hello, world, from " + from;
@@ -47,20 +57,4 @@ public class AssetLifecycleManagement {
     return " ";
   }
 
-
-//  public static void main(String[] argv) {
-//    Object implementor = new AssetLifecycleManagement();
-//    String address = "http://localhost:9000/AssetLifecycleManagement";
-//    Endpoint.publish(address, implementor);
-//    Connection connection;
-//    connection = DBConncetionManager.getConnection();
-//    if (connection != null){
-//      System.out.println("DB conncetion success!");
-//    }
-//    try {
-//      connection.close();
-//    } catch (SQLException e) {
-//      e.printStackTrace();
-//    }
-//  }
 }

@@ -1,4 +1,4 @@
-package example;
+package org.informatika.service;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 /**
  * Created by emhah on 11/20/2015.
  */
-public class DBConncetionManager {
+public class DBConnectionManager {
 
     public static Connection getConnection(){
         Connection connection = null;

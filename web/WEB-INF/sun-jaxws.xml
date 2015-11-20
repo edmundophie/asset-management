@@ -4,6 +4,6 @@
 
     <endpoint
             name='HelloWorld'
-            implementation='example.HelloWorld'
+            implementation='example.AssetLifecycleManagement'
             url-pattern='/services/HelloWorld'/>
 </endpoints>

@@ -2,12 +2,14 @@ package example;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.xml.ws.Endpoint;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 /**
  * Created by emhah on 11/16/2015.
  */
 @WebService()
-public class HelloWorld {
+public class AssetLifecycleManagement {
   @WebMethod
   public String sayHelloWorldFrom(String from) {
     String result = "Hello, world, from " + from;
@@ -47,8 +49,18 @@ public class HelloWorld {
 
 
   public static void main(String[] argv) {
-    Object implementor = new HelloWorld ();
-    String address = "http://0.0.0.0:9000/HelloWorld";
+    Object implementor = new AssetLifecycleManagement();
+    String address = "http://0.0.0.0:9000/AssetLifecycleManagement";
     Endpoint.publish(address, implementor);
+    Connection connection;
+    connection = DBConncetionManager.getConnection();
+    if (connection != null){
+      System.out.println("DB conncetion success!");
+    }
+    try {
+      connection.close();
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
   }
 }

@@ -1,4 +1,5 @@
 package org.informatika.service;
+import org.json.simple.*;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.xml.ws.Endpoint;
@@ -9,12 +10,6 @@ import java.sql.*;
  */
 @WebService()
 public class AssetLifecycleManagement {
-  @WebMethod
-  public String sayHelloWorldFrom(String from) {
-    String result = "Hello, world, from " + from;
-    System.out.println(result);
-    return result;
-  }
 
   @WebMethod
   public String registerAsset(){
@@ -32,52 +27,55 @@ public class AssetLifecycleManagement {
   }
 
   @WebMethod
-  public String getAsset(String IDAsset){
-    String result = "";
-    Integer i = 1;
+  public String getAssetbyKategori(String Kategori){
+    JSONArray Array;
+    Array = new JSONArray();
     try {
-      Connection connection;
-      PreparedStatement preparedStatement;
       ResultSet resultSet;
-      connection = DBConnectionManager.getConnection();
-      preparedStatement = connection.prepareStatement("SELECT * FROM asset WHERE ID = ?");
-      preparedStatement.setInt(i, Integer.parseInt(IDAsset));
-      resultSet = preparedStatement.executeQuery();
+      resultSet = executeQuery("SELECT * FROM asset WHERE Kategori = "+Kategori);
 
       while (resultSet.next()){
-        result += "ID Asset : " + resultSet.getString("ID") + "\n";
-        result += "Pemilik Asset : " + resultSet.getString("Pemilik")+ "\n";
-        result += "Kategori : " + resultSet.getString("Kategori")+ "\n";
-        result += "jenis : " + resultSet.getString("Jenis")+ "\n";
-        result += "Kondisi : " + resultSet.getString("Kondisi")+ "\n";
-        result += "Nama Vendor : " + getAssetVendor(IDAsset)+ "\n";
-        result += "Tanggal Masuk : " + resultSet.getString("Tanggal_Masuk")+ "\n" + "\n";
+        JSONObject object; object =createJSON(resultSet);
+        Array.add(object);
       }
 
     } catch (SQLException e) {
       e.printStackTrace();
     }
 
-    return result;
+    return Array.toString();
   }
 
   @WebMethod
-  public String getAssetVendor(String assetID){
+  public String getAsset(String IDAsset){
+    String result = "";
     Integer i = 1;
+    JSONArray Array;
+    Array = new JSONArray();
+    try {
+      ResultSet resultSet;
+      resultSet = executeQuery("SELECT * FROM asset WHERE ID = "+IDAsset);
+      while (resultSet.next()){
+        JSONObject object; object =createJSON(resultSet);
+        Array.add(object);
+      }
+
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+
+    return Array.toString();
+  }
+
+
+  private String getAssetVendor(String assetID){
     String result = null;
     try {
-      Connection connection;
-      PreparedStatement preparedStatement;
       ResultSet resultSet;
-      connection = DBConnectionManager.getConnection();
-      preparedStatement = connection.prepareStatement("SELECT * FROM vendor,asset WHERE asset.ID = ? GROUP BY asset.ID");
-      preparedStatement.setString(i,assetID);
-      resultSet = preparedStatement.executeQuery();
-
+      resultSet = executeQuery("SELECT * FROM vendor,asset WHERE asset.ID = "+assetID+" GROUP BY asset.ID");
       while (resultSet.next()){
         result = resultSet.getString("Nama");
       }
-
     } catch (SQLException e) {
       e.printStackTrace();
     }
@@ -89,6 +87,29 @@ public class AssetLifecycleManagement {
     return " ";
   }
 
+  private ResultSet executeQuery(String Query) throws SQLException {
+      Connection connection;
+      PreparedStatement preparedStatement;
+      ResultSet resultSet;
+      connection = DBConnectionManager.getConnection();
+      preparedStatement = connection.prepareStatement(Query);
+      resultSet = preparedStatement.executeQuery();
+
+      return resultSet;
+  }
+
+  private JSONObject createJSON(ResultSet resultSet) throws SQLException {
+    JSONObject object; object = new JSONObject();
+    object.put("ID Asset", resultSet.getString("ID"));
+    object.put("Institusi", resultSet.getString("Institusi"));
+    object.put("Karegori", resultSet.getString("Kategori"));
+    object.put("Jenis", resultSet.getString("Jenis"));
+    object.put("Kondisi", resultSet.getString("Kondisi"));
+    object.put("Nilai Jual", resultSet.getString("Tanggal_Masuk"));
+    object.put("Nama Vendor", getAssetVendor(resultSet.getString("ID")));
+    object.put("Tanggal Masuk", resultSet.getString("Tanggal_Masuk"));
+    return object;
+  }
 
   public static void main(String[] argv) {
     Object implementor = new AssetLifecycleManagement();

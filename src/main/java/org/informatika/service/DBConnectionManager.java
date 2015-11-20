@@ -13,7 +13,7 @@ public class DBConnectionManager {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/test");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/assetmanagementdb","root","");
         }catch(Exception e){
             e.printStackTrace();
         }

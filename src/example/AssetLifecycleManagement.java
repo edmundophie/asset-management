@@ -50,7 +50,7 @@ public class AssetLifecycleManagement {
 
   public static void main(String[] argv) {
     Object implementor = new AssetLifecycleManagement();
-    String address = "http://0.0.0.0:9000/AssetLifecycleManagement";
+    String address = "http://localhost:9000/AssetLifecycleManagement";
     Endpoint.publish(address, implementor);
     Connection connection;
     connection = DBConncetionManager.getConnection();

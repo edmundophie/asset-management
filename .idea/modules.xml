@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AssetLifeCycle.iml" filepath="$PROJECT_DIR$/AssetLifeCycle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AssetWebClient.iml" filepath="$PROJECT_DIR$/AssetWebClient.iml" />
     </modules>
   </component>
 </project>

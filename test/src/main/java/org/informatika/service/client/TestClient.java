@@ -48,6 +48,8 @@ public class TestClient {
                 case 7:
                     deleteAsset();
                     break;
+                case 8:
+                    notifyVendor();
                 case 99:
                     break;
                 default:
@@ -55,7 +57,7 @@ public class TestClient {
                     break;
             }
             System.out.println();
-        } while (input!=99);
+        } while (input != 99);
         service.close();
     }
 
@@ -68,8 +70,9 @@ public class TestClient {
         System.out.println("5. Update kondisi aset");
         System.out.println("6. Update jenis aset");
         System.out.println("7. Hapus aset");
+        System.out.println("8. Notify Vendor");
         System.out.println("99. Exit");
-        System.out.print("Pilihan anda (1-7): ");
+        System.out.print("Pilihan anda (1-8): ");
     }
 
     private static void registerVendor() throws IOException, SQLException_Exception {
@@ -89,12 +92,12 @@ public class TestClient {
     }
 
     private static void registerAsset() throws IOException, SQLException_Exception {
-        String kategori,  institusi,  jenis, harga;
+        String kategori, institusi, jenis, harga;
         AssetCondition kondisi;
         int idVendor;
 
         System.out.print("ID Vendor: ");
-        idVendor  = Integer.parseInt(reader.readLine().trim());
+        idVendor = Integer.parseInt(reader.readLine().trim());
 
         System.out.print("Jenis aset (e.g. Meja, mobil): ");
         jenis = reader.readLine().trim();
@@ -106,7 +109,7 @@ public class TestClient {
         institusi = reader.readLine().trim();
 
         System.out.print("Harga: ");
-        harga= reader.readLine().trim();
+        harga = reader.readLine().trim();
 
         System.out.println("Kondisi aset: ");
         System.out.println("1. Baik");
@@ -116,10 +119,17 @@ public class TestClient {
         int cond = Integer.parseInt(reader.readLine().trim());
 
         switch (cond) {
-            case 1: kondisi = AssetCondition.BAIK;break;
-            case 2: kondisi = AssetCondition.RUSAK;break;
-            case 3: kondisi = AssetCondition.BUTUH_PERBAIKAN;break;
-            default: kondisi = AssetCondition.BAIK;
+            case 1:
+                kondisi = AssetCondition.BAIK;
+                break;
+            case 2:
+                kondisi = AssetCondition.RUSAK;
+                break;
+            case 3:
+                kondisi = AssetCondition.BUTUH_PERBAIKAN;
+                break;
+            default:
+                kondisi = AssetCondition.BAIK;
         }
 
         String response = service.registerAsset(kategori, kondisi, institusi, jenis, idVendor, harga);
@@ -131,7 +141,7 @@ public class TestClient {
         String catatan;
 
         System.out.print("ID vendor: ");
-        idVendor  = Integer.parseInt(reader.readLine().trim());
+        idVendor = Integer.parseInt(reader.readLine().trim());
 
         System.out.print("ID aset: ");
         idAsset = Integer.parseInt(reader.readLine().trim());
@@ -175,10 +185,17 @@ public class TestClient {
         int cond = Integer.parseInt(reader.readLine().trim());
 
         switch (cond) {
-            case 1: kondisi = AssetCondition.BAIK;break;
-            case 2: kondisi = AssetCondition.RUSAK;break;
-            case 3: kondisi = AssetCondition.BUTUH_PERBAIKAN;break;
-            default: kondisi = AssetCondition.BAIK;
+            case 1:
+                kondisi = AssetCondition.BAIK;
+                break;
+            case 2:
+                kondisi = AssetCondition.RUSAK;
+                break;
+            case 3:
+                kondisi = AssetCondition.BUTUH_PERBAIKAN;
+                break;
+            default:
+                kondisi = AssetCondition.BAIK;
         }
 
         String response = service.setAssetCondition(idAsset, kondisi);
@@ -207,5 +224,15 @@ public class TestClient {
 
         String response = service.deleteAsset(idAsset);
         System.out.println("Reponse endpoint: " + response);
+    }
+
+    private static void notifyVendor() throws IOException, SQLException_Exception {
+        int idAsset;
+        System.out.println("Untuk sementara notifikasi pengecekan dikirim ke email berikut: baharudin.afif@ymail.com");
+        System.out.print("ID aset: ");
+        idAsset = Integer.parseInt(reader.readLine().trim());
+
+        String response = service.notifyVendor(idAsset + "");
+        System.out.println("Response endpoint: " + response);
     }
 }

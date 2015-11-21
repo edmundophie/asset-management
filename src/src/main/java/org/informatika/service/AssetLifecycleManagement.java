@@ -1,5 +1,6 @@
 package org.informatika.service;
 
+import org.informatika.service.util.RequestCall;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
@@ -7,10 +8,7 @@ import org.json.simple.JSONValue;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.xml.ws.Endpoint;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,11 +42,14 @@ public class AssetLifecycleManagement {
             String responseMessage = "";
             switch (this.code) {
                 case 200:
-                    responseMessage = "Operasi berhasil dilakukan";break;
+                    responseMessage = "Operasi berhasil dilakukan";
+                    break;
                 case 404:
-                    responseMessage = "Objek tidak ditemukan pada database";break;
+                    responseMessage = "Objek tidak ditemukan pada database";
+                    break;
                 case 500:
-                    responseMessage = "Terjadi kesalahan pada server";break;
+                    responseMessage = "Terjadi kesalahan pada server";
+                    break;
             }
             return responseMessage;
         }
@@ -90,7 +91,7 @@ public class AssetLifecycleManagement {
         String query = "INSERT INTO " + ASSET_TABLE + " (kategori, tanggal_masuk, kondisi, institusi, jenis, idvendor, harga) " +
                 "VALUES ('" + kategori + "', now(), '" + kondisi.getCondition() + "', '" + institusi + "', '" + jenis + "', " + idvendor + ", '" + harga + "')";
 
-        if(executeUpdateQuery(query)==0)
+        if (executeUpdateQuery(query) == 0)
             return createJsonResponse(ResponseStatus.NOT_FOUND);
         else
             return createJsonResponse(ResponseStatus.SUCCESS);
@@ -102,7 +103,7 @@ public class AssetLifecycleManagement {
                 "VALUES (" + idvendor + ", " + idasset + ", " + jadwalMaintenance + ", '" + catatan + "')";
 
 
-        if(executeUpdateQuery(query)==0)
+        if (executeUpdateQuery(query) == 0)
             return createJsonResponse(ResponseStatus.NOT_FOUND);
         else
             return createJsonResponse(ResponseStatus.SUCCESS);
@@ -113,7 +114,7 @@ public class AssetLifecycleManagement {
         String query = "INSERT INTO " + VENDOR_TABLE + " (nama, alamat, kontak) " +
                 "VALUES ('" + nama + "', '" + alamat + "', '" + kontak + "')";
 
-        if(executeUpdateQuery(query)==0)
+        if (executeUpdateQuery(query) == 0)
             return createJsonResponse(ResponseStatus.NOT_FOUND);
         else
             return createJsonResponse(ResponseStatus.SUCCESS);
@@ -122,10 +123,10 @@ public class AssetLifecycleManagement {
     @WebMethod
     public String deleteAsset(int idAsset) throws SQLException {
         String query = "DELETE FROM " + ASSET_TABLE + " WHERE id=" + idAsset;
-        String query2 = "DELETE FROM " + MAINTENANCE_TABLE+ " WHERE idasset=" + idAsset;
+        String query2 = "DELETE FROM " + MAINTENANCE_TABLE + " WHERE idasset=" + idAsset;
 
         executeUpdateQuery(query2);
-        if(executeUpdateQuery(query)==0)
+        if (executeUpdateQuery(query) == 0)
             return createJsonResponse(ResponseStatus.NOT_FOUND);
         else
             return createJsonResponse(ResponseStatus.SUCCESS);
@@ -137,7 +138,7 @@ public class AssetLifecycleManagement {
                 "SET institusi='" + assetOwner + "' " +
                 "WHERE id=" + assetId;
 
-        if(executeUpdateQuery(query)==0)
+        if (executeUpdateQuery(query) == 0)
             return createJsonResponse(ResponseStatus.NOT_FOUND);
         else
             return createJsonResponse(ResponseStatus.SUCCESS);
@@ -149,7 +150,7 @@ public class AssetLifecycleManagement {
                 "SET kondisi='" + condition.getCondition() + "' " +
                 "WHERE id=" + assetId;
 
-        if(executeUpdateQuery(query)==0)
+        if (executeUpdateQuery(query) == 0)
             return createJsonResponse(ResponseStatus.NOT_FOUND);
         else
             return createJsonResponse(ResponseStatus.SUCCESS);
@@ -161,7 +162,7 @@ public class AssetLifecycleManagement {
                 "SET jenis='" + jenis + "' " +
                 "WHERE id=" + assetId;
 
-        if(executeUpdateQuery(query)==0)
+        if (executeUpdateQuery(query) == 0)
             return createJsonResponse(ResponseStatus.NOT_FOUND);
         else
             return createJsonResponse(ResponseStatus.SUCCESS);
@@ -226,7 +227,30 @@ public class AssetLifecycleManagement {
 
     @WebMethod
     public String notifyVendor(String assetID) {
-        return "INI METHOD NOTIFY Vendor";
+        String result = "";
+        String vendorId = "0";
+        try {
+            ResultSet resultSet;
+            resultSet = executeQuery("SELECT * FROM asset WHERE ID = " + assetID + " LIMIT 1");
+            if (resultSet.next()) {
+                vendorId = resultSet.getString("IDVendor");
+
+                String to = "baharudin.afif@ymail.com";
+                String subject = "Permintaan Maintenance Asset";
+                String content = "Bapak tolong asset dicek";
+                RequestCall.sendEmail(to, subject, content);
+
+                JSONObject obj = new JSONObject();
+                obj.put("IDVendor", vendorId);
+                obj.put("assetId", assetID);
+                return createJsonResponse(ResponseStatus.SUCCESS, obj.toString());
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return createJsonResponse(ResponseStatus.INTERNAL_SERVER_ERROR, e);
+        }
+        return createJsonResponse(ResponseStatus.INTERNAL_SERVER_ERROR);
     }
 
     @WebMethod
@@ -280,7 +304,7 @@ public class AssetLifecycleManagement {
             Map errorMap = new HashMap<String, String>();
             errorMap.put("error", status.getResponseMessage());
             map.put("Content", errorMap);
-        } else if(content!=null)
+        } else if (content != null)
             map.put("Content", content);
 
         return JSONValue.toJSONString(map);

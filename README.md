@@ -14,7 +14,7 @@
 - Muhammad Husain Jakfari /13512067
 
 ## Deskripsi Service
-Asset Lifecycle Management Service menyediakan media registrasi, aset, pemantauan aset, permintaan pengecekan asset hingga permintaan pembelian aset baru.
+Asset Lifecycle Management Service menyediakan layanan registrasi aset, pemantauan aset, permintaan pengecekan asset hingga permintaan pembelian aset baru.
 
 ## Fungsi Utama Service
 Registrasi aset baru

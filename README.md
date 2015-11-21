@@ -1,9 +1,5 @@
 # Asset Lifecycle Management Service
-
-## Team Member
-- Baharudin Afif / 13511021
-- Edmund Ophie / 13512095
-- Muhammad Husain Jakfari /13512067
+A simple service for asset management using SOAP
 
 ## Deskripsi Service
 Asset Lifecycle Management Service menyediakan layanan registrasi aset, pemantauan aset, permintaan pengecekan asset hingga permintaan pembelian aset baru.
@@ -16,10 +12,50 @@ Asset Lifecycle Management Service menyediakan layanan registrasi aset, pemantau
 - Mengirimkan permintaan pembelian aset baru
 
 ## Potensi Interaksi dengan Sistem Lain
-Procurement Service
+- Procurement Service
 
-## How to Build
+## System Requirement
+ - JDK >= 1.7
+ - [Maven](https://maven.apache.org/download.cgi) 
+ - Mysql
+ 
+## How to Build The Service
+**Prerequirement: from the`/data` folder, import `assetamanagementdb.sql` to your MySQL**
 
-## How to Run
-Untuk menjalankan program dapat dilakukan dengan
-1. Menjalakan "main" dari kelas "AssetClient" yang berada pada ~/test/webserviceclient/AssetClient
+1. Go to `/src` folder in terminal
+2. Resolve maven dependency  
+
+	 ```
+	 $ mvn dependency:copy-dependencies
+	 ```
+3. Build `jar` using maven `mvn`  
+
+	 ```
+	 $ mvn package
+	 ```
+
+## How to Run	The Service
+1. Go to `/src` folder in terminal
+2. Run `AssetLifecycleManagement` from the generated `jar` in `target` folder  
+
+	 ```
+	 $ java -cp target/dependency/*:target/asset-lifecycle-management-service-1.0.jar org.informatika.service.AssetLifecycleManagement
+	 ```
+
+## How to Test The Service
+1. Build client for testing from the `/test` folder
+
+	 ```
+	 $ mvn package
+	 ```
+2. Run `TestClient` from the generated `jar` in `target` folder  
+
+     ```
+	 $ java -cp target/asset-lifecycle-management-service-client-1.0.jar org.informatika.service.client.TestClient
+     ```
+3. The test client is ready. You can now test the service by selecting the method you want
+
+## Team Member
+- Baharudin Afif / 13511021
+- Edmund Ophie / 13512095
+- Muhammad Husain Jakfari /13512067

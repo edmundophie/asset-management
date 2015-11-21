@@ -70,7 +70,6 @@ public class AssetLifecycleManagement {
                     "VALUES ('"+kategori+"', now(), '"+kondisi.getCondition()+"', '"+institusi+"', '"+jenis+"', "+idvendor+", '"+harga+"')";
 
     executeQuery(query);
-
     return JSONValue.toJSONString(createJsonResponse(ResponseStatus.SUCCESS));
   }
 
@@ -106,6 +105,15 @@ public class AssetLifecycleManagement {
   public String setAssetOwner(int assetId, String assetOwner) throws SQLException {
     String query = "UPDATE "+ASSET_TABLE + " " +
                     "SET institusi='" +assetOwner+"' "+
+                    "WHERE id="+assetId;
+    executeQuery(query);
+    return JSONValue.toJSONString(createJsonResponse(ResponseStatus.SUCCESS));
+  }
+
+  @WebMethod
+  public String setAssetCondition(int assetId, AssetCondition condition) throws SQLException {
+    String query = "UPDATE "+ASSET_TABLE + " " +
+                    "SET kondisi='" +condition.getCondition()+"' "+
                     "WHERE id="+assetId;
     executeQuery(query);
     return JSONValue.toJSONString(createJsonResponse(ResponseStatus.SUCCESS));

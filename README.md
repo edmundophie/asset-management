@@ -21,3 +21,5 @@ Procurement Service
 ## How to Build
 
 ## How to Run
+Untuk menjalankan program dapat dilakukan dengan
+1. Menjalakan "main" dari kelas "AssetClient" yang berada pada ~/test/webserviceclient/AssetClient

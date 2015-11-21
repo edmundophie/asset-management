@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.4.3
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 20, 2015 at 08:26 PM
--- Server version: 10.1.8-MariaDB
--- PHP Version: 5.6.14
+-- Host: localhost
+-- Generation Time: Nov 21, 2015 at 03:34 AM
+-- Server version: 5.6.24
+-- PHP Version: 5.6.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,11 +14,13 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `assetmanagementdb`
 --
+CREATE DATABASE IF NOT EXISTS `assetmanagementdb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `assetmanagementdb`;
 
 -- --------------------------------------------------------
 
@@ -26,25 +28,25 @@ SET time_zone = "+00:00";
 -- Table structure for table `asset`
 --
 
-CREATE TABLE `asset` (
+CREATE TABLE IF NOT EXISTS `asset` (
   `ID` int(255) NOT NULL,
   `Kategori` varchar(200) NOT NULL,
   `Tanggal_Masuk` date NOT NULL,
-  `Kondisi` varchar(200) NOT NULL DEFAULT 'Baik',
+  `Kondisi` enum('BAIK','RUSAK','BUTUH PERBAIKAN') NOT NULL DEFAULT 'BAIK',
   `Institusi` varchar(200) NOT NULL,
   `Jenis` varchar(200) NOT NULL,
   `IDVendor` int(255) NOT NULL,
   `Harga` int(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `asset`
 --
 
 INSERT INTO `asset` (`ID`, `Kategori`, `Tanggal_Masuk`, `Kondisi`, `Institusi`, `Jenis`, `IDVendor`, `Harga`) VALUES
-(1, 'Peralatan', '2015-11-20', 'Baik', 'Peminjaman', 'Kursi Jati', 1, 200000),
-(2, 'Peralatan', '2015-11-20', 'Baik', 'lalalala', 'Komputer PC', 2, 5000000),
-(3, 'Fixed Asset', '2015-11-21', 'Baik', 'Perijinan', 'Bangunan', 2, 1000000000);
+(1, 'Peralatan', '2015-11-20', 'BAIK', 'Peminjaman', 'Kursi Jati', 1, 200000),
+(2, 'Peralatan', '2015-11-20', 'BAIK', 'lalalala', 'Komputer PC', 2, 5000000),
+(3, 'Fixed Asset', '2015-11-21', 'BAIK', 'Perijinan', 'Bangunan', 2, 1000000000);
 
 -- --------------------------------------------------------
 
@@ -52,8 +54,7 @@ INSERT INTO `asset` (`ID`, `Kategori`, `Tanggal_Masuk`, `Kondisi`, `Institusi`, 
 -- Table structure for table `maintenance`
 --
 
-CREATE TABLE `maintenance` (
-  `ID` int(255) NOT NULL,
+CREATE TABLE IF NOT EXISTS `maintenance` (
   `IDVendor` int(255) NOT NULL,
   `IDAsset` int(255) NOT NULL,
   `Jadwal` int(10) NOT NULL,
@@ -66,12 +67,12 @@ CREATE TABLE `maintenance` (
 -- Table structure for table `vendor`
 --
 
-CREATE TABLE `vendor` (
+CREATE TABLE IF NOT EXISTS `vendor` (
   `ID` int(255) NOT NULL,
   `Nama` varchar(200) NOT NULL,
   `Alamat` varchar(400) NOT NULL,
   `Kontak` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `vendor`
@@ -95,7 +96,8 @@ ALTER TABLE `asset`
 -- Indexes for table `maintenance`
 --
 ALTER TABLE `maintenance`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`IDVendor`,`IDAsset`),
+  ADD KEY `IDAsset` (`IDAsset`);
 
 --
 -- Indexes for table `vendor`
@@ -111,17 +113,23 @@ ALTER TABLE `vendor`
 -- AUTO_INCREMENT for table `asset`
 --
 ALTER TABLE `asset`
-  MODIFY `ID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `maintenance`
---
-ALTER TABLE `maintenance`
-  MODIFY `ID` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `vendor`
 --
 ALTER TABLE `vendor`
-  MODIFY `ID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `maintenance`
+--
+ALTER TABLE `maintenance`
+  ADD CONSTRAINT `maintenance_ibfk_1` FOREIGN KEY (`IDVendor`) REFERENCES `vendor` (`ID`),
+  ADD CONSTRAINT `maintenance_ibfk_2` FOREIGN KEY (`IDAsset`) REFERENCES `asset` (`ID`);
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -10,21 +10,107 @@ import java.sql.*;
  */
 @WebService()
 public class AssetLifecycleManagement {
+  private Connection dbConnection;
+  private final static String ASSET_TABLE = "asset";
+  private final static String VENDOR_TABLE = "vendor";
+  private final static String MAINTENANCE_TABLE = "maintenance";
 
-  @WebMethod
-  public String registerAsset(){
-    return " ";
+  public static enum ResponseStatus {
+    SUCCESS(200),
+    NOT_FOUND(404),
+    INTERNAL_SERVER_ERROR(500);
+
+    private final int code;
+    ResponseStatus(int code) { this.code = code; }
+
+    public int getCode() {return this.code; }
+
+    public String getResponseMessage() {
+      String responseMessage = "";
+      switch(this.code) {
+        case 200:
+          responseMessage = "Operasi berhasil dilakukan";
+        case 404:
+          responseMessage = "Objek tidak ditemukan pada database";
+        case 500:
+          responseMessage = "Terjadi kesalahan pada server";
+      }
+      return responseMessage;
+    }
+  }
+
+  public static enum AssetCondition {
+    BAIK("BAIK"),
+    BURUK("BURUK"),
+    BUTUH_PERBAIKAN("BUTUH PERBAIKAN");
+
+    private final String condition;
+    private AssetCondition(String condition) {this.condition = condition;}
+    public String getCondition(){ return this.condition; }
+  }
+
+  public AssetLifecycleManagement() {
+    dbConnection = DBConnectionManager.getConnection();
+    if (dbConnection != null){
+      System.out.println("DB conncetion success!");
+    }
+  }
+
+  public void close() {
+    try {
+      dbConnection.close();
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
   }
 
   @WebMethod
-  public String deleteAsset(){
-    return " ";
+  public String registerAsset(String kategori, AssetCondition kondisi, String institusi, String jenis, int idvendor, String harga) throws SQLException {
+    String query =  "INSERT INTO "+ASSET_TABLE+" (kategori, tanggal_masuk, kondisi, institusi, jenis, idvendor, harga) " +
+                    "VALUES ('"+kategori+"', now(), '"+kondisi.getCondition()+"', '"+institusi+"', '"+jenis+"', "+idvendor+", '"+harga+"')";
+
+    executeQuery(query);
+
+    return JSONValue.toJSONString(createJsonResponse(ResponseStatus.SUCCESS));
   }
 
   @WebMethod
-  public String updaterAsset(){
-    return " ";
+  public String insertMaintenanceSchedule(int idvendor, int idasset, int jadwalMaintenance, String catatan) throws SQLException {
+    String query =  "INSERT INTO "+MAINTENANCE_TABLE+" (idvendor, idasset, jadwal, catatan) " +
+            "VALUES ("+idvendor+", "+idasset+", "+jadwalMaintenance+", '"+catatan+"')";
+
+    executeQuery(query);
+    return JSONValue.toJSONString(createJsonResponse(ResponseStatus.SUCCESS));
   }
+
+  @WebMethod
+  public String registerVendor(int idvendor, String nama, String alamat, String kontak) throws SQLException {
+    String query =  "INSERT INTO "+VENDOR_TABLE+" (nama, alamat, kontak) " +
+            "VALUES ('"+nama+"', '"+alamat+"', '"+kontak+"')";
+    executeQuery(query);
+    return JSONValue.toJSONString(createJsonResponse(ResponseStatus.SUCCESS));
+  }
+
+  @WebMethod
+  public String deleteAsset(String idAsset){
+    String query = "DELETE FROM "+ASSET_TABLE+" WHERE id="+idAsset;
+    try {
+      executeQuery(query);
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+    return JSONValue.toJSONString(createJsonResponse(ResponseStatus.SUCCESS));
+  }
+
+  @WebMethod
+  public String setAssetOwner(int assetId, String assetOwner) throws SQLException {
+    String query = "UPDATE "+ASSET_TABLE + " " +
+                    "SET institusi='" +assetOwner+"' "+
+                    "WHERE id="+assetId;
+    executeQuery(query);
+    return JSONValue.toJSONString(createJsonResponse(ResponseStatus.SUCCESS));
+  }
+
 
   @WebMethod
   public String getAssetbyKategori(String Kategori){
@@ -88,11 +174,9 @@ public class AssetLifecycleManagement {
   }
 
   private ResultSet executeQuery(String Query) throws SQLException {
-      Connection connection;
       PreparedStatement preparedStatement;
       ResultSet resultSet;
-      connection = DBConnectionManager.getConnection();
-      preparedStatement = connection.prepareStatement(Query);
+      preparedStatement = dbConnection.prepareStatement(Query);
       resultSet = preparedStatement.executeQuery();
 
       return resultSet;
@@ -102,7 +186,7 @@ public class AssetLifecycleManagement {
     JSONObject object; object = new JSONObject();
     object.put("ID Asset", resultSet.getString("ID"));
     object.put("Institusi", resultSet.getString("Institusi"));
-    object.put("Karegori", resultSet.getString("Kategori"));
+    object.put("Kategori", resultSet.getString("Kategori"));
     object.put("Jenis", resultSet.getString("Jenis"));
     object.put("Kondisi", resultSet.getString("Kondisi"));
     object.put("Nilai Jual", resultSet.getString("Tanggal_Masuk"));
@@ -112,18 +196,23 @@ public class AssetLifecycleManagement {
   }
 
   public static void main(String[] argv) {
-    Object implementor = new AssetLifecycleManagement();
+    AssetLifecycleManagement implementor = new AssetLifecycleManagement();
     String address = "http://localhost:9000/AssetLifecycleManagement";
     Endpoint.publish(address, implementor);
-    Connection connection;
-    connection = DBConnectionManager.getConnection();
-    if (connection != null){
-      System.out.println("DB conncetion success!");
-    }
-    try {
-      connection.close();
-    } catch (SQLException e) {
-      e.printStackTrace();
-    }
+    implementor.close();
+  }
+
+  private JSONObject createJsonResponse(ResponseStatus status, Object content) {
+    JSONObject object = new JSONObject();
+    object.put("Status Code", status.getCode());
+    if (status != ResponseStatus.SUCCESS)
+      object.put("Content", status.getResponseMessage());
+    object.put("Content", content);
+
+    return object;
+  }
+
+  private JSONObject createJsonResponse(ResponseStatus status) {
+    return createJsonResponse(status, new Object());
   }
 }

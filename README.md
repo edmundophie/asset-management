@@ -1,13 +1,5 @@
 # Asset Lifecycle Management Service
 
-## Project Structure
-- `/src`
-- `/classes`
-- `/test`
-- `/doc`
-- `/res`
-- `/data` : contain db file (e.g. sql file)
-
 ## Team Member
 - Baharudin Afif / 13511021
 - Edmund Ophie / 13512095
@@ -25,3 +17,7 @@ Asset Lifecycle Management Service menyediakan layanan registrasi aset, pemantau
 
 ## Potensi Interaksi dengan Sistem Lain
 Procurement Service
+
+## How to Build
+
+## How to Run

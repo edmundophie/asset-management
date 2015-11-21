@@ -119,6 +119,14 @@ public class AssetLifecycleManagement {
     return JSONValue.toJSONString(createJsonResponse(ResponseStatus.SUCCESS));
   }
 
+  @WebMethod
+  public String setAssetJenis(int assetId, String jenis) throws SQLException {
+    String query = "UPDATE "+ASSET_TABLE + " " +
+                    "SET jenis='" +jenis+"' "+
+                    "WHERE id="+assetId;
+    executeQuery(query);
+    return JSONValue.toJSONString(createJsonResponse(ResponseStatus.SUCCESS));
+  }
 
   @WebMethod
   public String getAssetbyKategori(String Kategori){

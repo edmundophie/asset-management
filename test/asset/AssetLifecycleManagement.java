@@ -54,18 +54,18 @@ public interface AssetLifecycleManagement {
         @FaultAction(className = SQLException_Exception.class, value = "http://service.informatika.org/AssetLifecycleManagement/registerAsset/Fault/SQLException")
     })
     public String registerAsset(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        AssetCondition arg1,
-        @WebParam(name = "arg2", targetNamespace = "")
-        String arg2,
-        @WebParam(name = "arg3", targetNamespace = "")
-        String arg3,
-        @WebParam(name = "arg4", targetNamespace = "")
-        int arg4,
-        @WebParam(name = "arg5", targetNamespace = "")
-        String arg5)
+            @WebParam(name = "arg0", targetNamespace = "")
+            String arg0,
+            @WebParam(name = "arg1", targetNamespace = "")
+            AssetCondition arg1,
+            @WebParam(name = "arg2", targetNamespace = "")
+            String arg2,
+            @WebParam(name = "arg3", targetNamespace = "")
+            String arg3,
+            @WebParam(name = "arg4", targetNamespace = "")
+            int arg4,
+            @WebParam(name = "arg5", targetNamespace = "")
+            String arg5)
         throws SQLException_Exception
     ;
 
@@ -87,14 +87,14 @@ public interface AssetLifecycleManagement {
         @FaultAction(className = SQLException_Exception.class, value = "http://service.informatika.org/AssetLifecycleManagement/insertMaintenanceSchedule/Fault/SQLException")
     })
     public String insertMaintenanceSchedule(
-        @WebParam(name = "arg0", targetNamespace = "")
-        int arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        int arg1,
-        @WebParam(name = "arg2", targetNamespace = "")
-        int arg2,
-        @WebParam(name = "arg3", targetNamespace = "")
-        String arg3)
+            @WebParam(name = "arg0", targetNamespace = "")
+            int arg0,
+            @WebParam(name = "arg1", targetNamespace = "")
+            int arg1,
+            @WebParam(name = "arg2", targetNamespace = "")
+            int arg2,
+            @WebParam(name = "arg3", targetNamespace = "")
+            String arg3)
         throws SQLException_Exception
     ;
 
@@ -116,14 +116,14 @@ public interface AssetLifecycleManagement {
         @FaultAction(className = SQLException_Exception.class, value = "http://service.informatika.org/AssetLifecycleManagement/registerVendor/Fault/SQLException")
     })
     public String registerVendor(
-        @WebParam(name = "arg0", targetNamespace = "")
-        int arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        String arg1,
-        @WebParam(name = "arg2", targetNamespace = "")
-        String arg2,
-        @WebParam(name = "arg3", targetNamespace = "")
-        String arg3)
+            @WebParam(name = "arg0", targetNamespace = "")
+            int arg0,
+            @WebParam(name = "arg1", targetNamespace = "")
+            String arg1,
+            @WebParam(name = "arg2", targetNamespace = "")
+            String arg2,
+            @WebParam(name = "arg3", targetNamespace = "")
+            String arg3)
         throws SQLException_Exception
     ;
 
@@ -139,8 +139,8 @@ public interface AssetLifecycleManagement {
     @ResponseWrapper(localName = "deleteAssetResponse", targetNamespace = "http://service.informatika.org/", className = "asset.DeleteAssetResponse")
     @Action(input = "http://service.informatika.org/AssetLifecycleManagement/deleteAssetRequest", output = "http://service.informatika.org/AssetLifecycleManagement/deleteAssetResponse")
     public String deleteAsset(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
+            @WebParam(name = "arg0", targetNamespace = "")
+            String arg0);
 
     /**
      * 
@@ -158,10 +158,10 @@ public interface AssetLifecycleManagement {
         @FaultAction(className = SQLException_Exception.class, value = "http://service.informatika.org/AssetLifecycleManagement/setAssetOwner/Fault/SQLException")
     })
     public String setAssetOwner(
-        @WebParam(name = "arg0", targetNamespace = "")
-        int arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        String arg1)
+            @WebParam(name = "arg0", targetNamespace = "")
+            int arg0,
+            @WebParam(name = "arg1", targetNamespace = "")
+            String arg1)
         throws SQLException_Exception
     ;
 
@@ -181,10 +181,10 @@ public interface AssetLifecycleManagement {
         @FaultAction(className = SQLException_Exception.class, value = "http://service.informatika.org/AssetLifecycleManagement/setAssetCondition/Fault/SQLException")
     })
     public String setAssetCondition(
-        @WebParam(name = "arg0", targetNamespace = "")
-        int arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        AssetCondition arg1)
+            @WebParam(name = "arg0", targetNamespace = "")
+            int arg0,
+            @WebParam(name = "arg1", targetNamespace = "")
+            AssetCondition arg1)
         throws SQLException_Exception
     ;
 
@@ -204,10 +204,10 @@ public interface AssetLifecycleManagement {
         @FaultAction(className = SQLException_Exception.class, value = "http://service.informatika.org/AssetLifecycleManagement/setAssetJenis/Fault/SQLException")
     })
     public String setAssetJenis(
-        @WebParam(name = "arg0", targetNamespace = "")
-        int arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        String arg1)
+            @WebParam(name = "arg0", targetNamespace = "")
+            int arg0,
+            @WebParam(name = "arg1", targetNamespace = "")
+            String arg1)
         throws SQLException_Exception
     ;
 
@@ -223,8 +223,8 @@ public interface AssetLifecycleManagement {
     @ResponseWrapper(localName = "getAssetbyKategoriResponse", targetNamespace = "http://service.informatika.org/", className = "asset.GetAssetbyKategoriResponse")
     @Action(input = "http://service.informatika.org/AssetLifecycleManagement/getAssetbyKategoriRequest", output = "http://service.informatika.org/AssetLifecycleManagement/getAssetbyKategoriResponse")
     public String getAssetbyKategori(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
+            @WebParam(name = "arg0", targetNamespace = "")
+            String arg0);
 
     /**
      * 
@@ -238,8 +238,8 @@ public interface AssetLifecycleManagement {
     @ResponseWrapper(localName = "getAssetResponse", targetNamespace = "http://service.informatika.org/", className = "asset.GetAssetResponse")
     @Action(input = "http://service.informatika.org/AssetLifecycleManagement/getAssetRequest", output = "http://service.informatika.org/AssetLifecycleManagement/getAssetResponse")
     public String getAsset(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
+            @WebParam(name = "arg0", targetNamespace = "")
+            String arg0);
 
     /**
      * 
@@ -253,7 +253,7 @@ public interface AssetLifecycleManagement {
     @ResponseWrapper(localName = "notifyAssetMaintenanceResponse", targetNamespace = "http://service.informatika.org/", className = "asset.NotifyAssetMaintenanceResponse")
     @Action(input = "http://service.informatika.org/AssetLifecycleManagement/notifyAssetMaintenanceRequest", output = "http://service.informatika.org/AssetLifecycleManagement/notifyAssetMaintenanceResponse")
     public String notifyAssetMaintenance(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
+            @WebParam(name = "arg0", targetNamespace = "")
+            String arg0);
 
 }

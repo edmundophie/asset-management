@@ -1,5 +1,6 @@
 package webserviceclient;
 
+import asset.AssetLifecycleManagement;
 import asset.AssetLifecycleManagementService;
 
 /**
@@ -7,7 +8,7 @@ import asset.AssetLifecycleManagementService;
  */
 public class AssetClient {
     public static void main(String[] argv) {
-        asset.AssetLifecycleManagement service = new AssetLifecycleManagementService().getAssetLifecycleManagementPort();
+        AssetLifecycleManagement service = new AssetLifecycleManagementService().getAssetLifecycleManagementPort();
         //invoke business method
         String result = service.getAsset("1");
         System.out.println(result);

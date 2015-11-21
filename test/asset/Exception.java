@@ -9,9 +9,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for exception complex type.
- * 
+ * <p>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p>
  * <pre>
  * &lt;complexType name="exception">
  *   &lt;complexContent>
@@ -22,17 +22,14 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "exception", namespace = "assetLifeCycle")
 @XmlSeeAlso({
-    SqlException.class
+        SqlException.class
 })
 public class Exception
-    extends Throwable
-{
+        extends Throwable {
 
 
 }

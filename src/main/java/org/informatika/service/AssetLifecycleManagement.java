@@ -200,10 +200,14 @@ public class AssetLifecycleManagement {
     }
 
     @WebMethod
-    public String notifyAssetMaintenance(String assetID) {
-        return "INI METHOD NOTIFY ASSET MAINTENANCE";
+    public String notifyVendor(String assetID) {
+        return "INI METHOD NOTIFY Vendor";
     }
 
+    @WebMethod
+    public String notifyProcurement(String assetID) {
+        return "INI METHOD NOTIFY Vendor";
+    }
 
     private ResultSet executeQuery(String Query) throws SQLException {
         PreparedStatement preparedStatement;

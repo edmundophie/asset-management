@@ -235,7 +235,7 @@ public class AssetLifecycleManagement {
 
     public static void main(String[] argv) {
         AssetLifecycleManagement implementor = new AssetLifecycleManagement();
-        String address = "http://localhost:9000/AssetLifecycleManagement";
+        String address = "http://localhost:9090/AssetLifecycleManagement";
         Endpoint.publish(address, implementor);
         implementor.close();
     }

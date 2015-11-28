@@ -1,8 +1,14 @@
 # Endpoint Documentation
 
 ## Tipe Data
-1. AssetCondtition
-2. ResponseStatus
+1. AssetCondtition **`Enum`**
+	- `BAIK` 
+	- `RUSAK`
+	- `BUTUH_PERBAIKAN`
+2. ResponseStatus **`Enum`**
+	- `SUCCESS`
+	- `NOT_FOUND`
+	- `INTERNAL_SERVER_ERROR`
 
 ### KebutuhanMaintenance `sedang diimplementasi`
 - ID

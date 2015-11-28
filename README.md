@@ -7,7 +7,7 @@ A simple service for asset management using SOAP
  - Mysql
  
 ## How to Build The Service
-*Prerequirement: from the`/data` folder, import `assetamanagementdb.sql` to your MySQL*
+*Pre-requisite: from the`/data` folder, import `assetamanagementdb.sql` to your MySQL*
 
 1. Go to `/src` folder in terminal
 2. Resolve maven dependency  

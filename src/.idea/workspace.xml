@@ -5,9 +5,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b54defc-0352-4e03-bc6c-27ab750b4cdb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../docs/Endpoint Documentation.md" afterPath="$PROJECT_DIR$/../docs/Endpoint Documentation.md" />
-    </list>
+    <list default="true" id="7b54defc-0352-4e03-bc6c-27ab750b4cdb" name="Default" comment="" />
     <ignored path="asset-lifecycle-management-service.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -33,7 +31,7 @@
       <file leaf-file-name="AssetLifecycleManagement.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/informatika/service/AssetLifecycleManagement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.22123894">
+            <state vertical-scroll-proportion="1.880531">
               <caret line="146" column="73" selection-start-line="146" selection-start-column="36" selection-end-line="146" selection-end-column="73" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -538,12 +536,12 @@
       <workItem from="1448102602904" duration="1431000" />
       <workItem from="1448106920815" duration="2917000" />
       <workItem from="1448711317017" duration="843000" />
-      <workItem from="1448713141433" duration="1316000" />
+      <workItem from="1448713141433" duration="1421000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14129000" />
+    <option name="totallyTimeSpent" value="14234000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="6" />
@@ -720,7 +718,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/informatika/service/AssetLifecycleManagement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22123894">
+        <state vertical-scroll-proportion="1.880531">
           <caret line="146" column="73" selection-start-line="146" selection-start-column="36" selection-end-line="146" selection-end-column="73" />
           <folding>
             <element signature="imports" expanded="true" />

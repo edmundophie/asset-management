@@ -14,7 +14,7 @@
 
 - [registerAsset](#registerAsset)  
 Melakukan entry aset baru ke database  
-- [insertMaintenanceSchedule](#insertMaintenanceSchedule):  
+- [insertMaintenanceSchedule](#insertMaintenanceSchedule)  
 Melakukan entry jadwal maintenance suatu aset ke ke database  
 - [registerVendor](#registerVendor)  
 Melakukan entry vendor baru ke database  

@@ -1,7 +1,7 @@
 # Endpoint Documentation
 
 ## DB Schema
-![](http://gitlab.informatika.org/IF4050/AssetLifecycleManagementService/blob/master/docs/images/db%20entities.png)
+![1](images/db_entities.png)
 
 ## Tipe Data
 1. AssetCondtition **`Enum`**

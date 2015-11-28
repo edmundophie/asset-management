@@ -6,7 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b54defc-0352-4e03-bc6c-27ab750b4cdb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/informatika/service/AssetLifecycleManagement.java" afterPath="$PROJECT_DIR$/src/main/java/org/informatika/service/AssetLifecycleManagement.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../docs/Endpoint Documentation.md" afterPath="$PROJECT_DIR$/../docs/Endpoint Documentation.md" />
     </list>
     <ignored path="asset-lifecycle-management-service.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,8 +33,8 @@
       <file leaf-file-name="AssetLifecycleManagement.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/informatika/service/AssetLifecycleManagement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="5.818584">
-              <caret line="301" column="45" selection-start-line="301" selection-start-column="45" selection-end-line="301" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.22123894">
+              <caret line="146" column="73" selection-start-line="146" selection-start-column="36" selection-end-line="146" selection-end-column="73" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -538,12 +538,12 @@
       <workItem from="1448102602904" duration="1431000" />
       <workItem from="1448106920815" duration="2917000" />
       <workItem from="1448711317017" duration="843000" />
-      <workItem from="1448713141433" duration="1020000" />
+      <workItem from="1448713141433" duration="1316000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13833000" />
+    <option name="totallyTimeSpent" value="14129000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="6" />
@@ -720,8 +720,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/informatika/service/AssetLifecycleManagement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="5.818584">
-          <caret line="301" column="45" selection-start-line="301" selection-start-column="45" selection-end-line="301" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.22123894">
+          <caret line="146" column="73" selection-start-line="146" selection-start-column="36" selection-end-line="146" selection-end-column="73" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

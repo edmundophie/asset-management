@@ -1,20 +1,6 @@
 # Asset Lifecycle Management Service
 A simple service for asset management using SOAP
 
-## Deskripsi Service
-Asset Lifecycle Management Service menyediakan layanan registrasi aset, pemantauan aset, permintaan pengecekan asset hingga permintaan pembelian aset baru.
-
-## Fungsi Utama Service
-- Registrasi aset baru
-- Memantau kondisi aset
-- Melakukan pengecekan (maintenance) terhadap aset
-- Melakukan perbaikan terhadap aset
-- Mengirimkan permintaan pembelian aset baru
-
-## Interaksi dengan Sistem Lain
-- Logistic Management Service  
-- Public Place Service
-
 ## System Requirement
  - JDK >= 1.7
  - [Maven](https://maven.apache.org/download.cgi) 

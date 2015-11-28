@@ -1,24 +1,8 @@
 # Dokumentasi Teknis
 
 ## Tipe Data
-
-### Asset 
-- ID
-- Kategori
-- Tanggal Masuk
-- Kondisi
-- Institusi
-- Jenis
-- IDVendor
-- Harga
-- IsPublik `sedang diimplementasi`
-
-### Maintenance
-- ID
-- IDVendor
-- IDAsset
-- Jadwal
-- Catatan
+1. AssetCondtition
+2. ResponseStatus
 
 ### KebutuhanMaintenance `sedang diimplementasi`
 - ID
@@ -26,13 +10,8 @@
 - NamaItem
 - Jumlah
 
-### Vendor
-- ID
-- Nama
-- Alamat
-- Kontak
 
-### Endpoint Service
+## Endpoint Service
 
 - [registerAsset]()  
 Melakukan entry aset baru ke database  

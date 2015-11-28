@@ -1,4 +1,4 @@
-# Dokumentasi Teknis
+# Endpoint Documentation
 
 ## Tipe Data
 1. AssetCondtition

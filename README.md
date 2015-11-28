@@ -55,6 +55,9 @@ Asset Lifecycle Management Service menyediakan layanan registrasi aset, pemantau
      ```
 3. The test client is ready. You can now test the service by selecting the method you want
 
+## More Documentation
+(Wiki)[http://gitlab.informatika.org/IF4050/AssetLifecycleManagementService/wikis/home]
+
 ## Team Member
 - Baharudin Afif / 13511021
 - Edmund Ophie / 13512095

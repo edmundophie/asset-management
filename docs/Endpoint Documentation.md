@@ -1,6 +1,6 @@
 # Endpoint Documentation
 ## DB Schema
-![1](images/db entities.png)
+![1](images/db%20entities.png)
 
 ## Tipe Data
 1. AssetCondtition **`Enum`**

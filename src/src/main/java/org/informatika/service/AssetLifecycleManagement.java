@@ -17,7 +17,6 @@ import java.util.Map;
  */
 @WebService()
 public class AssetLifecycleManagement {
-    // Harus dibikin static bro kalo cuman mau di
     private static Connection dbConnection;
     private final static String ASSET_TABLE = "asset";
     private final static String VENDOR_TABLE = "vendor";

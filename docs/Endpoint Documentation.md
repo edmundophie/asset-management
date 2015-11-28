@@ -10,16 +10,9 @@
 	- `NOT_FOUND`
 	- `INTERNAL_SERVER_ERROR`
 
-### KebutuhanMaintenance `sedang diimplementasi`
-- ID
-- IDMaintenance
-- NamaItem
-- Jumlah
-
-
 ## Endpoint Service
 
-- [registerAsset]()  
+- [registerAsset](#registerAsset)  
 Melakukan entry aset baru ke database  
 - [insertMaintenanceSchedule]():  
 Melakukan entry jadwal maintenance suatu aset ke ke database  
@@ -38,3 +31,35 @@ Mengupdate `jenis` dari suatu aset
 - [notifyVendor]()   
 - [notifyProcurement]()  
 
+
+### <a name="registerAsset">registerAsset</a>
+Return type: `String`  
+Return value:  
+`on success`:
+
+```
+{
+	"status":200
+}
+```
+
+`on failed`:
+
+```
+{
+	"status": 404 or 500
+	"content": {
+		"error": "Error Reason"
+	}
+}
+```
+
+Required parameter:  
+1. `String` kategori  
+2. `AssetCondition` kondisi  
+3. `String` institusi  
+4. `String` jenis  
+5. `int` idvendor  
+6. `String` harga  
+
+### insertMaintenanceSchedule

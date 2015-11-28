@@ -11,8 +11,9 @@ Asset Lifecycle Management Service menyediakan layanan registrasi aset, pemantau
 - Melakukan perbaikan terhadap aset
 - Mengirimkan permintaan pembelian aset baru
 
-## Potensi Interaksi dengan Sistem Lain
-- Procurement Service
+## Interaksi dengan Sistem Lain
+- Logistic Management Service  
+- Public Place Service
 
 ## System Requirement
  - JDK >= 1.7

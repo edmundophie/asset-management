@@ -48,9 +48,9 @@ public class AssetLifecycleManagement {
         int numRowAffected = executeUpdateQueryAndGetId(query);
 
         if(numRowAffected>0)
-            return new Response(false);
-        else
             return new Response(true);
+        else
+            return new Response(false);
     }
 
     @WebMethod

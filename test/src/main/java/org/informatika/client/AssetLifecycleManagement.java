@@ -43,6 +43,7 @@ public interface AssetLifecycleManagement {
      * @param arg4
      * @param arg1
      * @param arg0
+     * @param arg7
      * @param arg6
      * @return
      *     returns org.informatika.client.Response
@@ -61,15 +62,17 @@ public interface AssetLifecycleManagement {
         @WebParam(name = "arg1", targetNamespace = "")
         String arg1,
         @WebParam(name = "arg2", targetNamespace = "")
-        AssetCondition arg2,
+        String arg2,
         @WebParam(name = "arg3", targetNamespace = "")
-        String arg3,
+        AssetCondition arg3,
         @WebParam(name = "arg4", targetNamespace = "")
-        int arg4,
+        String arg4,
         @WebParam(name = "arg5", targetNamespace = "")
-        String arg5,
+        int arg5,
         @WebParam(name = "arg6", targetNamespace = "")
-        boolean arg6)
+        String arg6,
+        @WebParam(name = "arg7", targetNamespace = "")
+        boolean arg7)
         throws SQLException_Exception
     ;
 

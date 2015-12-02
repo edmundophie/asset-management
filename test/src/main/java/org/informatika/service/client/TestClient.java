@@ -128,7 +128,7 @@ public class TestClient {
     }
 
     private static void registerAset() throws IOException, SQLException_Exception {
-        String nama, kategori, pemilik, harga;
+        String nama, kategori, jenis, pemilik, harga;
         AssetCondition kondisi;
         int idVendor;
         boolean isPublic;
@@ -141,6 +141,9 @@ public class TestClient {
 
         System.out.print("Kategori (e.g. equipment, fixed asset): ");
         kategori = reader.readLine().trim();
+
+        System.out.print("Jenis: ");
+        jenis = reader.readLine().trim();
 
         System.out.print("Pemilik: ");
         pemilik = reader.readLine().trim();
@@ -172,7 +175,7 @@ public class TestClient {
         System.out.print("Apakah aset bersifat publik? (y/n): ");
         isPublic = reader.readLine().trim().equalsIgnoreCase("y");
 
-        Response response = service.registerAset(nama, kategori, kondisi, pemilik, idVendor, harga, isPublic);
+        Response response = service.registerAset(nama, kategori, jenis, kondisi, pemilik, idVendor, harga, isPublic);
 
         if(response.isSuccess())
             System.out.println("Aset berhasil didaftarkan");

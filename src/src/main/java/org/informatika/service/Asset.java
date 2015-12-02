@@ -9,6 +9,7 @@ public class Asset {
     private int id;
     private String nama;
     private String kategori;
+    private String jenis;
     private Date tanggalMasuk;
     private AssetCondition kondisi;
     private String pemilik;
@@ -87,5 +88,13 @@ public class Asset {
 
     public void setNama(String nama) {
         this.nama = nama;
+    }
+
+    public String getJenis() {
+        return jenis;
+    }
+
+    public void setJenis(String jenis) {
+        this.jenis = jenis;
     }
 }

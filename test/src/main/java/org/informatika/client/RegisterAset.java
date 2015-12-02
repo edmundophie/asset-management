@@ -19,11 +19,12 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence>
  *         &lt;element name="arg0" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="arg1" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="arg2" type="{http://service.informatika.org/}assetCondition" minOccurs="0"/>
- *         &lt;element name="arg3" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="arg4" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="arg5" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="arg6" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
+ *         &lt;element name="arg2" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="arg3" type="{http://service.informatika.org/}assetCondition" minOccurs="0"/>
+ *         &lt;element name="arg4" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="arg5" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="arg6" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="arg7" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -40,18 +41,20 @@ import javax.xml.bind.annotation.XmlType;
     "arg3",
     "arg4",
     "arg5",
-    "arg6"
+    "arg6",
+    "arg7"
 })
 public class RegisterAset {
 
     protected String arg0;
     protected String arg1;
+    protected String arg2;
     @XmlSchemaType(name = "string")
-    protected AssetCondition arg2;
-    protected String arg3;
-    protected int arg4;
-    protected String arg5;
-    protected boolean arg6;
+    protected AssetCondition arg3;
+    protected String arg4;
+    protected int arg5;
+    protected String arg6;
+    protected boolean arg7;
 
     /**
      * Gets the value of the arg0 property.
@@ -106,10 +109,10 @@ public class RegisterAset {
      * 
      * @return
      *     possible object is
-     *     {@link AssetCondition }
+     *     {@link String }
      *     
      */
-    public AssetCondition getArg2() {
+    public String getArg2() {
         return arg2;
     }
 
@@ -118,10 +121,10 @@ public class RegisterAset {
      * 
      * @param value
      *     allowed object is
-     *     {@link AssetCondition }
+     *     {@link String }
      *     
      */
-    public void setArg2(AssetCondition value) {
+    public void setArg2(String value) {
         this.arg2 = value;
     }
 
@@ -130,10 +133,10 @@ public class RegisterAset {
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link AssetCondition }
      *     
      */
-    public String getArg3() {
+    public AssetCondition getArg3() {
         return arg3;
     }
 
@@ -142,67 +145,91 @@ public class RegisterAset {
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link AssetCondition }
      *     
      */
-    public void setArg3(String value) {
+    public void setArg3(AssetCondition value) {
         this.arg3 = value;
     }
 
     /**
      * Gets the value of the arg4 property.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public int getArg4() {
+    public String getArg4() {
         return arg4;
     }
 
     /**
      * Sets the value of the arg4 property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setArg4(int value) {
+    public void setArg4(String value) {
         this.arg4 = value;
     }
 
     /**
      * Gets the value of the arg5 property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public String getArg5() {
+    public int getArg5() {
         return arg5;
     }
 
     /**
      * Sets the value of the arg5 property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setArg5(String value) {
+    public void setArg5(int value) {
         this.arg5 = value;
     }
 
     /**
      * Gets the value of the arg6 property.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public boolean isArg6() {
+    public String getArg6() {
         return arg6;
     }
 
     /**
      * Sets the value of the arg6 property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setArg6(boolean value) {
+    public void setArg6(String value) {
         this.arg6 = value;
+    }
+
+    /**
+     * Gets the value of the arg7 property.
+     * 
+     */
+    public boolean isArg7() {
+        return arg7;
+    }
+
+    /**
+     * Sets the value of the arg7 property.
+     * 
+     */
+    public void setArg7(boolean value) {
+        this.arg7 = value;
     }
 
 }

@@ -20,6 +20,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *       &lt;sequence>
  *         &lt;element name="harga" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="jenis" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="kategori" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="kondisi" type="{http://service.informatika.org/}assetCondition" minOccurs="0"/>
  *         &lt;element name="nama" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
@@ -39,6 +40,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlType(name = "asset", propOrder = {
     "harga",
     "id",
+    "jenis",
     "kategori",
     "kondisi",
     "nama",
@@ -51,6 +53,7 @@ public class Asset {
 
     protected String harga;
     protected int id;
+    protected String jenis;
     protected String kategori;
     @XmlSchemaType(name = "string")
     protected AssetCondition kondisi;
@@ -99,6 +102,30 @@ public class Asset {
      */
     public void setId(int value) {
         this.id = value;
+    }
+
+    /**
+     * Gets the value of the jenis property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getJenis() {
+        return jenis;
+    }
+
+    /**
+     * Sets the value of the jenis property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setJenis(String value) {
+        this.jenis = value;
     }
 
     /**

@@ -42,8 +42,8 @@ public class AssetLifecycleManagement {
     }
 
     @WebMethod
-    public Response registerAset(String nama, String kategori, AssetCondition kondisi, String pemilik, int idVendor, String harga, boolean isPublic) throws SQLException {
-        String query = "INSERT INTO " + ASSET_TABLE + " (nama, kategori, tanggal_masuk, kondisi, pemilik, id_vendor, harga, is_public) " +
+    public Response registerAset(String nama, String kategori, String jenis, AssetCondition kondisi, String pemilik, int idVendor, String harga, boolean isPublic) throws SQLException {
+        String query = "INSERT INTO " + ASSET_TABLE + " (nama, kategori, jenis, tanggal_masuk, kondisi, pemilik, id_vendor, harga, is_public) " +
                 "VALUES ('" + nama +"', '"+kategori + "', now(), '" + kondisi.getCondition() + "', '" + pemilik+ "', " + idVendor + ", '" + harga + "', "+(isPublic?"TRUE":"FALSE")+")";
         int numRowAffected = executeUpdateQueryAndGetId(query);
 
@@ -135,7 +135,7 @@ public class AssetLifecycleManagement {
     @WebMethod
     public Response setJenisAset(int idAset, String jenis) throws SQLException {
         String query = "UPDATE " + ASSET_TABLE + " " +
-                "SET kondisi='" + jenis + "' " +
+                "SET jenis='" + jenis + "' " +
                 "WHERE id=" + idAset;
         int numRowAffected = executeUpdateQueryAndGetRowCount(query);
 
@@ -196,6 +196,7 @@ public class AssetLifecycleManagement {
             asset.setId(rs.getInt("id"));
             asset.setNama(rs.getString("nama"));
             asset.setKategori(rs.getString("kategori"));
+            asset.setKategori(rs.getString("jenis"));
             asset.setTanggalMasuk(rs.getDate("tanggal_masuk"));
             asset.setKondisi(AssetCondition.getInstance(rs.getString("kondisi")));
             asset.setPemilik(rs.getString("pemilik"));
@@ -220,6 +221,7 @@ public class AssetLifecycleManagement {
             asset.setId(rs.getInt("id"));
             asset.setNama(rs.getString("nama"));
             asset.setKategori(rs.getString("kategori"));
+            asset.setKategori(rs.getString("jenis"));
             asset.setTanggalMasuk(rs.getDate("tanggal_masuk"));
             asset.setKondisi(AssetCondition.getInstance(rs.getString("kondisi")));
             asset.setPemilik(rs.getString("pemilik"));
@@ -243,6 +245,7 @@ public class AssetLifecycleManagement {
             asset.setId(rs.getInt("id"));
             asset.setNama(rs.getString("nama"));
             asset.setKategori(rs.getString("kategori"));
+            asset.setKategori(rs.getString("jenis"));
             asset.setTanggalMasuk(rs.getDate("tanggal_masuk"));
             asset.setKondisi(AssetCondition.getInstance(rs.getString("kondisi")));
             asset.setPemilik(rs.getString("pemilik"));
@@ -267,6 +270,7 @@ public class AssetLifecycleManagement {
             asset.setId(rs.getInt("id"));
             asset.setNama(rs.getString("nama"));
             asset.setKategori(rs.getString("kategori"));
+            asset.setKategori(rs.getString("jenis"));
             asset.setTanggalMasuk(rs.getDate("tanggal_masuk"));
             asset.setKondisi(AssetCondition.getInstance(rs.getString("kondisi")));
             asset.setPemilik(rs.getString("pemilik"));
@@ -295,6 +299,7 @@ public class AssetLifecycleManagement {
             asset.setId(rs.getInt("id"));
             asset.setNama(rs.getString("nama"));
             asset.setKategori(rs.getString("kategori"));
+            asset.setKategori(rs.getString("jenis"));
             asset.setTanggalMasuk(rs.getDate("tanggal_masuk"));
             asset.setKondisi(AssetCondition.getInstance(rs.getString("kondisi")));
             asset.setPemilik(rs.getString("pemilik"));

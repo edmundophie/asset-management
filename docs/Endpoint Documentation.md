@@ -76,12 +76,13 @@ Mengirimkan notifikasi email untuk maintenance suatu aset kepada vendornya
 ### <a name="registerAset">registerAset</a>
 - Required parameter:   
 	1. `String` nama  
-	2. `String` kategori  
-	3. `AssetCondition` kondisi  
-	4. `String` pemilik  
-	5. `String` idVendor  
-	6. `String` harga  
-	7. `boolean` isPublic
+	2. `String` kategori
+	3. `String` jenis  
+	4. `AssetCondition` kondisi  
+	5. `String` pemilik  
+	6. `String` idVendor  
+	7. `String` harga  
+	8. `boolean` isPublic
 - Return type	: `Response`
 - Return value :   
 	- on success: `response.isSuccess()` will return `true`  

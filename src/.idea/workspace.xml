@@ -5,9 +5,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b54defc-0352-4e03-bc6c-27ab750b4cdb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/informatika/service/AssetLifecycleManagement.java" afterPath="$PROJECT_DIR$/src/main/java/org/informatika/service/AssetLifecycleManagement.java" />
-    </list>
+    <list default="true" id="7b54defc-0352-4e03-bc6c-27ab750b4cdb" name="Default" comment="" />
     <ignored path="asset-lifecycle-management-service.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -33,7 +31,7 @@
       <file leaf-file-name="AssetLifecycleManagement.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/informatika/service/AssetLifecycleManagement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5691964">
+            <state vertical-scroll-proportion="-2.4107144">
               <caret line="46" column="64" selection-start-line="46" selection-start-column="64" selection-end-line="46" selection-end-column="64" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -561,12 +559,12 @@
       <workItem from="1449021184612" duration="9925000" />
       <workItem from="1449031704491" duration="1566000" />
       <workItem from="1449034896474" duration="2565000" />
-      <workItem from="1449046767995" duration="847000" />
+      <workItem from="1449046767995" duration="1141000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44253000" />
+    <option name="totallyTimeSpent" value="44547000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="23" width="1276" height="777" extended-state="0" />
@@ -826,7 +824,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/informatika/service/AssetLifecycleManagement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5691964">
+        <state vertical-scroll-proportion="-2.4107144">
           <caret line="46" column="64" selection-start-line="46" selection-start-column="64" selection-end-line="46" selection-end-column="64" />
           <folding>
             <element signature="imports" expanded="true" />

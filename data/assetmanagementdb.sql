@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 21, 2015 at 03:34 AM
+-- Generation Time: Dec 02, 2015 at 06:52 AM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -29,24 +29,40 @@ USE `assetmanagementdb`;
 --
 
 CREATE TABLE IF NOT EXISTS `asset` (
-  `ID` int(255) NOT NULL,
-  `Kategori` varchar(200) NOT NULL,
-  `Tanggal_Masuk` date NOT NULL,
-  `Kondisi` enum('BAIK','RUSAK','BUTUH PERBAIKAN') NOT NULL DEFAULT 'BAIK',
-  `Institusi` varchar(200) NOT NULL,
-  `Jenis` varchar(200) NOT NULL,
-  `IDVendor` int(255) NOT NULL,
-  `Harga` int(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  `id` int(255) NOT NULL,
+  `nama` varchar(200) NOT NULL,
+  `kategori` varchar(200) NOT NULL,
+  `jenis` varchar(200) NOT NULL,
+  `tanggal_masuk` date NOT NULL,
+  `kondisi` enum('BAIK','RUSAK','BUTUH PERBAIKAN') NOT NULL DEFAULT 'BAIK',
+  `pemilik` varchar(200) NOT NULL,
+  `id_vendor` int(255) NOT NULL,
+  `harga` varchar(200) NOT NULL,
+  `is_public` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
 
 --
--- Dumping data for table `asset`
+-- Table structure for table `fasilitas_aset`
 --
 
-INSERT INTO `asset` (`ID`, `Kategori`, `Tanggal_Masuk`, `Kondisi`, `Institusi`, `Jenis`, `IDVendor`, `Harga`) VALUES
-(1, 'Peralatan', '2015-11-20', 'BAIK', 'Peminjaman', 'Kursi Jati', 1, 200000),
-(2, 'Peralatan', '2015-11-20', 'BAIK', 'lalalala', 'Komputer PC', 2, 5000000),
-(3, 'Fixed Asset', '2015-11-21', 'BAIK', 'Perijinan', 'Bangunan', 2, 1000000000);
+CREATE TABLE IF NOT EXISTS `fasilitas_aset` (
+  `id_aset` int(11) NOT NULL,
+  `id_fasilitas` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kebutuhan_logistik_maintenance`
+--
+
+CREATE TABLE IF NOT EXISTS `kebutuhan_logistik_maintenance` (
+  `id_aset` int(11) NOT NULL,
+  `id_logistik` int(11) NOT NULL,
+  `jumlah` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -55,10 +71,10 @@ INSERT INTO `asset` (`ID`, `Kategori`, `Tanggal_Masuk`, `Kondisi`, `Institusi`, 
 --
 
 CREATE TABLE IF NOT EXISTS `maintenance` (
-  `IDVendor` int(255) NOT NULL,
-  `IDAsset` int(255) NOT NULL,
-  `Jadwal` int(10) NOT NULL,
-  `Catatan` text NOT NULL
+  `id_aset` int(255) NOT NULL,
+  `siklus` int(10) NOT NULL,
+  `satuan_waktu_siklus` enum('SECONDS','HOURS','MINUTES','DAYS','MONTHS','YEARS') NOT NULL,
+  `keterangan` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -68,19 +84,12 @@ CREATE TABLE IF NOT EXISTS `maintenance` (
 --
 
 CREATE TABLE IF NOT EXISTS `vendor` (
-  `ID` int(255) NOT NULL,
-  `Nama` varchar(200) NOT NULL,
-  `Alamat` varchar(400) NOT NULL,
-  `Kontak` varchar(200) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `vendor`
---
-
-INSERT INTO `vendor` (`ID`, `Nama`, `Alamat`, `Kontak`) VALUES
-(1, 'Kayu Mebel Sejati', 'Bandung', '08123456789'),
-(2, 'Komputerindo', 'Bandung', '08123456780');
+  `id` int(255) NOT NULL,
+  `nama` varchar(200) NOT NULL,
+  `alamat` text NOT NULL,
+  `telepon` varchar(200) NOT NULL,
+  `email` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
@@ -90,20 +99,32 @@ INSERT INTO `vendor` (`ID`, `Nama`, `Alamat`, `Kontak`) VALUES
 -- Indexes for table `asset`
 --
 ALTER TABLE `asset`
-  ADD PRIMARY KEY (`ID`,`Institusi`);
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `fasilitas_aset`
+--
+ALTER TABLE `fasilitas_aset`
+  ADD PRIMARY KEY (`id_aset`,`id_fasilitas`),
+  ADD KEY `id_fasilitas` (`id_fasilitas`);
+
+--
+-- Indexes for table `kebutuhan_logistik_maintenance`
+--
+ALTER TABLE `kebutuhan_logistik_maintenance`
+  ADD PRIMARY KEY (`id_aset`,`id_logistik`);
 
 --
 -- Indexes for table `maintenance`
 --
 ALTER TABLE `maintenance`
-  ADD PRIMARY KEY (`IDVendor`,`IDAsset`),
-  ADD KEY `IDAsset` (`IDAsset`);
+  ADD PRIMARY KEY (`id_aset`);
 
 --
 -- Indexes for table `vendor`
 --
 ALTER TABLE `vendor`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -113,22 +134,34 @@ ALTER TABLE `vendor`
 -- AUTO_INCREMENT for table `asset`
 --
 ALTER TABLE `asset`
-  MODIFY `ID` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `vendor`
 --
 ALTER TABLE `vendor`
-  MODIFY `ID` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
 
 --
+-- Constraints for table `fasilitas_aset`
+--
+ALTER TABLE `fasilitas_aset`
+  ADD CONSTRAINT `fasilitas_aset_ibfk_1` FOREIGN KEY (`id_aset`) REFERENCES `asset` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fasilitas_aset_ibfk_2` FOREIGN KEY (`id_fasilitas`) REFERENCES `asset` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `kebutuhan_logistik_maintenance`
+--
+ALTER TABLE `kebutuhan_logistik_maintenance`
+  ADD CONSTRAINT `kebutuhan_logistik_maintenance_ibfk_1` FOREIGN KEY (`id_aset`) REFERENCES `asset` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `maintenance`
 --
 ALTER TABLE `maintenance`
-  ADD CONSTRAINT `maintenance_ibfk_1` FOREIGN KEY (`IDVendor`) REFERENCES `vendor` (`ID`),
-  ADD CONSTRAINT `maintenance_ibfk_2` FOREIGN KEY (`IDAsset`) REFERENCES `asset` (`ID`);
+  ADD CONSTRAINT `maintenance_ibfk_2` FOREIGN KEY (`id_aset`) REFERENCES `asset` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

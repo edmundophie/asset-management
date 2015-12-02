@@ -8,7 +8,7 @@
 	- `BAIK` 
 	- `RUSAK`
 	- `BUTUH_PERBAIKAN`
-2. ResponseStatus **`Enum`**
+2. Response **`Enum`**
 	- `SUCCESS`
 	- `NOT_FOUND`
 	- `INTERNAL_SERVER_ERROR`
@@ -17,22 +17,35 @@
 
 - [registerAsset](#registerAsset)  
 Melakukan entry aset baru ke database  
-- [insertMaintenanceSchedule](#insertMaintenanceSchedule)  
+- [insertJadwalMaintenance](#insertJadwalMaintenance)  
 Melakukan entry jadwal maintenance suatu aset ke ke database  
 - [registerVendor](#registerVendor)  
 Melakukan entry vendor baru ke database  
 - [deleteAsset](#deleteAsset)  
-Menghapus entry suatu aset dari database  
-- [setAssetOwner](#setAssetOwner)  
+Menghapus entry suatu aset dari database    
+- [setNamaAset](#setNamaAset)  
+Lorem ipsum...
+- [setPemilikAset](#setPemilikAset)  
 Mengupdate `institusi` atau pemilik dari suatu aset  
-- [setAssetCondition](#setAssetCondition)  
+- [setKondisiAset](#setKondisiAset)  
 Mengupdate `kondisi` dari suatu aset  
-- [setAssetJenis](#setAssetJenis)  
+- [setJenisAset](#setJenisAset)  
 Mengupdate `jenis` dari suatu aset  
-- [getAssetbyKategori](#getAssetbyKategori)   
-- [getAsset](#getAsset)   
-- [notifyVendor](#notifyVendor)   
-- [notifyProcurement](#notifyProcurement)  
+- [insertKebutuhanMaintenance](#insertKebutuhanMaintenance)  
+Lorem ipsum...
+- [insertFasilitasAset](#insertFasilitasAset)  
+Lorem ipsum...
+- [getAset](#getAset)   
+Lorem ipsum...
+- [getAsetByKategori](#getAsetByKategori)   
+Lorem ipsum...
+- [getAsetByNama](#getAsetByNama)   
+Lorem ipsum...
+- [getAsetByJenis](#getAsetByJenis)   
+Lorem ipsum...
+- [getFasilitasAset](#getFasilitasAset)   
+Lorem ipsum...
+- [notifyMaintenanceToVendor](#notifyMaintenanceToVendor)   
 
 
 ## Endpoint Service Detail
@@ -47,181 +60,3 @@ Mengupdate `jenis` dari suatu aset
 	6. `String` harga  
 - Return type	: `String`  
 - Return value:  
-	`on success`:
-
-	```
-	{
-		"status":200
-	}
-	```
-
-	`on failed`:
-
-	```
-	{
-		"status": 404 or 500,
-		"content": {
-			"error": "Error Reason"
-		}
-	}
-	```
-
-### <a name="insertMaintenanceSchedule">insertMaintenanceSchedule</a>
-- Required parameter:  
-	1. `int` idvendor
-	2. `int` idasset
-	3. `int` jadwalMaintenance
-	4. `String` catatan
-- Return type	: `String`  
-- Return value:  
-	`on success`:
-
-	```
-	{
-		"status":200
-	}
-	```
-
-	`on failed`:
-
-	```
-	{
-		"status": 404 or 500,
-		"content": {
-			"error": "Error Reason"
-		}
-	}
-	```
-
-### <a name="registerVendor">registerVendor</a>
-- Required parameter:  
-	1. `String` nama
-	2. `String` alamat
-	3. `String` kontak
-- Return type	: `String`  
-- Return value:  
-	`on success`:
-
-	```
-	{
-		"status":200
-	}
-	```
-
-	`on failed`:
-
-	```
-	{
-		"status": 404 or 500,
-		"content": {
-			"error": "Error Reason"
-		}
-	}
-	```
-
-### <a name="deleteAsset">deleteAsset</a>
-- Required parameter:  
-	1. `int` idAsset
-- Return type	: `String`  
-- Return value:  
-	`on success`:
-
-	```
-	{
-		"status":200
-	}
-	```
-
-	`on failed`:
-
-	```
-	{
-		"status": 404 or 500,
-		"content": {
-			"error": "Error Reason"
-		}
-	}
-	```
-
-### <a name="setAssetOwner">setAssetOwner</a>
-- Required parameter:  
-	1. `int` assetId
-	2. `String` assetOwner
-- Return type	: `String`  
-- Return value:  
-	`on success`:
-
-	```
-	{
-		"status":200
-	}
-	```
-
-	`on failed`:
-
-	```
-	{
-		"status": 404 or 500,
-		"content": {
-			"error": "Error Reason"
-		}
-	}
-	```
-	
-### <a name="setAssetCondition">setAssetCondition</a>
-- Required parameter:  
-	1. `int` assetId
-	2. `AssetCondition` condition
-- Return type	: `String`  
-- Return value:  
-	`on success`:
-
-	```
-	{
-		"status":200
-	}
-	```
-
-	`on failed`:
-
-	```
-	{
-		"status": 404 or 500,
-		"content": {
-			"error": "Error Reason"
-		}
-	}
-	```
-	
-### <a name="setAssetJenis">setAssetJenis</a>
-- Required parameter:  
-	1. `int` assetId
-	2. `String` jenis
-- Return type	: `String`  
-- Return value:  
-	`on success`:
-
-	```
-	{
-		"status":200
-	}
-	```
-
-	`on failed`:
-
-	```
-	{
-		"status": 404 or 500,
-		"content": {
-			"error": "Error Reason"
-		}
-	}
-	```
-	
-### <a name="getAssetbyKategori">getAssetbyKategori</a>
-
-### <a name="getAsset">getAsset</a>
-
-### <a name="notifyVendor">notifyVendor</a>
-
-### <a name="notifyProcurement">notifyProcurement</a>

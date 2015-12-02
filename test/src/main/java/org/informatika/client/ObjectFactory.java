@@ -25,31 +25,43 @@ import java.sql.SQLException;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _NotifyProcurement_QNAME = new QName("http://service.informatika.org/", "notifyProcurement");
-    private final static QName _SetAssetConditionResponse_QNAME = new QName("http://service.informatika.org/", "setAssetConditionResponse");
+    private final static QName _InsertFasilitasAsetResponse_QNAME = new QName("http://service.informatika.org/", "insertFasilitasAsetResponse");
+    private final static QName _SayHelloWorld_QNAME = new QName("http://service.informatika.org/", "sayHelloWorld");
+    private final static QName _SetPemilikAsetResponse_QNAME = new QName("http://service.informatika.org/", "setPemilikAsetResponse");
+    private final static QName _GetAsetByKategoriResponse_QNAME = new QName("http://service.informatika.org/", "getAsetByKategoriResponse");
     private final static QName _Close_QNAME = new QName("http://service.informatika.org/", "close");
-    private final static QName _InsertMaintenanceSchedule_QNAME = new QName("http://service.informatika.org/", "insertMaintenanceSchedule");
-    private final static QName _RegisterAssetResponse_QNAME = new QName("http://service.informatika.org/", "registerAssetResponse");
-    private final static QName _GetAsset_QNAME = new QName("http://service.informatika.org/", "getAsset");
-    private final static QName _SetAssetCondition_QNAME = new QName("http://service.informatika.org/", "setAssetCondition");
-    private final static QName _SetAssetOwner_QNAME = new QName("http://service.informatika.org/", "setAssetOwner");
-    private final static QName _NotifyVendor_QNAME = new QName("http://service.informatika.org/", "notifyVendor");
-    private final static QName _NotifyVendorResponse_QNAME = new QName("http://service.informatika.org/", "notifyVendorResponse");
+    private final static QName _GetAsetByNama_QNAME = new QName("http://service.informatika.org/", "getAsetByNama");
+    private final static QName _RegisterAsetResponse_QNAME = new QName("http://service.informatika.org/", "registerAsetResponse");
+    private final static QName _NotifyMaintenanceToVendorResponse_QNAME = new QName("http://service.informatika.org/", "notifyMaintenanceToVendorResponse");
+    private final static QName _InsertJadwalMaintenance_QNAME = new QName("http://service.informatika.org/", "insertJadwalMaintenance");
+    private final static QName _GetAsetByJenis_QNAME = new QName("http://service.informatika.org/", "getAsetByJenis");
+    private final static QName _InsertJadwalMaintenanceResponse_QNAME = new QName("http://service.informatika.org/", "insertJadwalMaintenanceResponse");
     private final static QName _RegisterVendor_QNAME = new QName("http://service.informatika.org/", "registerVendor");
-    private final static QName _SetAssetJenis_QNAME = new QName("http://service.informatika.org/", "setAssetJenis");
-    private final static QName _RegisterAsset_QNAME = new QName("http://service.informatika.org/", "registerAsset");
-    private final static QName _SetAssetJenisResponse_QNAME = new QName("http://service.informatika.org/", "setAssetJenisResponse");
+    private final static QName _DeleteAset_QNAME = new QName("http://service.informatika.org/", "deleteAset");
+    private final static QName _RegisterAset_QNAME = new QName("http://service.informatika.org/", "registerAset");
+    private final static QName _InsertKebutuhanMaintenanceResponse_QNAME = new QName("http://service.informatika.org/", "insertKebutuhanMaintenanceResponse");
     private final static QName _CloseResponse_QNAME = new QName("http://service.informatika.org/", "closeResponse");
-    private final static QName _InsertMaintenanceScheduleResponse_QNAME = new QName("http://service.informatika.org/", "insertMaintenanceScheduleResponse");
-    private final static QName _GetAssetbyKategori_QNAME = new QName("http://service.informatika.org/", "getAssetbyKategori");
+    private final static QName _SetNamaAset_QNAME = new QName("http://service.informatika.org/", "setNamaAset");
+    private final static QName _SetPemilikAset_QNAME = new QName("http://service.informatika.org/", "setPemilikAset");
+    private final static QName _SetJenisAset_QNAME = new QName("http://service.informatika.org/", "setJenisAset");
+    private final static QName _GetAsetByJenisResponse_QNAME = new QName("http://service.informatika.org/", "getAsetByJenisResponse");
+    private final static QName _SayHelloWorldResponse_QNAME = new QName("http://service.informatika.org/", "sayHelloWorldResponse");
     private final static QName _SQLException_QNAME = new QName("http://service.informatika.org/", "SQLException");
+    private final static QName _GetAsetByNamaResponse_QNAME = new QName("http://service.informatika.org/", "getAsetByNamaResponse");
     private final static QName _RegisterVendorResponse_QNAME = new QName("http://service.informatika.org/", "registerVendorResponse");
-    private final static QName _GetAssetResponse_QNAME = new QName("http://service.informatika.org/", "getAssetResponse");
-    private final static QName _SetAssetOwnerResponse_QNAME = new QName("http://service.informatika.org/", "setAssetOwnerResponse");
-    private final static QName _NotifyProcurementResponse_QNAME = new QName("http://service.informatika.org/", "notifyProcurementResponse");
-    private final static QName _DeleteAssetResponse_QNAME = new QName("http://service.informatika.org/", "deleteAssetResponse");
-    private final static QName _DeleteAsset_QNAME = new QName("http://service.informatika.org/", "deleteAsset");
-    private final static QName _GetAssetbyKategoriResponse_QNAME = new QName("http://service.informatika.org/", "getAssetbyKategoriResponse");
+    private final static QName _GetFasilitasAsetResponse_QNAME = new QName("http://service.informatika.org/", "getFasilitasAsetResponse");
+    private final static QName _InsertFasilitasAset_QNAME = new QName("http://service.informatika.org/", "insertFasilitasAset");
+    private final static QName _DeleteAsetResponse_QNAME = new QName("http://service.informatika.org/", "deleteAsetResponse");
+    private final static QName _SetKondisiAset_QNAME = new QName("http://service.informatika.org/", "setKondisiAset");
+    private final static QName _SetJenisAsetResponse_QNAME = new QName("http://service.informatika.org/", "setJenisAsetResponse");
+    private final static QName _GetAsetResponse_QNAME = new QName("http://service.informatika.org/", "getAsetResponse");
+    private final static QName _NotifyMaintenanceToVendor_QNAME = new QName("http://service.informatika.org/", "notifyMaintenanceToVendor");
+    private final static QName _SetNamaAsetResponse_QNAME = new QName("http://service.informatika.org/", "setNamaAsetResponse");
+    private final static QName _GetAsetByKategori_QNAME = new QName("http://service.informatika.org/", "getAsetByKategori");
+    private final static QName _GetAset_QNAME = new QName("http://service.informatika.org/", "getAset");
+    private final static QName _InsertKebutuhanMaintenance_QNAME = new QName("http://service.informatika.org/", "insertKebutuhanMaintenance");
+    private final static QName _SetKondisiAsetResponse_QNAME = new QName("http://service.informatika.org/", "setKondisiAsetResponse");
+    private final static QName _GetFasilitasAset_QNAME = new QName("http://service.informatika.org/", "getFasilitasAset");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: org.informatika.client
@@ -59,11 +71,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetAssetbyKategori }
+     * Create an instance of {@link SetJenisAset }
      * 
      */
-    public GetAssetbyKategori createGetAssetbyKategori() {
-        return new GetAssetbyKategori();
+    public SetJenisAset createSetJenisAset() {
+        return new SetJenisAset();
+    }
+
+    /**
+     * Create an instance of {@link GetAsetByJenisResponse }
+     * 
+     */
+    public GetAsetByJenisResponse createGetAsetByJenisResponse() {
+        return new GetAsetByJenisResponse();
+    }
+
+    /**
+     * Create an instance of {@link SayHelloWorldResponse }
+     * 
+     */
+    public SayHelloWorldResponse createSayHelloWorldResponse() {
+        return new SayHelloWorldResponse();
     }
 
     /**
@@ -75,6 +103,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetAsetByNamaResponse }
+     * 
+     */
+    public GetAsetByNamaResponse createGetAsetByNamaResponse() {
+        return new GetAsetByNamaResponse();
+    }
+
+    /**
      * Create an instance of {@link RegisterVendorResponse }
      * 
      */
@@ -83,27 +119,35 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link SetAssetOwnerResponse }
+     * Create an instance of {@link GetFasilitasAsetResponse }
      * 
      */
-    public SetAssetOwnerResponse createSetAssetOwnerResponse() {
-        return new SetAssetOwnerResponse();
+    public GetFasilitasAsetResponse createGetFasilitasAsetResponse() {
+        return new GetFasilitasAsetResponse();
     }
 
     /**
-     * Create an instance of {@link GetAssetResponse }
+     * Create an instance of {@link InsertFasilitasAset }
      * 
      */
-    public GetAssetResponse createGetAssetResponse() {
-        return new GetAssetResponse();
+    public InsertFasilitasAset createInsertFasilitasAset() {
+        return new InsertFasilitasAset();
     }
 
     /**
-     * Create an instance of {@link SetAssetJenis }
+     * Create an instance of {@link DeleteAset }
      * 
      */
-    public SetAssetJenis createSetAssetJenis() {
-        return new SetAssetJenis();
+    public DeleteAset createDeleteAset() {
+        return new DeleteAset();
+    }
+
+    /**
+     * Create an instance of {@link RegisterAset }
+     * 
+     */
+    public RegisterAset createRegisterAset() {
+        return new RegisterAset();
     }
 
     /**
@@ -115,67 +159,51 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link InsertMaintenanceScheduleResponse }
+     * Create an instance of {@link SetNamaAset }
      * 
      */
-    public InsertMaintenanceScheduleResponse createInsertMaintenanceScheduleResponse() {
-        return new InsertMaintenanceScheduleResponse();
+    public SetNamaAset createSetNamaAset() {
+        return new SetNamaAset();
     }
 
     /**
-     * Create an instance of {@link RegisterAsset }
+     * Create an instance of {@link InsertKebutuhanMaintenanceResponse }
      * 
      */
-    public RegisterAsset createRegisterAsset() {
-        return new RegisterAsset();
+    public InsertKebutuhanMaintenanceResponse createInsertKebutuhanMaintenanceResponse() {
+        return new InsertKebutuhanMaintenanceResponse();
     }
 
     /**
-     * Create an instance of {@link SetAssetJenisResponse }
+     * Create an instance of {@link SetPemilikAset }
      * 
      */
-    public SetAssetJenisResponse createSetAssetJenisResponse() {
-        return new SetAssetJenisResponse();
+    public SetPemilikAset createSetPemilikAset() {
+        return new SetPemilikAset();
     }
 
     /**
-     * Create an instance of {@link GetAsset }
+     * Create an instance of {@link InsertJadwalMaintenance }
      * 
      */
-    public GetAsset createGetAsset() {
-        return new GetAsset();
+    public InsertJadwalMaintenance createInsertJadwalMaintenance() {
+        return new InsertJadwalMaintenance();
     }
 
     /**
-     * Create an instance of {@link SetAssetCondition }
+     * Create an instance of {@link GetAsetByJenis }
      * 
      */
-    public SetAssetCondition createSetAssetCondition() {
-        return new SetAssetCondition();
+    public GetAsetByJenis createGetAsetByJenis() {
+        return new GetAsetByJenis();
     }
 
     /**
-     * Create an instance of {@link SetAssetOwner }
+     * Create an instance of {@link InsertJadwalMaintenanceResponse }
      * 
      */
-    public SetAssetOwner createSetAssetOwner() {
-        return new SetAssetOwner();
-    }
-
-    /**
-     * Create an instance of {@link NotifyVendor }
-     * 
-     */
-    public NotifyVendor createNotifyVendor() {
-        return new NotifyVendor();
-    }
-
-    /**
-     * Create an instance of {@link NotifyVendorResponse }
-     * 
-     */
-    public NotifyVendorResponse createNotifyVendorResponse() {
-        return new NotifyVendorResponse();
+    public InsertJadwalMaintenanceResponse createInsertJadwalMaintenanceResponse() {
+        return new InsertJadwalMaintenanceResponse();
     }
 
     /**
@@ -187,19 +215,51 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link SetAssetConditionResponse }
+     * Create an instance of {@link InsertFasilitasAsetResponse }
      * 
      */
-    public SetAssetConditionResponse createSetAssetConditionResponse() {
-        return new SetAssetConditionResponse();
+    public InsertFasilitasAsetResponse createInsertFasilitasAsetResponse() {
+        return new InsertFasilitasAsetResponse();
     }
 
     /**
-     * Create an instance of {@link NotifyProcurement }
+     * Create an instance of {@link SayHelloWorld }
      * 
      */
-    public NotifyProcurement createNotifyProcurement() {
-        return new NotifyProcurement();
+    public SayHelloWorld createSayHelloWorld() {
+        return new SayHelloWorld();
+    }
+
+    /**
+     * Create an instance of {@link GetAsetByKategoriResponse }
+     * 
+     */
+    public GetAsetByKategoriResponse createGetAsetByKategoriResponse() {
+        return new GetAsetByKategoriResponse();
+    }
+
+    /**
+     * Create an instance of {@link SetPemilikAsetResponse }
+     * 
+     */
+    public SetPemilikAsetResponse createSetPemilikAsetResponse() {
+        return new SetPemilikAsetResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetAsetByNama }
+     * 
+     */
+    public GetAsetByNama createGetAsetByNama() {
+        return new GetAsetByNama();
+    }
+
+    /**
+     * Create an instance of {@link RegisterAsetResponse }
+     * 
+     */
+    public RegisterAsetResponse createRegisterAsetResponse() {
+        return new RegisterAsetResponse();
     }
 
     /**
@@ -211,51 +271,99 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link InsertMaintenanceSchedule }
+     * Create an instance of {@link NotifyMaintenanceToVendorResponse }
      * 
      */
-    public InsertMaintenanceSchedule createInsertMaintenanceSchedule() {
-        return new InsertMaintenanceSchedule();
+    public NotifyMaintenanceToVendorResponse createNotifyMaintenanceToVendorResponse() {
+        return new NotifyMaintenanceToVendorResponse();
     }
 
     /**
-     * Create an instance of {@link RegisterAssetResponse }
+     * Create an instance of {@link SetKondisiAsetResponse }
      * 
      */
-    public RegisterAssetResponse createRegisterAssetResponse() {
-        return new RegisterAssetResponse();
+    public SetKondisiAsetResponse createSetKondisiAsetResponse() {
+        return new SetKondisiAsetResponse();
     }
 
     /**
-     * Create an instance of {@link GetAssetbyKategoriResponse }
+     * Create an instance of {@link GetFasilitasAset }
      * 
      */
-    public GetAssetbyKategoriResponse createGetAssetbyKategoriResponse() {
-        return new GetAssetbyKategoriResponse();
+    public GetFasilitasAset createGetFasilitasAset() {
+        return new GetFasilitasAset();
     }
 
     /**
-     * Create an instance of {@link NotifyProcurementResponse }
+     * Create an instance of {@link GetAset }
      * 
      */
-    public NotifyProcurementResponse createNotifyProcurementResponse() {
-        return new NotifyProcurementResponse();
+    public GetAset createGetAset() {
+        return new GetAset();
     }
 
     /**
-     * Create an instance of {@link DeleteAssetResponse }
+     * Create an instance of {@link InsertKebutuhanMaintenance }
      * 
      */
-    public DeleteAssetResponse createDeleteAssetResponse() {
-        return new DeleteAssetResponse();
+    public InsertKebutuhanMaintenance createInsertKebutuhanMaintenance() {
+        return new InsertKebutuhanMaintenance();
     }
 
     /**
-     * Create an instance of {@link DeleteAsset }
+     * Create an instance of {@link SetJenisAsetResponse }
      * 
      */
-    public DeleteAsset createDeleteAsset() {
-        return new DeleteAsset();
+    public SetJenisAsetResponse createSetJenisAsetResponse() {
+        return new SetJenisAsetResponse();
+    }
+
+    /**
+     * Create an instance of {@link NotifyMaintenanceToVendor }
+     * 
+     */
+    public NotifyMaintenanceToVendor createNotifyMaintenanceToVendor() {
+        return new NotifyMaintenanceToVendor();
+    }
+
+    /**
+     * Create an instance of {@link GetAsetResponse }
+     * 
+     */
+    public GetAsetResponse createGetAsetResponse() {
+        return new GetAsetResponse();
+    }
+
+    /**
+     * Create an instance of {@link SetNamaAsetResponse }
+     * 
+     */
+    public SetNamaAsetResponse createSetNamaAsetResponse() {
+        return new SetNamaAsetResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetAsetByKategori }
+     * 
+     */
+    public GetAsetByKategori createGetAsetByKategori() {
+        return new GetAsetByKategori();
+    }
+
+    /**
+     * Create an instance of {@link DeleteAsetResponse }
+     * 
+     */
+    public DeleteAsetResponse createDeleteAsetResponse() {
+        return new DeleteAsetResponse();
+    }
+
+    /**
+     * Create an instance of {@link SetKondisiAset }
+     * 
+     */
+    public SetKondisiAset createSetKondisiAset() {
+        return new SetKondisiAset();
     }
 
     /**
@@ -264,6 +372,14 @@ public class ObjectFactory {
      */
     public Exception createException() {
         return new Exception();
+    }
+
+    /**
+     * Create an instance of {@link Vendor }
+     * 
+     */
+    public Vendor createVendor() {
+        return new Vendor();
     }
 
     /**
@@ -291,21 +407,55 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link NotifyProcurement }{@code >}}
+     * Create an instance of {@link Response }
      * 
      */
-    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "notifyProcurement")
-    public JAXBElement<NotifyProcurement> createNotifyProcurement(NotifyProcurement value) {
-        return new JAXBElement<NotifyProcurement>(_NotifyProcurement_QNAME, NotifyProcurement.class, null, value);
+    public Response createResponse() {
+        return new Response();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SetAssetConditionResponse }{@code >}}
+     * Create an instance of {@link Asset }
      * 
      */
-    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "setAssetConditionResponse")
-    public JAXBElement<SetAssetConditionResponse> createSetAssetConditionResponse(SetAssetConditionResponse value) {
-        return new JAXBElement<SetAssetConditionResponse>(_SetAssetConditionResponse_QNAME, SetAssetConditionResponse.class, null, value);
+    public Asset createAsset() {
+        return new Asset();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link InsertFasilitasAsetResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "insertFasilitasAsetResponse")
+    public JAXBElement<InsertFasilitasAsetResponse> createInsertFasilitasAsetResponse(InsertFasilitasAsetResponse value) {
+        return new JAXBElement<InsertFasilitasAsetResponse>(_InsertFasilitasAsetResponse_QNAME, InsertFasilitasAsetResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SayHelloWorld }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "sayHelloWorld")
+    public JAXBElement<SayHelloWorld> createSayHelloWorld(SayHelloWorld value) {
+        return new JAXBElement<SayHelloWorld>(_SayHelloWorld_QNAME, SayHelloWorld.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SetPemilikAsetResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "setPemilikAsetResponse")
+    public JAXBElement<SetPemilikAsetResponse> createSetPemilikAsetResponse(SetPemilikAsetResponse value) {
+        return new JAXBElement<SetPemilikAsetResponse>(_SetPemilikAsetResponse_QNAME, SetPemilikAsetResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAsetByKategoriResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "getAsetByKategoriResponse")
+    public JAXBElement<GetAsetByKategoriResponse> createGetAsetByKategoriResponse(GetAsetByKategoriResponse value) {
+        return new JAXBElement<GetAsetByKategoriResponse>(_GetAsetByKategoriResponse_QNAME, GetAsetByKategoriResponse.class, null, value);
     }
 
     /**
@@ -318,66 +468,57 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link InsertMaintenanceSchedule }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAsetByNama }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "insertMaintenanceSchedule")
-    public JAXBElement<InsertMaintenanceSchedule> createInsertMaintenanceSchedule(InsertMaintenanceSchedule value) {
-        return new JAXBElement<InsertMaintenanceSchedule>(_InsertMaintenanceSchedule_QNAME, InsertMaintenanceSchedule.class, null, value);
+    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "getAsetByNama")
+    public JAXBElement<GetAsetByNama> createGetAsetByNama(GetAsetByNama value) {
+        return new JAXBElement<GetAsetByNama>(_GetAsetByNama_QNAME, GetAsetByNama.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RegisterAssetResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link RegisterAsetResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "registerAssetResponse")
-    public JAXBElement<RegisterAssetResponse> createRegisterAssetResponse(RegisterAssetResponse value) {
-        return new JAXBElement<RegisterAssetResponse>(_RegisterAssetResponse_QNAME, RegisterAssetResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "registerAsetResponse")
+    public JAXBElement<RegisterAsetResponse> createRegisterAsetResponse(RegisterAsetResponse value) {
+        return new JAXBElement<RegisterAsetResponse>(_RegisterAsetResponse_QNAME, RegisterAsetResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAsset }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link NotifyMaintenanceToVendorResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "getAsset")
-    public JAXBElement<GetAsset> createGetAsset(GetAsset value) {
-        return new JAXBElement<GetAsset>(_GetAsset_QNAME, GetAsset.class, null, value);
+    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "notifyMaintenanceToVendorResponse")
+    public JAXBElement<NotifyMaintenanceToVendorResponse> createNotifyMaintenanceToVendorResponse(NotifyMaintenanceToVendorResponse value) {
+        return new JAXBElement<NotifyMaintenanceToVendorResponse>(_NotifyMaintenanceToVendorResponse_QNAME, NotifyMaintenanceToVendorResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SetAssetCondition }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link InsertJadwalMaintenance }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "setAssetCondition")
-    public JAXBElement<SetAssetCondition> createSetAssetCondition(SetAssetCondition value) {
-        return new JAXBElement<SetAssetCondition>(_SetAssetCondition_QNAME, SetAssetCondition.class, null, value);
+    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "insertJadwalMaintenance")
+    public JAXBElement<InsertJadwalMaintenance> createInsertJadwalMaintenance(InsertJadwalMaintenance value) {
+        return new JAXBElement<InsertJadwalMaintenance>(_InsertJadwalMaintenance_QNAME, InsertJadwalMaintenance.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SetAssetOwner }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAsetByJenis }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "setAssetOwner")
-    public JAXBElement<SetAssetOwner> createSetAssetOwner(SetAssetOwner value) {
-        return new JAXBElement<SetAssetOwner>(_SetAssetOwner_QNAME, SetAssetOwner.class, null, value);
+    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "getAsetByJenis")
+    public JAXBElement<GetAsetByJenis> createGetAsetByJenis(GetAsetByJenis value) {
+        return new JAXBElement<GetAsetByJenis>(_GetAsetByJenis_QNAME, GetAsetByJenis.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link NotifyVendor }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link InsertJadwalMaintenanceResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "notifyVendor")
-    public JAXBElement<NotifyVendor> createNotifyVendor(NotifyVendor value) {
-        return new JAXBElement<NotifyVendor>(_NotifyVendor_QNAME, NotifyVendor.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link NotifyVendorResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "notifyVendorResponse")
-    public JAXBElement<NotifyVendorResponse> createNotifyVendorResponse(NotifyVendorResponse value) {
-        return new JAXBElement<NotifyVendorResponse>(_NotifyVendorResponse_QNAME, NotifyVendorResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "insertJadwalMaintenanceResponse")
+    public JAXBElement<InsertJadwalMaintenanceResponse> createInsertJadwalMaintenanceResponse(InsertJadwalMaintenanceResponse value) {
+        return new JAXBElement<InsertJadwalMaintenanceResponse>(_InsertJadwalMaintenanceResponse_QNAME, InsertJadwalMaintenanceResponse.class, null, value);
     }
 
     /**
@@ -390,30 +531,30 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SetAssetJenis }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link DeleteAset }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "setAssetJenis")
-    public JAXBElement<SetAssetJenis> createSetAssetJenis(SetAssetJenis value) {
-        return new JAXBElement<SetAssetJenis>(_SetAssetJenis_QNAME, SetAssetJenis.class, null, value);
+    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "deleteAset")
+    public JAXBElement<DeleteAset> createDeleteAset(DeleteAset value) {
+        return new JAXBElement<DeleteAset>(_DeleteAset_QNAME, DeleteAset.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RegisterAsset }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link RegisterAset }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "registerAsset")
-    public JAXBElement<RegisterAsset> createRegisterAsset(RegisterAsset value) {
-        return new JAXBElement<RegisterAsset>(_RegisterAsset_QNAME, RegisterAsset.class, null, value);
+    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "registerAset")
+    public JAXBElement<RegisterAset> createRegisterAset(RegisterAset value) {
+        return new JAXBElement<RegisterAset>(_RegisterAset_QNAME, RegisterAset.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SetAssetJenisResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link InsertKebutuhanMaintenanceResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "setAssetJenisResponse")
-    public JAXBElement<SetAssetJenisResponse> createSetAssetJenisResponse(SetAssetJenisResponse value) {
-        return new JAXBElement<SetAssetJenisResponse>(_SetAssetJenisResponse_QNAME, SetAssetJenisResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "insertKebutuhanMaintenanceResponse")
+    public JAXBElement<InsertKebutuhanMaintenanceResponse> createInsertKebutuhanMaintenanceResponse(InsertKebutuhanMaintenanceResponse value) {
+        return new JAXBElement<InsertKebutuhanMaintenanceResponse>(_InsertKebutuhanMaintenanceResponse_QNAME, InsertKebutuhanMaintenanceResponse.class, null, value);
     }
 
     /**
@@ -426,21 +567,48 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link InsertMaintenanceScheduleResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SetNamaAset }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "insertMaintenanceScheduleResponse")
-    public JAXBElement<InsertMaintenanceScheduleResponse> createInsertMaintenanceScheduleResponse(InsertMaintenanceScheduleResponse value) {
-        return new JAXBElement<InsertMaintenanceScheduleResponse>(_InsertMaintenanceScheduleResponse_QNAME, InsertMaintenanceScheduleResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "setNamaAset")
+    public JAXBElement<SetNamaAset> createSetNamaAset(SetNamaAset value) {
+        return new JAXBElement<SetNamaAset>(_SetNamaAset_QNAME, SetNamaAset.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAssetbyKategori }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SetPemilikAset }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "getAssetbyKategori")
-    public JAXBElement<GetAssetbyKategori> createGetAssetbyKategori(GetAssetbyKategori value) {
-        return new JAXBElement<GetAssetbyKategori>(_GetAssetbyKategori_QNAME, GetAssetbyKategori.class, null, value);
+    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "setPemilikAset")
+    public JAXBElement<SetPemilikAset> createSetPemilikAset(SetPemilikAset value) {
+        return new JAXBElement<SetPemilikAset>(_SetPemilikAset_QNAME, SetPemilikAset.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SetJenisAset }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "setJenisAset")
+    public JAXBElement<SetJenisAset> createSetJenisAset(SetJenisAset value) {
+        return new JAXBElement<SetJenisAset>(_SetJenisAset_QNAME, SetJenisAset.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAsetByJenisResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "getAsetByJenisResponse")
+    public JAXBElement<GetAsetByJenisResponse> createGetAsetByJenisResponse(GetAsetByJenisResponse value) {
+        return new JAXBElement<GetAsetByJenisResponse>(_GetAsetByJenisResponse_QNAME, GetAsetByJenisResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SayHelloWorldResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "sayHelloWorldResponse")
+    public JAXBElement<SayHelloWorldResponse> createSayHelloWorldResponse(SayHelloWorldResponse value) {
+        return new JAXBElement<SayHelloWorldResponse>(_SayHelloWorldResponse_QNAME, SayHelloWorldResponse.class, null, value);
     }
 
     /**
@@ -453,6 +621,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAsetByNamaResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "getAsetByNamaResponse")
+    public JAXBElement<GetAsetByNamaResponse> createGetAsetByNamaResponse(GetAsetByNamaResponse value) {
+        return new JAXBElement<GetAsetByNamaResponse>(_GetAsetByNamaResponse_QNAME, GetAsetByNamaResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link RegisterVendorResponse }{@code >}}
      * 
      */
@@ -462,57 +639,120 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAssetResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetFasilitasAsetResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "getAssetResponse")
-    public JAXBElement<GetAssetResponse> createGetAssetResponse(GetAssetResponse value) {
-        return new JAXBElement<GetAssetResponse>(_GetAssetResponse_QNAME, GetAssetResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "getFasilitasAsetResponse")
+    public JAXBElement<GetFasilitasAsetResponse> createGetFasilitasAsetResponse(GetFasilitasAsetResponse value) {
+        return new JAXBElement<GetFasilitasAsetResponse>(_GetFasilitasAsetResponse_QNAME, GetFasilitasAsetResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SetAssetOwnerResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link InsertFasilitasAset }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "setAssetOwnerResponse")
-    public JAXBElement<SetAssetOwnerResponse> createSetAssetOwnerResponse(SetAssetOwnerResponse value) {
-        return new JAXBElement<SetAssetOwnerResponse>(_SetAssetOwnerResponse_QNAME, SetAssetOwnerResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "insertFasilitasAset")
+    public JAXBElement<InsertFasilitasAset> createInsertFasilitasAset(InsertFasilitasAset value) {
+        return new JAXBElement<InsertFasilitasAset>(_InsertFasilitasAset_QNAME, InsertFasilitasAset.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link NotifyProcurementResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link DeleteAsetResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "notifyProcurementResponse")
-    public JAXBElement<NotifyProcurementResponse> createNotifyProcurementResponse(NotifyProcurementResponse value) {
-        return new JAXBElement<NotifyProcurementResponse>(_NotifyProcurementResponse_QNAME, NotifyProcurementResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "deleteAsetResponse")
+    public JAXBElement<DeleteAsetResponse> createDeleteAsetResponse(DeleteAsetResponse value) {
+        return new JAXBElement<DeleteAsetResponse>(_DeleteAsetResponse_QNAME, DeleteAsetResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DeleteAssetResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SetKondisiAset }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "deleteAssetResponse")
-    public JAXBElement<DeleteAssetResponse> createDeleteAssetResponse(DeleteAssetResponse value) {
-        return new JAXBElement<DeleteAssetResponse>(_DeleteAssetResponse_QNAME, DeleteAssetResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "setKondisiAset")
+    public JAXBElement<SetKondisiAset> createSetKondisiAset(SetKondisiAset value) {
+        return new JAXBElement<SetKondisiAset>(_SetKondisiAset_QNAME, SetKondisiAset.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DeleteAsset }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SetJenisAsetResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "deleteAsset")
-    public JAXBElement<DeleteAsset> createDeleteAsset(DeleteAsset value) {
-        return new JAXBElement<DeleteAsset>(_DeleteAsset_QNAME, DeleteAsset.class, null, value);
+    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "setJenisAsetResponse")
+    public JAXBElement<SetJenisAsetResponse> createSetJenisAsetResponse(SetJenisAsetResponse value) {
+        return new JAXBElement<SetJenisAsetResponse>(_SetJenisAsetResponse_QNAME, SetJenisAsetResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAssetbyKategoriResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAsetResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "getAssetbyKategoriResponse")
-    public JAXBElement<GetAssetbyKategoriResponse> createGetAssetbyKategoriResponse(GetAssetbyKategoriResponse value) {
-        return new JAXBElement<GetAssetbyKategoriResponse>(_GetAssetbyKategoriResponse_QNAME, GetAssetbyKategoriResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "getAsetResponse")
+    public JAXBElement<GetAsetResponse> createGetAsetResponse(GetAsetResponse value) {
+        return new JAXBElement<GetAsetResponse>(_GetAsetResponse_QNAME, GetAsetResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link NotifyMaintenanceToVendor }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "notifyMaintenanceToVendor")
+    public JAXBElement<NotifyMaintenanceToVendor> createNotifyMaintenanceToVendor(NotifyMaintenanceToVendor value) {
+        return new JAXBElement<NotifyMaintenanceToVendor>(_NotifyMaintenanceToVendor_QNAME, NotifyMaintenanceToVendor.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SetNamaAsetResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "setNamaAsetResponse")
+    public JAXBElement<SetNamaAsetResponse> createSetNamaAsetResponse(SetNamaAsetResponse value) {
+        return new JAXBElement<SetNamaAsetResponse>(_SetNamaAsetResponse_QNAME, SetNamaAsetResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAsetByKategori }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "getAsetByKategori")
+    public JAXBElement<GetAsetByKategori> createGetAsetByKategori(GetAsetByKategori value) {
+        return new JAXBElement<GetAsetByKategori>(_GetAsetByKategori_QNAME, GetAsetByKategori.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAset }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "getAset")
+    public JAXBElement<GetAset> createGetAset(GetAset value) {
+        return new JAXBElement<GetAset>(_GetAset_QNAME, GetAset.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link InsertKebutuhanMaintenance }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "insertKebutuhanMaintenance")
+    public JAXBElement<InsertKebutuhanMaintenance> createInsertKebutuhanMaintenance(InsertKebutuhanMaintenance value) {
+        return new JAXBElement<InsertKebutuhanMaintenance>(_InsertKebutuhanMaintenance_QNAME, InsertKebutuhanMaintenance.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SetKondisiAsetResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "setKondisiAsetResponse")
+    public JAXBElement<SetKondisiAsetResponse> createSetKondisiAsetResponse(SetKondisiAsetResponse value) {
+        return new JAXBElement<SetKondisiAsetResponse>(_SetKondisiAsetResponse_QNAME, SetKondisiAsetResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetFasilitasAset }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.informatika.org/", name = "getFasilitasAset")
+    public JAXBElement<GetFasilitasAset> createGetFasilitasAset(GetFasilitasAset value) {
+        return new JAXBElement<GetFasilitasAset>(_GetFasilitasAset_QNAME, GetFasilitasAset.class, null, value);
     }
 
 }

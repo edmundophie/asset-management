@@ -1,16 +1,17 @@
 package org.informatika.service;
 
+import org.informatika.service.util.DBConnectionManager;
 import org.informatika.service.util.RequestCall;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.JSONValue;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.xml.ws.Endpoint;
 import java.sql.*;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by emhah on 11/16/2015.
@@ -21,295 +22,391 @@ public class AssetLifecycleManagement {
     private final static String ASSET_TABLE = "asset";
     private final static String VENDOR_TABLE = "vendor";
     private final static String MAINTENANCE_TABLE = "maintenance";
-
-    public static enum ResponseStatus {
-        SUCCESS(200),
-        NOT_FOUND(404),
-        INTERNAL_SERVER_ERROR(500);
-
-        private final int code;
-
-        ResponseStatus(int code) {
-            this.code = code;
-        }
-
-        public int getCode() {
-            return this.code;
-        }
-
-        public String getResponseMessage() {
-            String responseMessage = "";
-            switch (this.code) {
-                case 200:
-                    responseMessage = "Operasi berhasil dilakukan";
-                    break;
-                case 404:
-                    responseMessage = "Objek tidak ditemukan pada database";
-                    break;
-                case 500:
-                    responseMessage = "Terjadi kesalahan pada server";
-                    break;
-            }
-            return responseMessage;
-        }
-    }
-
-    public static enum AssetCondition {
-        BAIK("BAIK"),
-        RUSAK("RUSAK"),
-        BUTUH_PERBAIKAN("BUTUH PERBAIKAN");
-
-        private final String condition;
-
-        private AssetCondition(String condition) {
-            this.condition = condition;
-        }
-
-        public String getCondition() {
-            return this.condition;
-        }
-    }
-
+    public final static String KEBUTUHAN_MAINTENANCE_TABLE = "kebutuhan_logistik_maintenance";
+    private final static String FASILITAS_ASET_TABLE = "fasilitas_aset";
+    private Map<Integer, Timer> maintenanceTimer;
     public AssetLifecycleManagement() {
         dbConnection = DBConnectionManager.getConnection();
+        maintenanceTimer = new HashMap<Integer, Timer>();
         if (dbConnection != null) {
             System.out.println("DB connection success!");
         }
     }
 
     public void close() {
-        try {
-            dbConnection.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
+//        try {
+//            dbConnection.close();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+    }
+
+    @WebMethod
+    public Response registerAset(String nama, String kategori, AssetCondition kondisi, String pemilik, int idVendor, String harga, boolean isPublic) throws SQLException {
+        String query = "INSERT INTO " + ASSET_TABLE + " (nama, kategori, tanggal_masuk, kondisi, pemilik, id_vendor, harga, is_public) " +
+                "VALUES ('" + nama +"', '"+kategori + "', now(), '" + kondisi.getCondition() + "', '" + pemilik+ "', " + idVendor + ", '" + harga + "', "+(isPublic?"TRUE":"FALSE")+")";
+        int numRowAffected = executeUpdateQueryAndGetId(query);
+
+        if(numRowAffected>0)
+            return new Response(false);
+        else
+            return new Response(true);
+    }
+
+    @WebMethod
+    public Response insertJadwalMaintenance(int idAset, int siklus, MaintenanceCycleTimeUnit timeUnit, String keterangan) throws SQLException {
+        String query = "INSERT INTO " + MAINTENANCE_TABLE + " (id_aset, siklus, satuan_waktu_siklus, keterangan) " +
+                "VALUES ("+ idAset + ", " + siklus + ", '"+timeUnit.getCycle()+"', '"+ keterangan + "')";
+        int numRowAffected = executeUpdateQueryAndGetRowCount(query);
+
+        if(numRowAffected>0) {
+            addMaintenanceTimer(idAset, siklus, timeUnit);
+            return new Response(true);
         }
-    }
-
-    @WebMethod
-    public String registerAsset(String kategori, AssetCondition kondisi, String institusi, String jenis, int idvendor, String harga) throws SQLException {
-        String query = "INSERT INTO " + ASSET_TABLE + " (kategori, tanggal_masuk, kondisi, institusi, jenis, idvendor, harga) " +
-                "VALUES ('" + kategori + "', now(), '" + kondisi.getCondition() + "', '" + institusi + "', '" + jenis + "', " + idvendor + ", '" + harga + "')";
-
-        if (executeUpdateQuery(query) == 0)
-            return createJsonResponse(ResponseStatus.NOT_FOUND);
         else
-            return createJsonResponse(ResponseStatus.SUCCESS);
+            return new Response(false);
     }
 
     @WebMethod
-    public String insertMaintenanceSchedule(int idvendor, int idasset, int jadwalMaintenance, String catatan) throws SQLException {
-        String query = "INSERT INTO " + MAINTENANCE_TABLE + " (idvendor, idasset, jadwal, catatan) " +
-                "VALUES (" + idvendor + ", " + idasset + ", " + jadwalMaintenance + ", '" + catatan + "')";
+    public Response registerVendor(String nama, String alamat, String telepon, String email) throws SQLException {
+        String query = "INSERT INTO " + VENDOR_TABLE + " (nama, alamat, telepon, email) " +
+                "VALUES ('" + nama + "', '" + alamat + "', '" + telepon+ "', '"+email+"')";
 
+        int numRowAffected = executeUpdateQueryAndGetId(query);
 
-        if (executeUpdateQuery(query) == 0)
-            return createJsonResponse(ResponseStatus.NOT_FOUND);
+        if(numRowAffected>0)
+            return new Response(false);
         else
-            return createJsonResponse(ResponseStatus.SUCCESS);
+            return new Response<Integer>(true, numRowAffected);
     }
 
     @WebMethod
-    public String registerVendor(String nama, String alamat, String kontak) throws SQLException {
-        String query = "INSERT INTO " + VENDOR_TABLE + " (nama, alamat, kontak) " +
-                "VALUES ('" + nama + "', '" + alamat + "', '" + kontak + "')";
+    public Response deleteAset(int idAset) throws SQLException {
+        String query = "DELETE FROM " + ASSET_TABLE + " WHERE id=" + String.valueOf(idAset);
+        int numRowAffected = executeUpdateQueryAndGetRowCount(query);
 
-        if (executeUpdateQuery(query) == 0)
-            return createJsonResponse(ResponseStatus.NOT_FOUND);
+        if(numRowAffected>0) {
+            removeMaintenanceTimer(idAset);
+            return new Response(true);
+        }
         else
-            return createJsonResponse(ResponseStatus.SUCCESS);
+            return new Response(false);
     }
 
     @WebMethod
-    public String deleteAsset(int idAsset) throws SQLException {
-        String query = "DELETE FROM " + ASSET_TABLE + " WHERE id=" + idAsset;
-        String query2 = "DELETE FROM " + MAINTENANCE_TABLE + " WHERE idasset=" + idAsset;
-
-        executeUpdateQuery(query2);
-        if (executeUpdateQuery(query) == 0)
-            return createJsonResponse(ResponseStatus.NOT_FOUND);
-        else
-            return createJsonResponse(ResponseStatus.SUCCESS);
-    }
-
-    @WebMethod
-    public String setAssetOwner(int assetId, String assetOwner) throws SQLException {
+    public Response setNamaAset(int idAset, String nama) throws SQLException {
         String query = "UPDATE " + ASSET_TABLE + " " +
-                "SET institusi='" + assetOwner + "' " +
-                "WHERE id=" + assetId;
+                "SET nama='" + nama + "' " +
+                "WHERE id=" + idAset;
+        int numRowAffected = executeUpdateQueryAndGetRowCount(query);
 
-        if (executeUpdateQuery(query) == 0)
-            return createJsonResponse(ResponseStatus.NOT_FOUND);
+        if(numRowAffected>0)
+            return new Response(true);
         else
-            return createJsonResponse(ResponseStatus.SUCCESS);
+            return new Response(false);
     }
 
     @WebMethod
-    public String setAssetCondition(int assetId, AssetCondition condition) throws SQLException {
+    public Response setPemilikAset(int idAset, String pemilik) throws SQLException {
         String query = "UPDATE " + ASSET_TABLE + " " +
-                "SET kondisi='" + condition.getCondition() + "' " +
-                "WHERE id=" + assetId;
+                "SET pemilik='" + pemilik+ "' " +
+                "WHERE id=" + idAset;
+        int numRowAffected = executeUpdateQueryAndGetRowCount(query);
 
-        if (executeUpdateQuery(query) == 0)
-            return createJsonResponse(ResponseStatus.NOT_FOUND);
+        if(numRowAffected>0)
+            return new Response(true);
         else
-            return createJsonResponse(ResponseStatus.SUCCESS);
+            return new Response(false);
     }
 
     @WebMethod
-    public String setAssetJenis(int assetId, String jenis) throws SQLException {
+    public Response setKondisiAset(int idAset, AssetCondition kondisi) throws SQLException {
         String query = "UPDATE " + ASSET_TABLE + " " +
-                "SET jenis='" + jenis + "' " +
-                "WHERE id=" + assetId;
+                "SET kondisi='" + kondisi.getCondition() + "' " +
+                "WHERE id=" + idAset;
+        int numRowAffected = executeUpdateQueryAndGetRowCount(query);
 
-        if (executeUpdateQuery(query) == 0)
-            return createJsonResponse(ResponseStatus.NOT_FOUND);
+        if(numRowAffected>0)
+            return new Response(true);
         else
-            return createJsonResponse(ResponseStatus.SUCCESS);
+            return new Response(false);
     }
 
     @WebMethod
-    public String getAssetbyKategori(String Kategori) {
-        JSONArray Array;
-        Array = new JSONArray();
-        try {
-            ResultSet resultSet;
-            resultSet = executeQuery("SELECT * FROM asset WHERE Kategori = " + Kategori);
+    public Response setJenisAset(int idAset, String jenis) throws SQLException {
+        String query = "UPDATE " + ASSET_TABLE + " " +
+                "SET kondisi='" + jenis + "' " +
+                "WHERE id=" + idAset;
+        int numRowAffected = executeUpdateQueryAndGetRowCount(query);
 
-            while (resultSet.next()) {
-                JSONObject object;
-                object = createJSON(resultSet);
-                Array.add(object);
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return Array.toString();
+        if(numRowAffected>0)
+            return new Response(true);
+        else
+            return new Response(false);
     }
 
     @WebMethod
-    public String getAsset(String IDAsset) {
-        String result = "";
-        Integer i = 1;
-        JSONArray Array;
-        Array = new JSONArray();
-        try {
-            ResultSet resultSet;
-            resultSet = executeQuery("SELECT * FROM asset WHERE ID = " + IDAsset);
-            while (resultSet.next()) {
-                JSONObject object;
-                object = createJSON(resultSet);
-                Array.add(object);
-            }
+    public Response insertKebutuhanMaintenance(int idAset, List<Integer> idLogistik, List<Integer> jumlahKebutuhan) throws SQLException {
+        String query = "INSERT INTO " + KEBUTUHAN_MAINTENANCE_TABLE + " (id_aset, id_logistik, jumlah) VALUES";
 
-        } catch (SQLException e) {
-            e.printStackTrace();
+        for(int i=0;i<idLogistik.size();++i) {
+            query += " (" + idAset + ", " + idLogistik.get(i) + ", " + jumlahKebutuhan.get(i) + ")";
+            if(i!=idLogistik.size()-1)
+                query += ",";
         }
-        return Array.toString();
-    }
 
+        int numRowAffected = executeUpdateQueryAndGetRowCount(query);
 
-    private String getAssetVendor(String assetID) {
-        String result = null;
-        try {
-            ResultSet resultSet;
-            resultSet = executeQuery("SELECT * FROM vendor,asset WHERE asset.ID = " + assetID + " GROUP BY asset.ID");
-            while (resultSet.next()) {
-                result = resultSet.getString("Nama");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return result;
+        if(numRowAffected>0)
+            return new Response(true);
+        else
+            return new Response(false);
     }
 
     @WebMethod
-    public String notifyVendor(String assetID) {
-        String result = "";
-        String vendorId = "0";
-        try {
-            ResultSet resultSet;
-            resultSet = executeQuery("SELECT * FROM asset WHERE ID = " + assetID + " LIMIT 1");
-            if (resultSet.next()) {
-                vendorId = resultSet.getString("IDVendor");
+    public Response insertFasilitasAset(int idAset, List<Integer> idFasilitas) throws SQLException {
+        String query = "INSERT INTO " + FASILITAS_ASET_TABLE + " (id_aset, id_fasilitas) VALUES";
 
-                String to = "baharudin.afif@ymail.com";
-                String subject = "Permintaan Maintenance Asset";
-                String content = "Bapak tolong asset dicek";
-                RequestCall.sendEmail(to, subject, content);
-
-                JSONObject obj = new JSONObject();
-                obj.put("IDVendor", vendorId);
-                obj.put("assetId", assetID);
-                return createJsonResponse(ResponseStatus.SUCCESS, obj.toString());
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return createJsonResponse(ResponseStatus.INTERNAL_SERVER_ERROR, e);
+        for(int i=0;i<idFasilitas.size();++i) {
+            query += " (" + idAset + ", "+idFasilitas.get(i)+")";
+            if(i!=idFasilitas.size()-1)
+                query += ",";
         }
-        return createJsonResponse(ResponseStatus.INTERNAL_SERVER_ERROR);
+        System.out.println(query);
+        int numRowAffected = executeUpdateQueryAndGetRowCount(query);
+
+        if(numRowAffected>0)
+            return new Response(true);
+        else
+            return new Response(false);
     }
 
     @WebMethod
-    public String notifyProcurement(String assetID) {
-        return "INI METHOD NOTIFY Vendor";
+    public Asset getAset(int idAset) throws SQLException {
+        Asset asset = _getAset(idAset);
+        return asset;
     }
 
-    private ResultSet executeQuery(String Query) throws SQLException {
+    private Asset _getAset(int idAset) throws SQLException {
+        String query = "SELECT * FROM "+ASSET_TABLE+" WHERE id = " + idAset;
+        ResultSet rs = executeQuery(query);
+        Asset asset = null;
+        if(rs.next()) {
+            asset = new Asset();
+            asset.setId(rs.getInt("id"));
+            asset.setNama(rs.getString("nama"));
+            asset.setKategori(rs.getString("kategori"));
+            asset.setTanggalMasuk(rs.getDate("tanggal_masuk"));
+            asset.setKondisi(AssetCondition.getInstance(rs.getString("kondisi")));
+            asset.setPemilik(rs.getString("pemilik"));
+            asset.setVendor(getVendorAset(rs.getInt("id_vendor")));
+            asset.setHarga(rs.getString("harga"));
+            asset.setPublicAsset(rs.getBoolean("is_public"));
+        }
+
+        return asset;
+    }
+
+    @WebMethod
+    public List<Asset> getAsetByKategori(String kategori) throws SQLException {
+        String query = "SELECT * FROM "+ASSET_TABLE+" WHERE kategori = '" + kategori + "'";
+        ResultSet rs = executeQuery(query);
+
+        List<Asset> assets = null;
+        while(rs.next()) {
+            if(rs.isFirst())
+                assets = new ArrayList<Asset>();
+            Asset asset = new Asset();
+            asset.setId(rs.getInt("id"));
+            asset.setNama(rs.getString("nama"));
+            asset.setKategori(rs.getString("kategori"));
+            asset.setTanggalMasuk(rs.getDate("tanggal_masuk"));
+            asset.setKondisi(AssetCondition.getInstance(rs.getString("kondisi")));
+            asset.setPemilik(rs.getString("pemilik"));
+            asset.setVendor(getVendorAset(rs.getInt("id_vendor")));
+            asset.setHarga(rs.getString("harga"));
+            asset.setPublicAsset(rs.getBoolean("is_public"));
+            assets.add(asset);
+        }
+
+        return assets;
+    }
+
+    @WebMethod
+    public Asset getAsetByNama(String nama) throws SQLException {
+        String query = "SELECT * FROM " + ASSET_TABLE + " WHERE nama = '" + nama + "' LIMIT 1";
+        ResultSet rs = executeQuery(query);
+
+        Asset asset = null;
+        if (rs.next()) {
+            asset = new Asset();
+            asset.setId(rs.getInt("id"));
+            asset.setNama(rs.getString("nama"));
+            asset.setKategori(rs.getString("kategori"));
+            asset.setTanggalMasuk(rs.getDate("tanggal_masuk"));
+            asset.setKondisi(AssetCondition.getInstance(rs.getString("kondisi")));
+            asset.setPemilik(rs.getString("pemilik"));
+            asset.setVendor(getVendorAset(rs.getInt("id_vendor")));
+            asset.setHarga(rs.getString("harga"));
+            asset.setPublicAsset(rs.getBoolean("is_public"));
+        }
+
+        return asset;
+    }
+
+    @WebMethod
+    public List<Asset> getAsetByJenis(String jenis) throws SQLException {
+        String query = "SELECT * FROM " + ASSET_TABLE + " WHERE jenis= '" + jenis+ "'";
+        ResultSet rs = executeQuery(query);
+
+        List<Asset> assets = null;
+        while(rs.next()) {
+            if(rs.isFirst())
+                assets = new ArrayList<Asset>();
+            Asset asset = new Asset();
+            asset.setId(rs.getInt("id"));
+            asset.setNama(rs.getString("nama"));
+            asset.setKategori(rs.getString("kategori"));
+            asset.setTanggalMasuk(rs.getDate("tanggal_masuk"));
+            asset.setKondisi(AssetCondition.getInstance(rs.getString("kondisi")));
+            asset.setPemilik(rs.getString("pemilik"));
+            asset.setVendor(getVendorAset(rs.getInt("id_vendor")));
+            asset.setHarga(rs.getString("harga"));
+            asset.setPublicAsset(rs.getBoolean("is_public"));
+            assets.add(asset);
+        }
+
+        return assets;
+    }
+
+    @WebMethod
+    public List<Asset> getFasilitasAset(int idAset) throws SQLException {
+        String query = "SELECT *  FROM "+FASILITAS_ASET_TABLE+
+                " JOIN "+ASSET_TABLE+" ON " +FASILITAS_ASET_TABLE+".id_fasilitas="+ASSET_TABLE+".id" +
+                " WHERE id_aset = " + idAset;
+        System.out.println(query);
+        ResultSet rs = executeQuery(query);
+
+        List<Asset> assets = null;
+        while(rs.next()) {
+            if(rs.isFirst())
+                assets = new ArrayList<Asset>();
+            Asset asset = new Asset();
+            asset.setId(rs.getInt("id"));
+            asset.setNama(rs.getString("nama"));
+            asset.setKategori(rs.getString("kategori"));
+            asset.setTanggalMasuk(rs.getDate("tanggal_masuk"));
+            asset.setKondisi(AssetCondition.getInstance(rs.getString("kondisi")));
+            asset.setPemilik(rs.getString("pemilik"));
+            asset.setVendor(getVendorAset(rs.getInt("id_vendor")));
+            asset.setHarga(rs.getString("harga"));
+            asset.setPublicAsset(rs.getBoolean("is_public"));
+            assets.add(asset);
+        }
+        return assets;
+    }
+
+    private Vendor getVendorAset(int idVendor) throws SQLException {
+        String query = "SELECT * FROM "+VENDOR_TABLE+" WHERE id = " + idVendor;
+        ResultSet rs = executeQuery(query);
+        Vendor vendor = null;
+        if(rs.next()) {
+            vendor = new Vendor();
+            vendor.setId(rs.getInt("id"));
+            vendor.setNama(rs.getString("nama"));
+            vendor.setAlamat(rs.getString("alamat"));
+            vendor.setTelepon(rs.getString("telepon"));
+            vendor.setEmail(rs.getString("email"));
+
+        }
+        return vendor;
+    }
+
+    @WebMethod
+    public Response<String> notifyMaintenanceToVendor(int idAset) throws SQLException {
+        Asset asset = _getAset(idAset);
+        if(asset!=null) {
+            String to = asset.getVendor().getEmail();
+            String subject = "Permintaan Maintenance Aset";
+            String content = "Tolong aset berikut dicek: \n";
+            content += "Id aset: " + asset.getId() + "\n";
+            content += "Nama aset: " + asset.getNama() + "\n";
+            content += "Kondisi aset: " + asset.getKondisi() + "\n";
+            content += "Terima kasih.\n\n Salam,\n\n Asset Maintenance Notifier";
+            RequestCall.sendEmail(to, subject, content);
+
+            return new Response(true, "Notifikasi berhasil");
+        }
+        else
+            return new Response<String>(false, "Aset tidak ditemukan");
+    }
+
+    public static ResultSet executeQuery(String query) throws SQLException {
+        Statement stmt = dbConnection.createStatement();
+        return stmt.executeQuery(query);
+    }
+
+    private int executeUpdateQueryAndGetId(String query) throws SQLException {
+        Statement stmt = dbConnection.createStatement();
+        return  stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
+    }
+
+    private int executeUpdateQueryAndGetRowCount(String query) throws SQLException {
         PreparedStatement preparedStatement;
-        ResultSet resultSet;
-        dbConnection = DBConnectionManager.getConnection();
-        preparedStatement = dbConnection.prepareStatement(Query);
-        resultSet = preparedStatement.executeQuery();
-
-        return resultSet;
+        Statement stmt = dbConnection.createStatement();
+        return stmt.executeUpdate(query);
     }
 
-    private int executeUpdateQuery(String Query) throws SQLException {
-        PreparedStatement preparedStatement;
-        ResultSet resultSet;
-        dbConnection = DBConnectionManager.getConnection();
-        preparedStatement = dbConnection.prepareStatement(Query);
-        return preparedStatement.executeUpdate();
+    private void initMaintenanceScheduler() throws SQLException {
+        String query = "SELECT * FROM "+MAINTENANCE_TABLE;
+        ResultSet rs = executeQuery(query);
+        while(rs.next()) {
+            MaintenanceTask mt = new MaintenanceTask();
+            mt.setAssetId(rs.getInt("id_aset"));
+            mt.setCycleTime(rs.getInt("siklus"));
+            MaintenanceCycleTimeUnit cycleTimeUnit = MaintenanceCycleTimeUnit.getInstance(rs.getString("satuan_waktu_siklus"));
+            mt.setTimeUnit(cycleTimeUnit);
+
+            Timer timer = new Timer();
+            maintenanceTimer.put(mt.getAssetId(), timer);
+            timer.schedule(mt, 0, mt.getTimeUnit().toMillis(mt.getCycleTime()));
+        }
     }
 
-    private JSONObject createJSON(ResultSet resultSet) throws SQLException {
-        JSONObject object;
-        object = new JSONObject();
-        object.put("ID Asset", resultSet.getString("ID"));
-        object.put("Institusi", resultSet.getString("Institusi"));
-        object.put("Kategori", resultSet.getString("Kategori"));
-        object.put("Jenis", resultSet.getString("Jenis"));
-        object.put("Kondisi", resultSet.getString("Kondisi"));
-        object.put("Nilai Jual", resultSet.getString("Tanggal_Masuk"));
-        object.put("Nama Vendor", getAssetVendor(resultSet.getString("ID")));
-        object.put("Tanggal Masuk", resultSet.getString("Tanggal_Masuk"));
-        return object;
+    private void addMaintenanceTimer(int idAset, int siklus, MaintenanceCycleTimeUnit timeUnit) {
+        MaintenanceTask mt = new MaintenanceTask();
+        mt.setAssetId(idAset);
+        mt.setCycleTime(siklus);
+        mt.setTimeUnit(timeUnit);
+
+        if(maintenanceTimer.containsKey(mt.getAssetId())) {
+            maintenanceTimer.get(idAset).cancel();
+            maintenanceTimer.get(idAset).purge();
+        }
+        Timer timer = new Timer();
+        maintenanceTimer.put(mt.getAssetId(), timer);
+        timer.schedule(mt, 0, mt.getTimeUnit().toMillis(mt.getCycleTime()));
     }
 
-    public static void main(String[] argv) {
+
+    private void removeMaintenanceTimer(int idAset) {
+        if(maintenanceTimer.containsKey(idAset)) {
+            maintenanceTimer.get(idAset).cancel();
+            maintenanceTimer.get(idAset).purge();
+            maintenanceTimer.remove(idAset);
+        }
+    }
+
+    @WebMethod
+    public String sayHelloWorld() {
+        return "Hello World";
+    }
+
+    public static void main(String[] argv) throws SQLException {
         AssetLifecycleManagement implementor = new AssetLifecycleManagement();
+        implementor.initMaintenanceScheduler();
         String address = "http://localhost:9000/AssetLifecycleManagement";
         Endpoint.publish(address, implementor);
         implementor.close();
-    }
-
-    private String createJsonResponse(ResponseStatus status, Object content) {
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("Status Code", status.getCode());
-        if (status != ResponseStatus.SUCCESS) {
-            Map errorMap = new HashMap<String, String>();
-            errorMap.put("error", status.getResponseMessage());
-            map.put("Content", errorMap);
-        } else if (content != null)
-            map.put("Content", content);
-
-        return JSONValue.toJSONString(map);
-    }
-
-    private String createJsonResponse(ResponseStatus status) {
-        return createJsonResponse(status, null);
     }
 }

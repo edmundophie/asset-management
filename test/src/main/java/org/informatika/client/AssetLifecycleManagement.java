@@ -1,6 +1,7 @@
 
 package org.informatika.client;
 
+import java.util.List;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
@@ -42,30 +43,33 @@ public interface AssetLifecycleManagement {
      * @param arg4
      * @param arg1
      * @param arg0
+     * @param arg6
      * @return
-     *     returns java.lang.String
+     *     returns org.informatika.client.Response
      * @throws SQLException_Exception
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "registerAsset", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.RegisterAsset")
-    @ResponseWrapper(localName = "registerAssetResponse", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.RegisterAssetResponse")
-    @Action(input = "http://service.informatika.org/AssetLifecycleManagement/registerAssetRequest", output = "http://service.informatika.org/AssetLifecycleManagement/registerAssetResponse", fault = {
-        @FaultAction(className = SQLException_Exception.class, value = "http://service.informatika.org/AssetLifecycleManagement/registerAsset/Fault/SQLException")
+    @RequestWrapper(localName = "registerAset", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.RegisterAset")
+    @ResponseWrapper(localName = "registerAsetResponse", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.RegisterAsetResponse")
+    @Action(input = "http://service.informatika.org/AssetLifecycleManagement/registerAsetRequest", output = "http://service.informatika.org/AssetLifecycleManagement/registerAsetResponse", fault = {
+        @FaultAction(className = SQLException_Exception.class, value = "http://service.informatika.org/AssetLifecycleManagement/registerAset/Fault/SQLException")
     })
-    public String registerAsset(
+    public Response registerAset(
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0,
         @WebParam(name = "arg1", targetNamespace = "")
-        AssetCondition arg1,
+        String arg1,
         @WebParam(name = "arg2", targetNamespace = "")
-        String arg2,
+        AssetCondition arg2,
         @WebParam(name = "arg3", targetNamespace = "")
         String arg3,
         @WebParam(name = "arg4", targetNamespace = "")
         int arg4,
         @WebParam(name = "arg5", targetNamespace = "")
-        String arg5)
+        String arg5,
+        @WebParam(name = "arg6", targetNamespace = "")
+        boolean arg6)
         throws SQLException_Exception
     ;
 
@@ -76,23 +80,23 @@ public interface AssetLifecycleManagement {
      * @param arg1
      * @param arg0
      * @return
-     *     returns java.lang.String
+     *     returns org.informatika.client.Response
      * @throws SQLException_Exception
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "insertMaintenanceSchedule", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.InsertMaintenanceSchedule")
-    @ResponseWrapper(localName = "insertMaintenanceScheduleResponse", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.InsertMaintenanceScheduleResponse")
-    @Action(input = "http://service.informatika.org/AssetLifecycleManagement/insertMaintenanceScheduleRequest", output = "http://service.informatika.org/AssetLifecycleManagement/insertMaintenanceScheduleResponse", fault = {
-        @FaultAction(className = SQLException_Exception.class, value = "http://service.informatika.org/AssetLifecycleManagement/insertMaintenanceSchedule/Fault/SQLException")
+    @RequestWrapper(localName = "insertJadwalMaintenance", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.InsertJadwalMaintenance")
+    @ResponseWrapper(localName = "insertJadwalMaintenanceResponse", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.InsertJadwalMaintenanceResponse")
+    @Action(input = "http://service.informatika.org/AssetLifecycleManagement/insertJadwalMaintenanceRequest", output = "http://service.informatika.org/AssetLifecycleManagement/insertJadwalMaintenanceResponse", fault = {
+        @FaultAction(className = SQLException_Exception.class, value = "http://service.informatika.org/AssetLifecycleManagement/insertJadwalMaintenance/Fault/SQLException")
     })
-    public String insertMaintenanceSchedule(
+    public Response insertJadwalMaintenance(
         @WebParam(name = "arg0", targetNamespace = "")
         int arg0,
         @WebParam(name = "arg1", targetNamespace = "")
         int arg1,
         @WebParam(name = "arg2", targetNamespace = "")
-        int arg2,
+        MaintenanceCycleTimeUnit arg2,
         @WebParam(name = "arg3", targetNamespace = "")
         String arg3)
         throws SQLException_Exception
@@ -100,11 +104,12 @@ public interface AssetLifecycleManagement {
 
     /**
      * 
+     * @param arg3
      * @param arg2
      * @param arg1
      * @param arg0
      * @return
-     *     returns java.lang.String
+     *     returns org.informatika.client.Response
      * @throws SQLException_Exception
      */
     @WebMethod
@@ -114,13 +119,15 @@ public interface AssetLifecycleManagement {
     @Action(input = "http://service.informatika.org/AssetLifecycleManagement/registerVendorRequest", output = "http://service.informatika.org/AssetLifecycleManagement/registerVendorResponse", fault = {
         @FaultAction(className = SQLException_Exception.class, value = "http://service.informatika.org/AssetLifecycleManagement/registerVendor/Fault/SQLException")
     })
-    public String registerVendor(
+    public Response registerVendor(
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0,
         @WebParam(name = "arg1", targetNamespace = "")
         String arg1,
         @WebParam(name = "arg2", targetNamespace = "")
-        String arg2)
+        String arg2,
+        @WebParam(name = "arg3", targetNamespace = "")
+        String arg3)
         throws SQLException_Exception
     ;
 
@@ -128,17 +135,17 @@ public interface AssetLifecycleManagement {
      * 
      * @param arg0
      * @return
-     *     returns java.lang.String
+     *     returns org.informatika.client.Response
      * @throws SQLException_Exception
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "deleteAsset", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.DeleteAsset")
-    @ResponseWrapper(localName = "deleteAssetResponse", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.DeleteAssetResponse")
-    @Action(input = "http://service.informatika.org/AssetLifecycleManagement/deleteAssetRequest", output = "http://service.informatika.org/AssetLifecycleManagement/deleteAssetResponse", fault = {
-        @FaultAction(className = SQLException_Exception.class, value = "http://service.informatika.org/AssetLifecycleManagement/deleteAsset/Fault/SQLException")
+    @RequestWrapper(localName = "deleteAset", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.DeleteAset")
+    @ResponseWrapper(localName = "deleteAsetResponse", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.DeleteAsetResponse")
+    @Action(input = "http://service.informatika.org/AssetLifecycleManagement/deleteAsetRequest", output = "http://service.informatika.org/AssetLifecycleManagement/deleteAsetResponse", fault = {
+        @FaultAction(className = SQLException_Exception.class, value = "http://service.informatika.org/AssetLifecycleManagement/deleteAset/Fault/SQLException")
     })
-    public String deleteAsset(
+    public Response deleteAset(
         @WebParam(name = "arg0", targetNamespace = "")
         int arg0)
         throws SQLException_Exception
@@ -149,17 +156,17 @@ public interface AssetLifecycleManagement {
      * @param arg1
      * @param arg0
      * @return
-     *     returns java.lang.String
+     *     returns org.informatika.client.Response
      * @throws SQLException_Exception
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "setAssetOwner", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.SetAssetOwner")
-    @ResponseWrapper(localName = "setAssetOwnerResponse", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.SetAssetOwnerResponse")
-    @Action(input = "http://service.informatika.org/AssetLifecycleManagement/setAssetOwnerRequest", output = "http://service.informatika.org/AssetLifecycleManagement/setAssetOwnerResponse", fault = {
-        @FaultAction(className = SQLException_Exception.class, value = "http://service.informatika.org/AssetLifecycleManagement/setAssetOwner/Fault/SQLException")
+    @RequestWrapper(localName = "setNamaAset", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.SetNamaAset")
+    @ResponseWrapper(localName = "setNamaAsetResponse", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.SetNamaAsetResponse")
+    @Action(input = "http://service.informatika.org/AssetLifecycleManagement/setNamaAsetRequest", output = "http://service.informatika.org/AssetLifecycleManagement/setNamaAsetResponse", fault = {
+        @FaultAction(className = SQLException_Exception.class, value = "http://service.informatika.org/AssetLifecycleManagement/setNamaAset/Fault/SQLException")
     })
-    public String setAssetOwner(
+    public Response setNamaAset(
         @WebParam(name = "arg0", targetNamespace = "")
         int arg0,
         @WebParam(name = "arg1", targetNamespace = "")
@@ -172,17 +179,40 @@ public interface AssetLifecycleManagement {
      * @param arg1
      * @param arg0
      * @return
-     *     returns java.lang.String
+     *     returns org.informatika.client.Response
      * @throws SQLException_Exception
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "setAssetCondition", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.SetAssetCondition")
-    @ResponseWrapper(localName = "setAssetConditionResponse", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.SetAssetConditionResponse")
-    @Action(input = "http://service.informatika.org/AssetLifecycleManagement/setAssetConditionRequest", output = "http://service.informatika.org/AssetLifecycleManagement/setAssetConditionResponse", fault = {
-        @FaultAction(className = SQLException_Exception.class, value = "http://service.informatika.org/AssetLifecycleManagement/setAssetCondition/Fault/SQLException")
+    @RequestWrapper(localName = "setPemilikAset", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.SetPemilikAset")
+    @ResponseWrapper(localName = "setPemilikAsetResponse", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.SetPemilikAsetResponse")
+    @Action(input = "http://service.informatika.org/AssetLifecycleManagement/setPemilikAsetRequest", output = "http://service.informatika.org/AssetLifecycleManagement/setPemilikAsetResponse", fault = {
+        @FaultAction(className = SQLException_Exception.class, value = "http://service.informatika.org/AssetLifecycleManagement/setPemilikAset/Fault/SQLException")
     })
-    public String setAssetCondition(
+    public Response setPemilikAset(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1)
+        throws SQLException_Exception
+    ;
+
+    /**
+     * 
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns org.informatika.client.Response
+     * @throws SQLException_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "setKondisiAset", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.SetKondisiAset")
+    @ResponseWrapper(localName = "setKondisiAsetResponse", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.SetKondisiAsetResponse")
+    @Action(input = "http://service.informatika.org/AssetLifecycleManagement/setKondisiAsetRequest", output = "http://service.informatika.org/AssetLifecycleManagement/setKondisiAsetResponse", fault = {
+        @FaultAction(className = SQLException_Exception.class, value = "http://service.informatika.org/AssetLifecycleManagement/setKondisiAset/Fault/SQLException")
+    })
+    public Response setKondisiAset(
         @WebParam(name = "arg0", targetNamespace = "")
         int arg0,
         @WebParam(name = "arg1", targetNamespace = "")
@@ -195,17 +225,17 @@ public interface AssetLifecycleManagement {
      * @param arg1
      * @param arg0
      * @return
-     *     returns java.lang.String
+     *     returns org.informatika.client.Response
      * @throws SQLException_Exception
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "setAssetJenis", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.SetAssetJenis")
-    @ResponseWrapper(localName = "setAssetJenisResponse", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.SetAssetJenisResponse")
-    @Action(input = "http://service.informatika.org/AssetLifecycleManagement/setAssetJenisRequest", output = "http://service.informatika.org/AssetLifecycleManagement/setAssetJenisResponse", fault = {
-        @FaultAction(className = SQLException_Exception.class, value = "http://service.informatika.org/AssetLifecycleManagement/setAssetJenis/Fault/SQLException")
+    @RequestWrapper(localName = "setJenisAset", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.SetJenisAset")
+    @ResponseWrapper(localName = "setJenisAsetResponse", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.SetJenisAsetResponse")
+    @Action(input = "http://service.informatika.org/AssetLifecycleManagement/setJenisAsetRequest", output = "http://service.informatika.org/AssetLifecycleManagement/setJenisAsetResponse", fault = {
+        @FaultAction(className = SQLException_Exception.class, value = "http://service.informatika.org/AssetLifecycleManagement/setJenisAset/Fault/SQLException")
     })
-    public String setAssetJenis(
+    public Response setJenisAset(
         @WebParam(name = "arg0", targetNamespace = "")
         int arg0,
         @WebParam(name = "arg1", targetNamespace = "")
@@ -215,62 +245,183 @@ public interface AssetLifecycleManagement {
 
     /**
      * 
+     * @param arg2
+     * @param arg1
      * @param arg0
      * @return
-     *     returns java.lang.String
+     *     returns org.informatika.client.Response
+     * @throws SQLException_Exception
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getAssetbyKategori", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.GetAssetbyKategori")
-    @ResponseWrapper(localName = "getAssetbyKategoriResponse", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.GetAssetbyKategoriResponse")
-    @Action(input = "http://service.informatika.org/AssetLifecycleManagement/getAssetbyKategoriRequest", output = "http://service.informatika.org/AssetLifecycleManagement/getAssetbyKategoriResponse")
-    public String getAssetbyKategori(
+    @RequestWrapper(localName = "insertKebutuhanMaintenance", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.InsertKebutuhanMaintenance")
+    @ResponseWrapper(localName = "insertKebutuhanMaintenanceResponse", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.InsertKebutuhanMaintenanceResponse")
+    @Action(input = "http://service.informatika.org/AssetLifecycleManagement/insertKebutuhanMaintenanceRequest", output = "http://service.informatika.org/AssetLifecycleManagement/insertKebutuhanMaintenanceResponse", fault = {
+        @FaultAction(className = SQLException_Exception.class, value = "http://service.informatika.org/AssetLifecycleManagement/insertKebutuhanMaintenance/Fault/SQLException")
+    })
+    public Response insertKebutuhanMaintenance(
         @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
+        int arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        List<Integer> arg1,
+        @WebParam(name = "arg2", targetNamespace = "")
+        List<Integer> arg2)
+        throws SQLException_Exception
+    ;
+
+    /**
+     * 
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns org.informatika.client.Response
+     * @throws SQLException_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "insertFasilitasAset", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.InsertFasilitasAset")
+    @ResponseWrapper(localName = "insertFasilitasAsetResponse", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.InsertFasilitasAsetResponse")
+    @Action(input = "http://service.informatika.org/AssetLifecycleManagement/insertFasilitasAsetRequest", output = "http://service.informatika.org/AssetLifecycleManagement/insertFasilitasAsetResponse", fault = {
+        @FaultAction(className = SQLException_Exception.class, value = "http://service.informatika.org/AssetLifecycleManagement/insertFasilitasAset/Fault/SQLException")
+    })
+    public Response insertFasilitasAset(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        List<Integer> arg1)
+        throws SQLException_Exception
+    ;
 
     /**
      * 
      * @param arg0
      * @return
-     *     returns java.lang.String
+     *     returns org.informatika.client.Asset
+     * @throws SQLException_Exception
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getAsset", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.GetAsset")
-    @ResponseWrapper(localName = "getAssetResponse", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.GetAssetResponse")
-    @Action(input = "http://service.informatika.org/AssetLifecycleManagement/getAssetRequest", output = "http://service.informatika.org/AssetLifecycleManagement/getAssetResponse")
-    public String getAsset(
+    @RequestWrapper(localName = "getAset", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.GetAset")
+    @ResponseWrapper(localName = "getAsetResponse", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.GetAsetResponse")
+    @Action(input = "http://service.informatika.org/AssetLifecycleManagement/getAsetRequest", output = "http://service.informatika.org/AssetLifecycleManagement/getAsetResponse", fault = {
+        @FaultAction(className = SQLException_Exception.class, value = "http://service.informatika.org/AssetLifecycleManagement/getAset/Fault/SQLException")
+    })
+    public Asset getAset(
         @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
+        int arg0)
+        throws SQLException_Exception
+    ;
 
     /**
      * 
      * @param arg0
      * @return
-     *     returns java.lang.String
+     *     returns java.util.List<org.informatika.client.Asset>
+     * @throws SQLException_Exception
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "notifyVendor", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.NotifyVendor")
-    @ResponseWrapper(localName = "notifyVendorResponse", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.NotifyVendorResponse")
-    @Action(input = "http://service.informatika.org/AssetLifecycleManagement/notifyVendorRequest", output = "http://service.informatika.org/AssetLifecycleManagement/notifyVendorResponse")
-    public String notifyVendor(
+    @RequestWrapper(localName = "getAsetByKategori", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.GetAsetByKategori")
+    @ResponseWrapper(localName = "getAsetByKategoriResponse", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.GetAsetByKategoriResponse")
+    @Action(input = "http://service.informatika.org/AssetLifecycleManagement/getAsetByKategoriRequest", output = "http://service.informatika.org/AssetLifecycleManagement/getAsetByKategoriResponse", fault = {
+        @FaultAction(className = SQLException_Exception.class, value = "http://service.informatika.org/AssetLifecycleManagement/getAsetByKategori/Fault/SQLException")
+    })
+    public List<Asset> getAsetByKategori(
         @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
+        String arg0)
+        throws SQLException_Exception
+    ;
 
     /**
      * 
      * @param arg0
      * @return
+     *     returns org.informatika.client.Asset
+     * @throws SQLException_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getAsetByNama", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.GetAsetByNama")
+    @ResponseWrapper(localName = "getAsetByNamaResponse", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.GetAsetByNamaResponse")
+    @Action(input = "http://service.informatika.org/AssetLifecycleManagement/getAsetByNamaRequest", output = "http://service.informatika.org/AssetLifecycleManagement/getAsetByNamaResponse", fault = {
+        @FaultAction(className = SQLException_Exception.class, value = "http://service.informatika.org/AssetLifecycleManagement/getAsetByNama/Fault/SQLException")
+    })
+    public Asset getAsetByNama(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0)
+        throws SQLException_Exception
+    ;
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns java.util.List<org.informatika.client.Asset>
+     * @throws SQLException_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getAsetByJenis", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.GetAsetByJenis")
+    @ResponseWrapper(localName = "getAsetByJenisResponse", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.GetAsetByJenisResponse")
+    @Action(input = "http://service.informatika.org/AssetLifecycleManagement/getAsetByJenisRequest", output = "http://service.informatika.org/AssetLifecycleManagement/getAsetByJenisResponse", fault = {
+        @FaultAction(className = SQLException_Exception.class, value = "http://service.informatika.org/AssetLifecycleManagement/getAsetByJenis/Fault/SQLException")
+    })
+    public List<Asset> getAsetByJenis(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0)
+        throws SQLException_Exception
+    ;
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns java.util.List<org.informatika.client.Asset>
+     * @throws SQLException_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getFasilitasAset", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.GetFasilitasAset")
+    @ResponseWrapper(localName = "getFasilitasAsetResponse", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.GetFasilitasAsetResponse")
+    @Action(input = "http://service.informatika.org/AssetLifecycleManagement/getFasilitasAsetRequest", output = "http://service.informatika.org/AssetLifecycleManagement/getFasilitasAsetResponse", fault = {
+        @FaultAction(className = SQLException_Exception.class, value = "http://service.informatika.org/AssetLifecycleManagement/getFasilitasAset/Fault/SQLException")
+    })
+    public List<Asset> getFasilitasAset(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0)
+        throws SQLException_Exception
+    ;
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns org.informatika.client.Response
+     * @throws SQLException_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "notifyMaintenanceToVendor", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.NotifyMaintenanceToVendor")
+    @ResponseWrapper(localName = "notifyMaintenanceToVendorResponse", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.NotifyMaintenanceToVendorResponse")
+    @Action(input = "http://service.informatika.org/AssetLifecycleManagement/notifyMaintenanceToVendorRequest", output = "http://service.informatika.org/AssetLifecycleManagement/notifyMaintenanceToVendorResponse", fault = {
+        @FaultAction(className = SQLException_Exception.class, value = "http://service.informatika.org/AssetLifecycleManagement/notifyMaintenanceToVendor/Fault/SQLException")
+    })
+    public Response notifyMaintenanceToVendor(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0)
+        throws SQLException_Exception
+    ;
+
+    /**
+     * 
+     * @return
      *     returns java.lang.String
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "notifyProcurement", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.NotifyProcurement")
-    @ResponseWrapper(localName = "notifyProcurementResponse", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.NotifyProcurementResponse")
-    @Action(input = "http://service.informatika.org/AssetLifecycleManagement/notifyProcurementRequest", output = "http://service.informatika.org/AssetLifecycleManagement/notifyProcurementResponse")
-    public String notifyProcurement(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
+    @RequestWrapper(localName = "sayHelloWorld", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.SayHelloWorld")
+    @ResponseWrapper(localName = "sayHelloWorldResponse", targetNamespace = "http://service.informatika.org/", className = "org.informatika.client.SayHelloWorldResponse")
+    @Action(input = "http://service.informatika.org/AssetLifecycleManagement/sayHelloWorldRequest", output = "http://service.informatika.org/AssetLifecycleManagement/sayHelloWorldResponse")
+    public String sayHelloWorld();
 
 }

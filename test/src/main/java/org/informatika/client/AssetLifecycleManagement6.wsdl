@@ -10,20 +10,20 @@
 <message name="closeResponse">
 <part name="parameters" element="tns:closeResponse"></part>
 </message>
-<message name="registerAsset">
-<part name="parameters" element="tns:registerAsset"></part>
+<message name="registerAset">
+<part name="parameters" element="tns:registerAset"></part>
 </message>
-<message name="registerAssetResponse">
-<part name="parameters" element="tns:registerAssetResponse"></part>
+<message name="registerAsetResponse">
+<part name="parameters" element="tns:registerAsetResponse"></part>
 </message>
 <message name="SQLException">
 <part name="fault" element="tns:SQLException"></part>
 </message>
-<message name="insertMaintenanceSchedule">
-<part name="parameters" element="tns:insertMaintenanceSchedule"></part>
+<message name="insertJadwalMaintenance">
+<part name="parameters" element="tns:insertJadwalMaintenance"></part>
 </message>
-<message name="insertMaintenanceScheduleResponse">
-<part name="parameters" element="tns:insertMaintenanceScheduleResponse"></part>
+<message name="insertJadwalMaintenanceResponse">
+<part name="parameters" element="tns:insertJadwalMaintenanceResponse"></part>
 </message>
 <message name="registerVendor">
 <part name="parameters" element="tns:registerVendor"></part>
@@ -31,109 +31,134 @@
 <message name="registerVendorResponse">
 <part name="parameters" element="tns:registerVendorResponse"></part>
 </message>
-<message name="deleteAsset">
-<part name="parameters" element="tns:deleteAsset"></part>
+<message name="deleteAset">
+<part name="parameters" element="tns:deleteAset"></part>
 </message>
-<message name="deleteAssetResponse">
-<part name="parameters" element="tns:deleteAssetResponse"></part>
+<message name="deleteAsetResponse">
+<part name="parameters" element="tns:deleteAsetResponse"></part>
 </message>
-<message name="setAssetOwner">
-<part name="parameters" element="tns:setAssetOwner"></part>
+<message name="setNamaAset">
+<part name="parameters" element="tns:setNamaAset"></part>
 </message>
-<message name="setAssetOwnerResponse">
-<part name="parameters" element="tns:setAssetOwnerResponse"></part>
+<message name="setNamaAsetResponse">
+<part name="parameters" element="tns:setNamaAsetResponse"></part>
 </message>
-<message name="setAssetCondition">
-<part name="parameters" element="tns:setAssetCondition"></part>
+<message name="setPemilikAset">
+<part name="parameters" element="tns:setPemilikAset"></part>
 </message>
-<message name="setAssetConditionResponse">
-<part name="parameters" element="tns:setAssetConditionResponse"></part>
+<message name="setPemilikAsetResponse">
+<part name="parameters" element="tns:setPemilikAsetResponse"></part>
 </message>
-<message name="setAssetJenis">
-<part name="parameters" element="tns:setAssetJenis"></part>
+<message name="setKondisiAset">
+<part name="parameters" element="tns:setKondisiAset"></part>
 </message>
-<message name="setAssetJenisResponse">
-<part name="parameters" element="tns:setAssetJenisResponse"></part>
+<message name="setKondisiAsetResponse">
+<part name="parameters" element="tns:setKondisiAsetResponse"></part>
 </message>
-<message name="getAssetbyKategori">
-<part name="parameters" element="tns:getAssetbyKategori"></part>
+<message name="insertKebutuhanMaintenance">
+<part name="parameters" element="tns:insertKebutuhanMaintenance"></part>
 </message>
-<message name="getAssetbyKategoriResponse">
-<part name="parameters" element="tns:getAssetbyKategoriResponse"></part>
+<message name="insertKebutuhanMaintenanceResponse">
+<part name="parameters" element="tns:insertKebutuhanMaintenanceResponse"></part>
 </message>
-<message name="getAsset">
-<part name="parameters" element="tns:getAsset"></part>
+<message name="insertFasilitasAset">
+<part name="parameters" element="tns:insertFasilitasAset"></part>
 </message>
-<message name="getAssetResponse">
-<part name="parameters" element="tns:getAssetResponse"></part>
+<message name="insertFasilitasAsetResponse">
+<part name="parameters" element="tns:insertFasilitasAsetResponse"></part>
 </message>
-<message name="notifyVendor">
-<part name="parameters" element="tns:notifyVendor"></part>
+<message name="getAset">
+<part name="parameters" element="tns:getAset"></part>
 </message>
-<message name="notifyVendorResponse">
-<part name="parameters" element="tns:notifyVendorResponse"></part>
+<message name="getAsetResponse">
+<part name="parameters" element="tns:getAsetResponse"></part>
 </message>
-<message name="notifyProcurement">
-<part name="parameters" element="tns:notifyProcurement"></part>
+<message name="getAsetByKategori">
+<part name="parameters" element="tns:getAsetByKategori"></part>
 </message>
-<message name="notifyProcurementResponse">
-<part name="parameters" element="tns:notifyProcurementResponse"></part>
+<message name="getAsetByKategoriResponse">
+<part name="parameters" element="tns:getAsetByKategoriResponse"></part>
+</message>
+<message name="notifyMaintenanceToVendor">
+<part name="parameters" element="tns:notifyMaintenanceToVendor"></part>
+</message>
+<message name="notifyMaintenanceToVendorResponse">
+<part name="parameters" element="tns:notifyMaintenanceToVendorResponse"></part>
+</message>
+<message name="sayHelloWorld">
+<part name="parameters" element="tns:sayHelloWorld"></part>
+</message>
+<message name="sayHelloWorldResponse">
+<part name="parameters" element="tns:sayHelloWorldResponse"></part>
 </message>
 <portType name="AssetLifecycleManagement">
 <operation name="close">
 <input wsam:Action="http://service.informatika.org/AssetLifecycleManagement/closeRequest" message="tns:close"></input>
 <output wsam:Action="http://service.informatika.org/AssetLifecycleManagement/closeResponse" message="tns:closeResponse"></output>
 </operation>
-<operation name="registerAsset">
-<input wsam:Action="http://service.informatika.org/AssetLifecycleManagement/registerAssetRequest" message="tns:registerAsset"></input>
-<output wsam:Action="http://service.informatika.org/AssetLifecycleManagement/registerAssetResponse" message="tns:registerAssetResponse"></output>
-<fault message="tns:SQLException" name="SQLException" wsam:Action="http://service.informatika.org/AssetLifecycleManagement/registerAsset/Fault/SQLException"></fault>
+<operation name="registerAset">
+<input wsam:Action="http://service.informatika.org/AssetLifecycleManagement/registerAsetRequest" message="tns:registerAset"></input>
+<output wsam:Action="http://service.informatika.org/AssetLifecycleManagement/registerAsetResponse" message="tns:registerAsetResponse"></output>
+<fault message="tns:SQLException" name="SQLException" wsam:Action="http://service.informatika.org/AssetLifecycleManagement/registerAset/Fault/SQLException"></fault>
 </operation>
-<operation name="insertMaintenanceSchedule">
-<input wsam:Action="http://service.informatika.org/AssetLifecycleManagement/insertMaintenanceScheduleRequest" message="tns:insertMaintenanceSchedule"></input>
-<output wsam:Action="http://service.informatika.org/AssetLifecycleManagement/insertMaintenanceScheduleResponse" message="tns:insertMaintenanceScheduleResponse"></output>
-<fault message="tns:SQLException" name="SQLException" wsam:Action="http://service.informatika.org/AssetLifecycleManagement/insertMaintenanceSchedule/Fault/SQLException"></fault>
+<operation name="insertJadwalMaintenance">
+<input wsam:Action="http://service.informatika.org/AssetLifecycleManagement/insertJadwalMaintenanceRequest" message="tns:insertJadwalMaintenance"></input>
+<output wsam:Action="http://service.informatika.org/AssetLifecycleManagement/insertJadwalMaintenanceResponse" message="tns:insertJadwalMaintenanceResponse"></output>
+<fault message="tns:SQLException" name="SQLException" wsam:Action="http://service.informatika.org/AssetLifecycleManagement/insertJadwalMaintenance/Fault/SQLException"></fault>
 </operation>
 <operation name="registerVendor">
 <input wsam:Action="http://service.informatika.org/AssetLifecycleManagement/registerVendorRequest" message="tns:registerVendor"></input>
 <output wsam:Action="http://service.informatika.org/AssetLifecycleManagement/registerVendorResponse" message="tns:registerVendorResponse"></output>
 <fault message="tns:SQLException" name="SQLException" wsam:Action="http://service.informatika.org/AssetLifecycleManagement/registerVendor/Fault/SQLException"></fault>
 </operation>
-<operation name="deleteAsset">
-<input wsam:Action="http://service.informatika.org/AssetLifecycleManagement/deleteAssetRequest" message="tns:deleteAsset"></input>
-<output wsam:Action="http://service.informatika.org/AssetLifecycleManagement/deleteAssetResponse" message="tns:deleteAssetResponse"></output>
-<fault message="tns:SQLException" name="SQLException" wsam:Action="http://service.informatika.org/AssetLifecycleManagement/deleteAsset/Fault/SQLException"></fault>
+<operation name="deleteAset">
+<input wsam:Action="http://service.informatika.org/AssetLifecycleManagement/deleteAsetRequest" message="tns:deleteAset"></input>
+<output wsam:Action="http://service.informatika.org/AssetLifecycleManagement/deleteAsetResponse" message="tns:deleteAsetResponse"></output>
+<fault message="tns:SQLException" name="SQLException" wsam:Action="http://service.informatika.org/AssetLifecycleManagement/deleteAset/Fault/SQLException"></fault>
 </operation>
-<operation name="setAssetOwner">
-<input wsam:Action="http://service.informatika.org/AssetLifecycleManagement/setAssetOwnerRequest" message="tns:setAssetOwner"></input>
-<output wsam:Action="http://service.informatika.org/AssetLifecycleManagement/setAssetOwnerResponse" message="tns:setAssetOwnerResponse"></output>
-<fault message="tns:SQLException" name="SQLException" wsam:Action="http://service.informatika.org/AssetLifecycleManagement/setAssetOwner/Fault/SQLException"></fault>
+<operation name="setNamaAset">
+<input wsam:Action="http://service.informatika.org/AssetLifecycleManagement/setNamaAsetRequest" message="tns:setNamaAset"></input>
+<output wsam:Action="http://service.informatika.org/AssetLifecycleManagement/setNamaAsetResponse" message="tns:setNamaAsetResponse"></output>
+<fault message="tns:SQLException" name="SQLException" wsam:Action="http://service.informatika.org/AssetLifecycleManagement/setNamaAset/Fault/SQLException"></fault>
 </operation>
-<operation name="setAssetCondition">
-<input wsam:Action="http://service.informatika.org/AssetLifecycleManagement/setAssetConditionRequest" message="tns:setAssetCondition"></input>
-<output wsam:Action="http://service.informatika.org/AssetLifecycleManagement/setAssetConditionResponse" message="tns:setAssetConditionResponse"></output>
-<fault message="tns:SQLException" name="SQLException" wsam:Action="http://service.informatika.org/AssetLifecycleManagement/setAssetCondition/Fault/SQLException"></fault>
+<operation name="setPemilikAset">
+<input wsam:Action="http://service.informatika.org/AssetLifecycleManagement/setPemilikAsetRequest" message="tns:setPemilikAset"></input>
+<output wsam:Action="http://service.informatika.org/AssetLifecycleManagement/setPemilikAsetResponse" message="tns:setPemilikAsetResponse"></output>
+<fault message="tns:SQLException" name="SQLException" wsam:Action="http://service.informatika.org/AssetLifecycleManagement/setPemilikAset/Fault/SQLException"></fault>
 </operation>
-<operation name="setAssetJenis">
-<input wsam:Action="http://service.informatika.org/AssetLifecycleManagement/setAssetJenisRequest" message="tns:setAssetJenis"></input>
-<output wsam:Action="http://service.informatika.org/AssetLifecycleManagement/setAssetJenisResponse" message="tns:setAssetJenisResponse"></output>
-<fault message="tns:SQLException" name="SQLException" wsam:Action="http://service.informatika.org/AssetLifecycleManagement/setAssetJenis/Fault/SQLException"></fault>
+<operation name="setKondisiAset">
+<input wsam:Action="http://service.informatika.org/AssetLifecycleManagement/setKondisiAsetRequest" message="tns:setKondisiAset"></input>
+<output wsam:Action="http://service.informatika.org/AssetLifecycleManagement/setKondisiAsetResponse" message="tns:setKondisiAsetResponse"></output>
+<fault message="tns:SQLException" name="SQLException" wsam:Action="http://service.informatika.org/AssetLifecycleManagement/setKondisiAset/Fault/SQLException"></fault>
 </operation>
-<operation name="getAssetbyKategori">
-<input wsam:Action="http://service.informatika.org/AssetLifecycleManagement/getAssetbyKategoriRequest" message="tns:getAssetbyKategori"></input>
-<output wsam:Action="http://service.informatika.org/AssetLifecycleManagement/getAssetbyKategoriResponse" message="tns:getAssetbyKategoriResponse"></output>
+<operation name="insertKebutuhanMaintenance">
+<input wsam:Action="http://service.informatika.org/AssetLifecycleManagement/insertKebutuhanMaintenanceRequest" message="tns:insertKebutuhanMaintenance"></input>
+<output wsam:Action="http://service.informatika.org/AssetLifecycleManagement/insertKebutuhanMaintenanceResponse" message="tns:insertKebutuhanMaintenanceResponse"></output>
+<fault message="tns:SQLException" name="SQLException" wsam:Action="http://service.informatika.org/AssetLifecycleManagement/insertKebutuhanMaintenance/Fault/SQLException"></fault>
 </operation>
-<operation name="getAsset">
-<input wsam:Action="http://service.informatika.org/AssetLifecycleManagement/getAssetRequest" message="tns:getAsset"></input>
-<output wsam:Action="http://service.informatika.org/AssetLifecycleManagement/getAssetResponse" message="tns:getAssetResponse"></output>
+<operation name="insertFasilitasAset">
+<input wsam:Action="http://service.informatika.org/AssetLifecycleManagement/insertFasilitasAsetRequest" message="tns:insertFasilitasAset"></input>
+<output wsam:Action="http://service.informatika.org/AssetLifecycleManagement/insertFasilitasAsetResponse" message="tns:insertFasilitasAsetResponse"></output>
+<fault message="tns:SQLException" name="SQLException" wsam:Action="http://service.informatika.org/AssetLifecycleManagement/insertFasilitasAset/Fault/SQLException"></fault>
 </operation>
-<operation name="notifyVendor">
-<input wsam:Action="http://service.informatika.org/AssetLifecycleManagement/notifyVendorRequest" message="tns:notifyVendor"></input>
-<output wsam:Action="http://service.informatika.org/AssetLifecycleManagement/notifyVendorResponse" message="tns:notifyVendorResponse"></output>
+<operation name="getAset">
+<input wsam:Action="http://service.informatika.org/AssetLifecycleManagement/getAsetRequest" message="tns:getAset"></input>
+<output wsam:Action="http://service.informatika.org/AssetLifecycleManagement/getAsetResponse" message="tns:getAsetResponse"></output>
+<fault message="tns:SQLException" name="SQLException" wsam:Action="http://service.informatika.org/AssetLifecycleManagement/getAset/Fault/SQLException"></fault>
 </operation>
-<operation name="notifyProcurement">
-<input wsam:Action="http://service.informatika.org/AssetLifecycleManagement/notifyProcurementRequest" message="tns:notifyProcurement"></input>
-<output wsam:Action="http://service.informatika.org/AssetLifecycleManagement/notifyProcurementResponse" message="tns:notifyProcurementResponse"></output>
+<operation name="getAsetByKategori">
+<input wsam:Action="http://service.informatika.org/AssetLifecycleManagement/getAsetByKategoriRequest" message="tns:getAsetByKategori"></input>
+<output wsam:Action="http://service.informatika.org/AssetLifecycleManagement/getAsetByKategoriResponse" message="tns:getAsetByKategoriResponse"></output>
+<fault message="tns:SQLException" name="SQLException" wsam:Action="http://service.informatika.org/AssetLifecycleManagement/getAsetByKategori/Fault/SQLException"></fault>
+</operation>
+<operation name="notifyMaintenanceToVendor">
+<input wsam:Action="http://service.informatika.org/AssetLifecycleManagement/notifyMaintenanceToVendorRequest" message="tns:notifyMaintenanceToVendor"></input>
+<output wsam:Action="http://service.informatika.org/AssetLifecycleManagement/notifyMaintenanceToVendorResponse" message="tns:notifyMaintenanceToVendorResponse"></output>
+<fault message="tns:SQLException" name="SQLException" wsam:Action="http://service.informatika.org/AssetLifecycleManagement/notifyMaintenanceToVendor/Fault/SQLException"></fault>
+</operation>
+<operation name="sayHelloWorld">
+<input wsam:Action="http://service.informatika.org/AssetLifecycleManagement/sayHelloWorldRequest" message="tns:sayHelloWorld"></input>
+<output wsam:Action="http://service.informatika.org/AssetLifecycleManagement/sayHelloWorldResponse" message="tns:sayHelloWorldResponse"></output>
 </operation>
 </portType>
 <binding name="AssetLifecycleManagementPortBinding" type="tns:AssetLifecycleManagement">
@@ -147,7 +172,7 @@
 <soap:body use="literal"></soap:body>
 </output>
 </operation>
-<operation name="registerAsset">
+<operation name="registerAset">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>
@@ -159,7 +184,7 @@
 <soap:fault name="SQLException" use="literal"></soap:fault>
 </fault>
 </operation>
-<operation name="insertMaintenanceSchedule">
+<operation name="insertJadwalMaintenance">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>
@@ -183,7 +208,7 @@
 <soap:fault name="SQLException" use="literal"></soap:fault>
 </fault>
 </operation>
-<operation name="deleteAsset">
+<operation name="deleteAset">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>
@@ -195,7 +220,7 @@
 <soap:fault name="SQLException" use="literal"></soap:fault>
 </fault>
 </operation>
-<operation name="setAssetOwner">
+<operation name="setNamaAset">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>
@@ -207,7 +232,7 @@
 <soap:fault name="SQLException" use="literal"></soap:fault>
 </fault>
 </operation>
-<operation name="setAssetCondition">
+<operation name="setPemilikAset">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>
@@ -219,7 +244,7 @@
 <soap:fault name="SQLException" use="literal"></soap:fault>
 </fault>
 </operation>
-<operation name="setAssetJenis">
+<operation name="setKondisiAset">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>
@@ -231,7 +256,7 @@
 <soap:fault name="SQLException" use="literal"></soap:fault>
 </fault>
 </operation>
-<operation name="getAssetbyKategori">
+<operation name="insertKebutuhanMaintenance">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>
@@ -239,8 +264,11 @@
 <output>
 <soap:body use="literal"></soap:body>
 </output>
+<fault name="SQLException">
+<soap:fault name="SQLException" use="literal"></soap:fault>
+</fault>
 </operation>
-<operation name="getAsset">
+<operation name="insertFasilitasAset">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>
@@ -248,8 +276,11 @@
 <output>
 <soap:body use="literal"></soap:body>
 </output>
+<fault name="SQLException">
+<soap:fault name="SQLException" use="literal"></soap:fault>
+</fault>
 </operation>
-<operation name="notifyVendor">
+<operation name="getAset">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>
@@ -257,8 +288,35 @@
 <output>
 <soap:body use="literal"></soap:body>
 </output>
+<fault name="SQLException">
+<soap:fault name="SQLException" use="literal"></soap:fault>
+</fault>
 </operation>
-<operation name="notifyProcurement">
+<operation name="getAsetByKategori">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal"></soap:body>
+</input>
+<output>
+<soap:body use="literal"></soap:body>
+</output>
+<fault name="SQLException">
+<soap:fault name="SQLException" use="literal"></soap:fault>
+</fault>
+</operation>
+<operation name="notifyMaintenanceToVendor">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal"></soap:body>
+</input>
+<output>
+<soap:body use="literal"></soap:body>
+</output>
+<fault name="SQLException">
+<soap:fault name="SQLException" use="literal"></soap:fault>
+</fault>
+</operation>
+<operation name="sayHelloWorld">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>

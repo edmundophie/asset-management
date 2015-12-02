@@ -6,21 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b54defc-0352-4e03-bc6c-27ab750b4cdb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/informatika/service/Asset.java" afterPath="$PROJECT_DIR$/src/main/java/org/informatika/service/Asset.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/Asset.java" afterPath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/Asset.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/informatika/service/AssetLifecycleManagement.java" afterPath="$PROJECT_DIR$/src/main/java/org/informatika/service/AssetLifecycleManagement.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/AssetLifecycleManagement.java" afterPath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/AssetLifecycleManagement.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../docs/Endpoint Documentation.md" afterPath="$PROJECT_DIR$/../docs/Endpoint Documentation.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/Exception.java" afterPath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/Exception.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/ObjectFactory.java" afterPath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/ObjectFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/RegisterAset.java" afterPath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/RegisterAset.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/SQLException_Exception.java" afterPath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/SQLException_Exception.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/SqlException.java" afterPath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/SqlException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/StackTraceElement.java" afterPath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/StackTraceElement.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/service/client/TestClient.java" afterPath="$PROJECT_DIR$/../test/src/main/java/org/informatika/service/client/TestClient.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/Throwable.java" afterPath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/Throwable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../test/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../test/.idea/workspace.xml" />
     </list>
     <ignored path="asset-lifecycle-management-service.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,8 +33,8 @@
       <file leaf-file-name="AssetLifecycleManagement.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/informatika/service/AssetLifecycleManagement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="6.409396">
-              <caret line="301" column="53" selection-start-line="301" selection-start-column="53" selection-end-line="301" selection-end-column="53" />
+            <state vertical-scroll-proportion="0.5691964">
+              <caret line="46" column="64" selection-start-line="46" selection-start-column="64" selection-end-line="46" selection-end-column="64" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -89,8 +75,8 @@
         <option value="$PROJECT_DIR$/src/main/java/org/informatika/service/MaintenanceCycleTimeUnit.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/informatika/service/util/DBConnectionManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/informatika/service/MaintenanceTask.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/informatika/service/AssetLifecycleManagement.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/informatika/service/Asset.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/informatika/service/AssetLifecycleManagement.java" />
       </list>
     </option>
   </component>
@@ -575,12 +561,12 @@
       <workItem from="1449021184612" duration="9925000" />
       <workItem from="1449031704491" duration="1566000" />
       <workItem from="1449034896474" duration="2565000" />
-      <workItem from="1449046767995" duration="571000" />
+      <workItem from="1449046767995" duration="847000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43977000" />
+    <option name="totallyTimeSpent" value="44253000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="23" width="1276" height="777" extended-state="0" />
@@ -595,7 +581,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3024963" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3010279" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934928" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24878444" sideWeight="0.49433428" order="0" side_tool="false" content_ui="combo" />
@@ -840,8 +826,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/informatika/service/AssetLifecycleManagement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="6.409396">
-          <caret line="301" column="53" selection-start-line="301" selection-start-column="53" selection-end-line="301" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.5691964">
+          <caret line="46" column="64" selection-start-line="46" selection-start-column="64" selection-end-line="46" selection-end-column="64" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

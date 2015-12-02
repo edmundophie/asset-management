@@ -44,7 +44,7 @@ public class AssetLifecycleManagement {
     @WebMethod
     public Response registerAset(String nama, String kategori, String jenis, AssetCondition kondisi, String pemilik, int idVendor, String harga, boolean isPublic) throws SQLException {
         String query = "INSERT INTO " + ASSET_TABLE + " (nama, kategori, jenis, tanggal_masuk, kondisi, pemilik, id_vendor, harga, is_public) " +
-                "VALUES ('" + nama +"', '"+kategori + "', now(), '" + kondisi.getCondition() + "', '" + pemilik+ "', " + idVendor + ", '" + harga + "', "+(isPublic?"TRUE":"FALSE")+")";
+                "VALUES ('" + nama +"', '"+kategori + "', '"+jenis+"', now(), '" + kondisi.getCondition() + "', '" + pemilik+ "', " + idVendor + ", '" + harga + "', "+(isPublic?"TRUE":"FALSE")+")";
         int numRowAffected = executeUpdateQueryAndGetId(query);
 
         if(numRowAffected>0)

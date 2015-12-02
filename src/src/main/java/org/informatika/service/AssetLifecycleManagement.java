@@ -77,7 +77,7 @@ public class AssetLifecycleManagement {
         if(numRowAffected>0)
             return new Response(false);
         else
-            return new Response<Integer>(true, numRowAffected);
+            return new Response(true);
     }
 
     @WebMethod
@@ -387,7 +387,6 @@ public class AssetLifecycleManagement {
         maintenanceTimer.put(mt.getAssetId(), timer);
         timer.schedule(mt, 0, mt.getTimeUnit().toMillis(mt.getCycleTime()));
     }
-
 
     private void removeMaintenanceTimer(int idAset) {
         if(maintenanceTimer.containsKey(idAset)) {

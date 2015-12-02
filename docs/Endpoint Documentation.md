@@ -32,10 +32,12 @@
 	- `RUSAK`
 	- `BUTUH_PERBAIKAN`
 5. Response
+	- `boolean` success
+	- `Object` returnValue
 
 ## Endpoint Service
 
-- [registerAsset](#registerAsset)  
+- [registerAset](#registerAset)  
 Melakukan entry aset baru ke database  
 - [insertJadwalMaintenance](#insertJadwalMaintenance)  
 Melakukan entry jadwal maintenance suatu aset ke ke database  
@@ -44,39 +46,181 @@ Melakukan entry vendor baru ke database
 - [deleteAsset](#deleteAsset)  
 Menghapus entry suatu aset dari database    
 - [setNamaAset](#setNamaAset)  
-Lorem ipsum...
+Mengupdate `nama` dari suatu aset  
 - [setPemilikAset](#setPemilikAset)  
-Mengupdate `institusi` atau pemilik dari suatu aset  
+Mengupdate `pemilik` dari suatu aset  
 - [setKondisiAset](#setKondisiAset)  
 Mengupdate `kondisi` dari suatu aset  
 - [setJenisAset](#setJenisAset)  
 Mengupdate `jenis` dari suatu aset  
 - [insertKebutuhanMaintenance](#insertKebutuhanMaintenance)  
-Lorem ipsum...
+Menambahkan daftar kebutuhan logistik untuk maintenance suatu aset
 - [insertFasilitasAset](#insertFasilitasAset)  
-Lorem ipsum...
+Menambahkan daftar fasilitas yang dimiliki oleh suatu aset
 - [getAset](#getAset)   
-Lorem ipsum...
+Mengambil data suatu aset berdasarkan id-nya
 - [getAsetByKategori](#getAsetByKategori)   
-Lorem ipsum...
+Mengambil daftar aset-aset yang memiliki tertentu
 - [getAsetByNama](#getAsetByNama)   
-Lorem ipsum...
+Mengambil data suatu aset berdasarkan namanya
 - [getAsetByJenis](#getAsetByJenis)   
-Lorem ipsum...
+Mengambil daftar aset-aset yang memiliki jenis tertentu
 - [getFasilitasAset](#getFasilitasAset)   
-Lorem ipsum...
+Mengambil daftar aset-aset yang menjadi fasilitas dari suatu aset
 - [notifyMaintenanceToVendor](#notifyMaintenanceToVendor)   
+Mengirimkan notifikasi email untuk maintenance suatu aset kepada vendornya
 
 
 ## Endpoint Service Detail
 
-### <a name="registerAsset">registerAsset</a>
-- Required parameter:  
-	1. `String` kategori  
-	2. `AssetCondition` kondisi  
-	3. `String` institusi  
-	4. `String` jenis  
-	5. `int` idvendor  
+### <a name="registerAset">registerAset</a>
+- Required parameter:   
+	1. `String` nama  
+	2. `String` kategori  
+	3. `AssetCondition` kondisi  
+	4. `String` pemilik  
+	5. `String` idVendor  
 	6. `String` harga  
-- Return type	: `String`  
-- Return value:  
+	7. `boolean` isPublic
+- Return type	: `Response`
+- Return value :   
+	- on success: `response.isSuccess()` will return `true`  
+	- on failed: `response.isSuccess()` will return `false`   
+	
+	
+### <a name="insertJadwalMaintenance">insertJadwalMaintenance</a>
+- Required parameter: 
+	1. `int` idAset
+	2. `int` siklus
+	3. `MaintenanceCycleTimeUnit` timeUnit
+	4. `String` keterangan
+- Return type	: `Response`
+- Return value :   
+	- on success: `response.isSuccess()` will return `true`  
+	- on failed: `response.isSuccess()` will return `false`   
+	
+### <a name="registerVendor">registerVendor</a>
+- Required parameter: 
+	1. `String` nama
+	2. `String` alamat
+	3. `String` telepon
+	4. `String` email
+- Return type	: `Response`
+- Return value :   
+	- on success: `response.isSuccess()` will return `true`  
+	- on failed: `response.isSuccess()` will return `false`
+	
+### <a name="deleteAset">deleteAset</a>
+- Required parameter: 
+	1. `int` idAset
+- Return type	: `Response`
+- Return value :   
+	- on success: `response.isSuccess()` will return `true`  
+	- on failed: `response.isSuccess()` will return `false`   
+	
+### <a name="setNamaAset">setNamaAset</a>
+- Required parameter: 
+	1. `int` idAset
+	2. `String` nama
+- Return type	: `Response`
+- Return value :   
+	- on success: `response.isSuccess()` will return `true`  
+	- on failed: `response.isSuccess()` will return `false`   	
+### <a name="setPemilikAset">setPemilikAset</a>
+- Required parameter: 
+	1. `int` idAset
+	2. `String` pemilik
+- Return type	: `Response`
+- Return value :   
+	- on success: `response.isSuccess()` will return `true`  
+	- on failed: `response.isSuccess()` will return `false` 
+
+### <a name="setKondisiAset">setKondisiAset</a>
+- Required parameter: 
+	1. `int` idAset
+	2. `AssetCondition` kondisi
+- Return type	: `Response`
+- Return value :   
+	- on success: `response.isSuccess()` will return `true`  
+	- on failed: `response.isSuccess()` will return `false` 
+	
+### <a name="setJenisAset">setJenisAset</a>
+- Required parameter: 
+	1. `int` idAset
+	2. `String` jenis
+- Return type	: `Response`
+- Return value :   
+	- on success: `response.isSuccess()` will return `true`  
+	- on failed: `response.isSuccess()` will return `false` 
+	
+### <a name="insertKebutuhanMaintenance">insertKebutuhanMaintenance</a>
+- Required parameter: 
+	1. `int` idAset
+	2. `List<Integer>` idLogistik
+	3. `List<Integer>` jumlahKebutuhan
+- Return type	: `Response`
+- Return value :   
+	- on success: `response.isSuccess()` will return `true`  
+	- on failed: `response.isSuccess()` will return `false` 
+	
+### <a name="insertFasilitasAset">insertFasilitasAset</a>
+- Required parameter: 
+	1. `int` idAset
+	2. `List<Integer>` idFasilitas
+- Return type	: `Response`
+- Return value :   
+	- on success: `response.isSuccess()` will return `true`  
+	- on failed: `response.isSuccess()` will return `false` 
+	
+### <a name="getAset">getAset</a>
+- Required parameter: 
+	1. `int` idAset
+- Return type	: `Asset`
+- Return value :   
+	- on success: not `null`  
+	- on failed: `null` 
+
+### <a name="getAsetByKategori">getAsetByKategori</a>
+- Required parameter: 
+	1. `String` kategori
+- Return type	: `List<Asset>`
+- Return value :   
+	- on success: not `null`
+	- on failed: `null`
+
+### <a name="getAsetByNama">getAsetByNama</a>
+- Required parameter: 
+	1. `String` nama
+- Return type	: `Asset`
+- Return value :   
+	- on success: not `null`  
+	- on failed: `null` 
+
+### <a name="getAsetByJenis">getAsetByJenis</a>
+- Required parameter: 
+	1. `String` jenis
+- Return type	: `List<Asset>`
+- Return value :   
+	- on success: not `null`
+	- on failed: `null`
+
+### <a name="getFasilitasAset">getFasilitasAset</a>
+- Required parameter: 
+	1. `int` idAset
+- Return type	: `List<Asset>`
+- Return value :   
+	- on success: not `null`
+	- on failed: `null`
+
+
+### <a name="notifyMaintenanceToVendor">notifyMaintenanceToVendor</a>
+- Required parameter: 
+	1. `int` idAset
+- Return type	: `Response<String>`
+- Return value :   
+	- on success:	
+		- `response.isSuccess()` will return `true`   
+		- `response.getReturnValue()` will return `Notifikasi berhasil` 
+	- on failed: 
+		- `response.isSuccess()` will return `false` 
+		- `response.getReturnValue()` will return `Aset tidak ditemukan`

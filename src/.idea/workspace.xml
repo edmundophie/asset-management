@@ -5,7 +5,13 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b54defc-0352-4e03-bc6c-27ab750b4cdb" name="Default" comment="" />
+    <list default="true" id="7b54defc-0352-4e03-bc6c-27ab750b4cdb" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../docs/images/db_entities.png" afterPath="$PROJECT_DIR$/../docs/images/db_entities.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/informatika/service/AssetLifecycleManagement.java" afterPath="$PROJECT_DIR$/src/main/java/org/informatika/service/AssetLifecycleManagement.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../docs/Endpoint Documentation.md" afterPath="$PROJECT_DIR$/../docs/Endpoint Documentation.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../test/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../test/.idea/workspace.xml" />
+    </list>
     <ignored path="asset-lifecycle-management-service.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -28,15 +34,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AssetLifecycleManagement.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AssetLifecycleManagement.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/informatika/service/AssetLifecycleManagement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="210" column="40" selection-start-line="210" selection-start-column="23" selection-end-line="210" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.19438446">
+              <caret line="340" column="68" selection-start-line="340" selection-start-column="48" selection-end-line="340" selection-end-column="68" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#15548#15549#0" expanded="true" />
-                <element signature="e#15584#15585#0" expanded="true" />
+                <element signature="e#15522#15523#0" expanded="true" />
+                <element signature="e#15558#15559#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -47,16 +53,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="16" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Vendor.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/informatika/service/Vendor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.16198704">
-              <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="10" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -578,12 +574,12 @@
       <workItem from="1448971065133" duration="10130000" />
       <workItem from="1449021184612" duration="9925000" />
       <workItem from="1449031704491" duration="1566000" />
-      <workItem from="1449034896474" duration="797000" />
+      <workItem from="1449034896474" duration="2452000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41638000" />
+    <option name="totallyTimeSpent" value="43293000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -665,8 +661,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#15548#15549#0" expanded="true" />
-            <element signature="e#15584#15585#0" expanded="true" />
+            <element signature="e#15522#15523#0" expanded="true" />
+            <element signature="e#15558#15559#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -677,8 +673,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#15548#15549#0" expanded="true" />
-            <element signature="e#15584#15585#0" expanded="true" />
+            <element signature="e#15522#15523#0" expanded="true" />
+            <element signature="e#15558#15559#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -689,8 +685,8 @@
           <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#15548#15549#0" expanded="true" />
-            <element signature="e#15584#15585#0" expanded="true" />
+            <element signature="e#15522#15523#0" expanded="true" />
+            <element signature="e#15558#15559#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -701,8 +697,8 @@
           <caret line="69" column="66" selection-start-line="69" selection-start-column="66" selection-end-line="69" selection-end-column="66" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#15548#15549#0" expanded="true" />
-            <element signature="e#15584#15585#0" expanded="true" />
+            <element signature="e#15522#15523#0" expanded="true" />
+            <element signature="e#15558#15559#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -713,8 +709,8 @@
           <caret line="146" column="73" selection-start-line="146" selection-start-column="36" selection-end-line="146" selection-end-column="73" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#15548#15549#0" expanded="true" />
-            <element signature="e#15584#15585#0" expanded="true" />
+            <element signature="e#15522#15523#0" expanded="true" />
+            <element signature="e#15558#15559#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -733,8 +729,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#15548#15549#0" expanded="true" />
-            <element signature="e#15584#15585#0" expanded="true" />
+            <element signature="e#15522#15523#0" expanded="true" />
+            <element signature="e#15558#15559#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -761,8 +757,8 @@
           <caret line="245" column="45" selection-start-line="245" selection-start-column="45" selection-end-line="245" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#15548#15549#0" expanded="true" />
-            <element signature="e#15584#15585#0" expanded="true" />
+            <element signature="e#15522#15523#0" expanded="true" />
+            <element signature="e#15558#15559#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -789,8 +785,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#15548#15549#0" expanded="true" />
-            <element signature="e#15584#15585#0" expanded="true" />
+            <element signature="e#15522#15523#0" expanded="true" />
+            <element signature="e#15558#15559#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -801,8 +797,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#15548#15549#0" expanded="true" />
-            <element signature="e#15584#15585#0" expanded="true" />
+            <element signature="e#15522#15523#0" expanded="true" />
+            <element signature="e#15558#15559#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -813,8 +809,8 @@
           <caret line="241" column="43" selection-start-line="241" selection-start-column="43" selection-end-line="241" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#15548#15549#0" expanded="true" />
-            <element signature="e#15584#15585#0" expanded="true" />
+            <element signature="e#15522#15523#0" expanded="true" />
+            <element signature="e#15558#15559#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -835,15 +831,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/informatika/service/AssetLifecycleManagement.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/informatika/service/Vendor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="210" column="40" selection-start-line="210" selection-start-column="23" selection-end-line="210" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#15548#15549#0" expanded="true" />
-            <element signature="e#15584#15585#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.2662722">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -855,11 +847,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/informatika/service/Vendor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/informatika/service/AssetLifecycleManagement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16198704">
-          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="10" selection-end-column="25" />
-          <folding />
+        <state vertical-scroll-proportion="0.19438446">
+          <caret line="340" column="68" selection-start-line="340" selection-start-column="48" selection-end-line="340" selection-end-column="68" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#15522#15523#0" expanded="true" />
+            <element signature="e#15558#15559#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

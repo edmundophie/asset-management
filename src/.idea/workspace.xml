@@ -5,51 +5,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b54defc-0352-4e03-bc6c-27ab750b4cdb" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/DeleteAsset.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/DeleteAssetResponse.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/GetAsset.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/GetAssetResponse.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/GetAssetbyKategori.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/GetAssetbyKategoriResponse.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/InsertMaintenanceSchedule.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/InsertMaintenanceScheduleResponse.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/NotifyProcurement.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/NotifyProcurementResponse.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/NotifyVendor.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/NotifyVendorResponse.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/RegisterAsset.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/RegisterAssetResponse.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/SetAssetCondition.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/SetAssetConditionResponse.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/SetAssetJenis.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/SetAssetJenisResponse.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/SetAssetOwner.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/SetAssetOwnerResponse.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/informatika/service/DBConnectionManager.java" afterPath="$PROJECT_DIR$/src/main/java/org/informatika/service/util/DBConnectionManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../docs/images/db_entities.png" afterPath="$PROJECT_DIR$/../docs/images/db_entities.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/informatika/service/AssetLifecycleManagement.java" afterPath="$PROJECT_DIR$/src/main/java/org/informatika/service/AssetLifecycleManagement.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/AssetLifecycleManagement.java" afterPath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/AssetLifecycleManagement.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/AssetLifecycleManagement.wsdl" afterPath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/AssetLifecycleManagement.wsdl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/AssetLifecycleManagement1.wsdl" afterPath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/AssetLifecycleManagement1.wsdl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/AssetLifecycleManagement2.wsdl" afterPath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/AssetLifecycleManagement2.wsdl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/AssetLifecycleManagement3.wsdl" afterPath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/AssetLifecycleManagement3.wsdl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/AssetLifecycleManagement4.wsdl" afterPath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/AssetLifecycleManagement4.wsdl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/AssetLifecycleManagement5.wsdl" afterPath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/AssetLifecycleManagement5.wsdl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/AssetLifecycleManagement6.wsdl" afterPath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/AssetLifecycleManagement6.wsdl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../docs/Endpoint Documentation.md" afterPath="$PROJECT_DIR$/../docs/Endpoint Documentation.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/Exception.java" afterPath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/Exception.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/ObjectFactory.java" afterPath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/ObjectFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/RegisterVendor.java" afterPath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/RegisterVendor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/RegisterVendorResponse.java" afterPath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/RegisterVendorResponse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/SQLException_Exception.java" afterPath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/SQLException_Exception.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/SqlException.java" afterPath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/SqlException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/StackTraceElement.java" afterPath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/StackTraceElement.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/service/client/TestClient.java" afterPath="$PROJECT_DIR$/../test/src/main/java/org/informatika/service/client/TestClient.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/Throwable.java" afterPath="$PROJECT_DIR$/../test/src/main/java/org/informatika/client/Throwable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../test/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../test/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="7b54defc-0352-4e03-bc6c-27ab750b4cdb" name="Default" comment="" />
     <ignored path="asset-lifecycle-management-service.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -72,16 +28,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AssetLifecycleManagement.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AssetLifecycleManagement.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/informatika/service/AssetLifecycleManagement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.7062635">
+            <state vertical-scroll-proportion="0.0">
               <caret line="210" column="40" selection-start-line="210" selection-start-column="23" selection-end-line="210" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#15548#15549#0" expanded="true" />
                 <element signature="e#15584#15585#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Asset.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/informatika/service/Asset.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="16" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Vendor.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/informatika/service/Vendor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.16198704">
+              <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="10" selection-end-column="25" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -602,16 +578,16 @@
       <workItem from="1448971065133" duration="10130000" />
       <workItem from="1449021184612" duration="9925000" />
       <workItem from="1449031704491" duration="1566000" />
-      <workItem from="1449034896474" duration="586000" />
+      <workItem from="1449034896474" duration="797000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41427000" />
+    <option name="totallyTimeSpent" value="41638000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -861,13 +837,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/informatika/service/AssetLifecycleManagement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.7062635">
+        <state vertical-scroll-proportion="0.0">
           <caret line="210" column="40" selection-start-line="210" selection-start-column="23" selection-end-line="210" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#15548#15549#0" expanded="true" />
             <element signature="e#15584#15585#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/informatika/service/Asset.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="16" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/informatika/service/Vendor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16198704">
+          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="10" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>

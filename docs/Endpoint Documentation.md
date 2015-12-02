@@ -4,14 +4,34 @@
 ![1](images/db_entities.png)
 
 ## Tipe Data
-1. AssetCondtition **`Enum`**
+1. Asset
+    - `int` id
+    - `String` nama
+    - `String` kategori
+    - `Date` tanggalMasuk
+    - `AssetCondition` kondisi
+    - `String` pemilik
+    - `Vendor` vendor
+    - `String` harga
+    - `boolean` publicAsset
+2. Vendor
+    - `int` id
+    - `String` nama
+    - `String` alamat
+    - `String` telepon
+    - `String` email
+3. MaintenanceCycleTimeUnit **`Enum`**
+	- `SECONDS` 
+	- `MINUTES`
+	- `HOURS`
+	- `DAYS`
+	- `MONTHS`
+	- `YEARS`
+4. AssetCondtition **`Enum`**
 	- `BAIK` 
 	- `RUSAK`
 	- `BUTUH_PERBAIKAN`
-2. Response **`Enum`**
-	- `SUCCESS`
-	- `NOT_FOUND`
-	- `INTERNAL_SERVER_ERROR`
+5. Response
 
 ## Endpoint Service
 
